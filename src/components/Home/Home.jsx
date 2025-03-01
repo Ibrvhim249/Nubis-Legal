@@ -3,7 +3,10 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&order=desc&orderby=date';
 
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
@@ -38,6 +41,20 @@ import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
 import './Home.css';
 
 function Home() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Add this useEffect hook
+  useEffect(() => {
+    axios.get(WORDPRESS_API_URL)
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+      })
+      .finally(() => setLoading(false));
+  }, []);
   const fadeUpRef = useAnimation('fadeUp');
   const testimonials = [
     {
@@ -357,103 +374,51 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 {/* -- Blog Section -- */}
+{/* -- Blog Section -- */}
 <section className="blog-section" id="blog">
-    
-    {/* Blog Header */}
-    <div className="blog-header ">
-      
-      <h2 className="blog-title">
-        OUR <span className="uppercase">BLOG</span>
-      </h2>
-    </div>
+  {/* Blog Header */}
+  <div className="blog-header">
+    <h2 className="blog-title">
+      OUR <span className="uppercase">BLOG</span>
+    </h2>
+  </div>
 
-    {/* Blog Cards Grid */}
-{/* Blog Cards Grid */}
-<div className="blog-grid">
-  {[
-    {
-      title: "Tech Trends 2024",
-      excerpt: "Discover the latest innovations shaping the digital landscape...",
-      image: '../img/jera.jpeg',  // Ensure this is set for each post
-      date: "Jan 15, 2024",
-    },
-    {
-      title: "Cybersecurity Essentials",
-      excerpt: "Learn how to protect your business from emerging threats...",
-      image: '../img/jera.jpeg',
-      date: "Feb 1, 2024",
-    },
-    {
-      title: "Cybersecurity Essentials",
-      excerpt: "Learn how to protect your business from emerging threats...",
-      image: '../img/jera.jpeg',
-      date: "Feb 1, 2024",
-    },
-    {
-      title: "Cybersecurity Essentials",
-      excerpt: "Learn how to protect your business from emerging threats...",
-      image: '../img/jera.jpeg',
-      date: "Feb 1, 2024",
-    },
-    {
-      title: "AI Revolution",
-      excerpt: "How artificial intelligence is transforming industries...",
-      image: '../img/jera.jpeg',
-      date: "Mar 10, 2024",
-    },
-    {
-      title: "Cloud Computing",
-      excerpt: "The future of scalable and efficient business solutions...",
-      image: '../img/jera.jpeg',
-      date: "Apr 5, 2024",
-    },
-    {
-      title: "Blockchain Basics",
-      excerpt: "Understanding the technology behind cryptocurrencies...",
-      image: '../img/jera.jpeg',
-      date: "May 20, 2024",
-    },
-    {
-      title: "UI/UX Design Trends",
-      excerpt: "Explore the latest in user interface and experience design...",
-      image: '../img/jera.jpeg',
-      date: "Jun 12, 2024",
-    },
-    {
-      title: "Data Analytics",
-      excerpt: "Harnessing the power of data for business insights...",
-      image: '../img/jera.jpeg',
-      date: "Jul 8, 2024",
-    },
-    {
-      title: "Remote Work Tools",
-      excerpt: "Essential tools for productive remote work environments...",
-      image: '../img/jera.jpeg',
-      date: "Aug 22, 2024",
-    },
-  ].map((post, index) => (
-    <div
-      key={index}
-      className="blog-item bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300"
-    >
-      <div className="blog-image rounded-lg overflow-hidden mb-4">
-        <img
-          src={aboutImage2}  // The image source is already consistent
-          alt={post.title}
-          className="w-full h-40 object-cover"
-        />
-      </div>
-      <span className="text-sm text-gray-500">{post.date}</span>
-      <h3 className="text-xl font-bold mt-2 mb-4">{post.title}</h3>
-      <p className="text-base text-gray-700 leading-relaxed mb-4">
-        {post.excerpt}
-      </p>
-     
+  {loading ? (
+    <p className="text-center py-8">Loading posts...</p>
+  ) : posts.length > 0 ? (
+    <div className="blog-grid">
+      {posts.map((post) => (
+        <div key={post.id} className="blog-item bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300">
+          <div className="blog-image rounded-lg overflow-hidden mb-4">
+            <img
+              src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'}
+              alt={post.title.rendered}
+              className="w-full h-40 object-cover"
+            />
+          </div>
+          <span className="text-sm text-gray-500">
+            {new Date(post.date).toLocaleDateString()}
+          </span>
+          <h3 className="text-xl font-bold mt-2 mb-4">{post.title.rendered}</h3>
+          <div 
+            className="text-base text-gray-700 leading-relaxed mb-4" 
+            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
+          />
+          <a 
+            href={post.link} 
+            className="read-more flex items-center gap-1 text-primary hover:text-primary-dark"
+          >
+            Read more
+            <span className="read-more-icon">
+              <LuArrowUpRight />
+            </span>
+          </a>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-
-  
+  ) : (
+    <p className="text-center py-8">No posts available.</p>
+  )}
 </section>
 
 
