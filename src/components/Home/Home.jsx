@@ -12,14 +12,12 @@ const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&ord
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
 import { IoMdQuote } from "react-icons/io";
-import { FaRegMap } from "react-icons/fa";
-import { useAnimation } from '../animations/useIntersectionObserver';
 
 
 
 
 // Assets
-import backgroundImage from '../img/loading.png';
+import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
 import ceo from "../img/assets/Home/ceo home page .svg"
 import aboutImage2 from '../img/jera.jpeg';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
@@ -34,6 +32,12 @@ import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg'
 import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg'
 import svg11 from '../img/assets/Home/Tax and Financial Legal Services mac.svg'
 import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
+
+//features icons
+import icon1 from '../img/assets/final media/our features icon SVG/Experienced Legal Professionals .svg';
+import icon2 from '../img/assets/final media/our features icon SVG/Client-Focused Approach.svg';
+import icon3 from '../img/assets/final media/our features icon SVG/Modern Legal Solutions.svg';
+import icon4 from '../img/assets/final media/our features icon SVG/Transparent Pricing .svg';
 
 
 
@@ -55,7 +59,7 @@ function Home() {
       })
       .finally(() => setLoading(false));
   }, []);
-  const fadeUpRef = useAnimation('fadeUp');
+ 
   const testimonials = [
     {
       name: "Maria Smantha",
@@ -114,11 +118,7 @@ function Home() {
 
 
      {/* -- About Us Section -- */}
-     <section className="about-us" id="about"
-     ref={fadeUpRef}
-     data-animation="fadeUp"
-     
-     >
+     <section className="about-us" id="about">
         <div className="about-us-container">
           <div className="about-us-content">
             {/* Left Image Blocks */}
@@ -159,29 +159,34 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
         <div className="features-layout">
           {[
             { 
-              icon: <FaRegMap />,
+              icon: icon1,
               title: "Experienced Legal Professionals ",
               text: "Decades of combined expertise.",
             },
             {
-              icon: <FaRegMap />,
+              icon: icon2,
               title: "Client-Focused Approach",
               text: "Tailored solutions for your unique needs.",
             },
             {
-              icon: <FaRegMap />,
+              icon:  icon3,
               title: "Modern Legal Solutions",
               text: "Leveraging technology for efficiency",
             },
             { 
-              icon: <FaRegMap />,
+              icon: icon4,
               title: "Transparent Pricing",
               text: "Clear, upfront costs with no hidden fees",
             },
           ].map((feature, index) => (
             <div className="feature-card" key={index}>
               <div className="feature-icon">
-              {feature.icon}
+              <img 
+                      src={feature.icon} 
+                      alt={feature.title}
+                      className="w-full h-full p-2 object-contain"
+                      style={{ color: "white" }} // Pass color to SVG
+                    />
               </div>
               <h3>{feature.title}</h3>
               <p>{feature.text}</p>

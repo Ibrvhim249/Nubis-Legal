@@ -1,7 +1,8 @@
 import "./ServicesPages.css"
 // Assets
 import backgroundImage from '../../img/loading.png';
-import aboutImage2 from "../../img/jera.jpeg";
+import L1 from "../../img/assets/final media/services IMAGE/L  1.png";
+import s1 from "../../img/assets/final media/services IMAGE/s 1.png";
 
 
 
@@ -52,7 +53,7 @@ function ContractDraftingandReview() {
             </div>
           </div>
           <div className="service-description-blocks">
-            <img src={aboutImage2} alt="About Us 2" />
+            <img src={L1} alt="About Us 2" />
           </div>
         </div>
       </section>
@@ -62,7 +63,7 @@ function ContractDraftingandReview() {
     <div className="service-data-content">
       {/* Left Image Block */}
       <div className="service-data-blocks">
-        <img src={aboutImage2} alt="About Us 2" />
+        <img src={s1} alt="About Us 2" />
       </div>
 
       {/* Right Text Section */}

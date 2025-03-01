@@ -6,7 +6,7 @@ import './Header.css';
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
   {
-    name: 'Services',
+    name: 'services',
     path: '/services',
     subLinks: [
       { name: 'Web Development', path: '/services/web-development' },
