@@ -38,7 +38,7 @@ const SERVICES_DATA = [
   {
                   id: 3,
                   title: "Company Formation and Registration",
-                  path: "./ServicesPages/ContractDraftingandReview.jsx",
+                  path: "./ServicesPages/CompanyFormationandRegistration.jsx",
                   description: "Start Your Business the Right Way",
                   text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
                   icon: svg3

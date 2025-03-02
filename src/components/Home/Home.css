@@ -1525,8 +1525,8 @@ body {
   border-radius: 20px;
   padding: 10px; /* Adjust padding */
   flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
-  min-width: 380px; /* Sets consistent width for the cards */
-  min-height: 500px;
+  width: 380px; /* Sets consistent width for the cards */
+  height: auto;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   scroll-snap-align: start; /* Aligns the card to the start when scrolling */

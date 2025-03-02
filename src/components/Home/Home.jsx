@@ -378,8 +378,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       {/* -- Bolg Section -- */}
 
 
-{/* -- Blog Section -- */}
-{/* -- Blog Section -- */}
+
 <section className="blog-section" id="blog">
   {/* Blog Header */}
   <div className="blog-header">

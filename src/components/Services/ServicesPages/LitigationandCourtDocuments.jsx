@@ -1,7 +1,8 @@
 import "./ServicesPages.css"
 // Assets
 import backgroundImage from '../../img/loading.png';
-import aboutImage2 from "../../img/jera.jpeg";
+import L7 from "../../img/assets/final media/services IMAGE/L  7.png";
+import s7 from "../../img/assets/final media/services IMAGE/s 7.png";
 
 
 function LitigationandCourtDocuments() {
@@ -51,7 +52,7 @@ function LitigationandCourtDocuments() {
             </div>
           </div>
           <div className="service-description-blocks">
-            <img src={aboutImage2} alt="About Us 2" />
+            <img src={L7} alt="About Us 2" />
           </div>
         </div>
       </section>
@@ -61,7 +62,7 @@ function LitigationandCourtDocuments() {
     <div className="service-data-content">
       {/* Left Image Block */}
       <div className="service-data-blocks">
-        <img src={aboutImage2} alt="About Us 2" />
+        <img src={s7} alt="About Us 2" />
       </div>
 
       {/* Right Text Section */}
