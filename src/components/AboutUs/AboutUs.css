@@ -379,7 +379,7 @@
   display: flex;
       justify-content: center;
       align-items: center;
-      padding: 60px 91px 241px 91px;
+      padding: 160px 91px 241px 91px;
       background-color: #ffffff;
  }
   
@@ -442,8 +442,8 @@
 }
 
 .about-us-ceo-blocks img{
-  width: 500px;
-  height: 590px;
+  width: 445px;
+  height: 490px;
 }
 .about-us-ceo-title {
   font-family: 'Roboto Slab';
@@ -516,15 +516,103 @@
 .about-us-ceo-blocks {
 
     gap: 1.5rem;
-    width: 450px;
-    height: 440px;
+    width: 315px;
+    height: 350px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .about-us-ceo-blocks img{
-  width: 50px;
-  height: 50px;
+  width: 300px;
+  height: 327px;
+}
+.about-us-ceo-title {
+  font-family: 'Roboto Slab';
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-left: 6px solid #B39957;
+  padding-left: 1rem;
+}
+}
+
+
+
+@media (max-width: 480px) {
+  
+  .about-us-ceo {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 91px 241px 91px;
+        background-color: #ffffff;
+   }
+  
+  .about-us-ceo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    max-width: 400px;
+    max-height: 700px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+        
+  }
+  
+  .about-us-ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .about-us-ceo-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+    max-width: 200px;
+  }
+  
+  .about-us-ceo-text p{
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+  }
+
+
+
+.about-us-ceo-blocks {
+
+    gap: 1.5rem;
+    width: 315px;
+    height: 350px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.about-us-ceo-blocks img{
+  width: 280px;
+  height: 300px;
 }
 .about-us-ceo-title {
   font-family: 'Roboto Slab';
@@ -602,20 +690,20 @@
   }
 
   .counter-number {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #2d3748;
     margin-bottom: 0.5rem;
   }
   
   .counter-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #4a5568;
     margin-bottom: 1rem;
   }
   
   .counter-description {
-    font-size: 1rem;
+    font-size: 0.5rem;
     color: #718096;
     line-height: 1.6;
     max-width: 300px;
@@ -641,20 +729,20 @@
   }
 
   .counter-number {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #2d3748;
     margin-bottom: 0.5rem;
   }
   
   .counter-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #4a5568;
     margin-bottom: 1rem;
   }
   
   .counter-description {
-    font-size: 1rem;
+    font-size: 0.7rem;
     color: #718096;
     line-height: 1.6;
     max-width: 300px;
@@ -916,7 +1004,7 @@
     }
     
     .c-goal-text p {
-      font-size: 20px;
+      font-size: 22px;
       color: #666;
       line-height: 1.6;
       margin-bottom: 2rem;
@@ -992,7 +1080,7 @@
       }
     
       .c-goal-text p {
-        font-size: 16px;
+        font-size: 10px;
       }
     }
 

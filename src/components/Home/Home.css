@@ -95,7 +95,7 @@ body {
 
 .highlight {
   display: inline;
-  color: black;
+  color: rgb(161, 154, 154) !important;
   text-shadow: none;
   font-size: clamp(1.8rem, 4.5vw, 2.8rem);
   font-weight: bold;
@@ -219,7 +219,7 @@ body {
   }
   
   .about-us-blocks img {
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 12px;
     aspect-ratio: 5/6;
@@ -229,6 +229,7 @@ body {
   .about-us-text {
     flex: 1 1 500px;
     padding: 1rem;
+    padding-left: 100px;
   }
   
   .about-us-title {
@@ -278,10 +279,10 @@ body {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
     }
     .about-us img{
-      width: 100%;
+      width: 438px;
       height: 460px;
       border-radius: 12px;
       aspect-ratio: 5 / 6;
@@ -326,7 +327,7 @@ body {
         justify-content: center;
     }
     .about-us img{
-      width: 211px;
+      width: 273px;
       height: 289px;
       border-radius: 12px;
       aspect-ratio: 5 / 6;
@@ -343,7 +344,7 @@ body {
       max-width: 300px;
     }
     .about-us-text{
-      max-width: 300px;
+      max-width: 356px;
     }
   
     .about-us-text p {
@@ -351,7 +352,7 @@ body {
     }
   
     .about-us-btn {
-      width: 100px;
+      width: 121px;
       max-width: 300px;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
@@ -498,8 +499,8 @@ body {
   
   
   .features-layout {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     justify-content: center; /* Center cards on smaller screens */
     max-width: 668px;
@@ -536,7 +537,10 @@ body {
     margin-bottom: 1.5rem;
     font-size: 2.3rem;
   }
-  
+  .feature-icon img{
+    width: 35px;
+    height: 27px;
+  }
   .feature-card h3 {
     font-size: 15px;
     margin-bottom: 1rem;
@@ -997,6 +1001,24 @@ body {
     line-height: 1.6;
   }
   
+  .services-section-link {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    color: white;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .services-section-link svg{
+    width: 30px;
+    height: 30px;
+  }
+
+  .services-section-link:hover {
+    transform: translate(3px, -3px);
+  }
+ 
   .service-item div:last-child {
     position: absolute;
     bottom: -2.5px;
@@ -1105,6 +1127,11 @@ body {
       color: white;
       line-height: 1.6;
     }
+
+    .services-section-link svg{
+      width: 25px;
+      height: 25px;
+    }
     
     .service-item div:last-child {
       position: absolute;
@@ -1211,6 +1238,11 @@ body {
       line-height: 1.6;
     }
     
+    .services-section-link svg{
+      width: 20px;
+      height: 20px;
+    }
+
     .service-item div:last-child {
       position: absolute;
       bottom: -2.5px;
@@ -1486,92 +1518,84 @@ body {
 
 
 /* Blog Section Styles */
+/* Blog Section Styles */
 .blog-section {
   padding: 136px 91px 0px 91px;
   background: linear-gradient(45deg, #f8fafc, #f1f5f9);
 }
 
-.blog-header {
+.blog-section-header {
   font-family: 'Roboto Slab';
   font-size: 40px;
   font-weight: bold;
-  
   border-left: 6px solid #B39957;
 }
 
-.blog-header h2 {
+.blog-section-title {
   padding-left: 10px;
   font-size: 40px;
 }
 
-.blog-grid {
+.blog-section-grid {
   display: flex;
-  gap: 24px; /* Spacing between cards */
-  overflow-x: auto; /* Enables horizontal scrolling */
-  padding-bottom: 1rem;
- 
-  padding-top: 30px;
-  padding-bottom: 50px;
-  /* Hide scrollbar styles */
-  scrollbar-width: none; /* For Firefox */
+  gap: 24px;
+  overflow-x: auto;
+  padding: 30px 0 50px;
+  scrollbar-width: none;
 }
 
-.blog-grid::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Edge */
+.blog-section-grid::-webkit-scrollbar {
+  display: none;
 }
 
-.blog-item {
+.blog-section-item {
   background: #e5e7eb;
   border-radius: 20px;
-  padding: 10px; /* Adjust padding */
-  flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
-  width: 380px; /* Sets consistent width for the cards */
-  height: auto;
-  text-align: left;
+  padding: 10px;
+  flex: 0 0 auto;
+  width: 380px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  scroll-snap-align: start; /* Aligns the card to the start when scrolling */
-  position: relative; /* For positioning elements like the circle */
+  scroll-snap-align: start;
+  position: relative;
 }
 
-.blog-item:hover {
+.blog-section-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.blog-image img {
+.blog-section-image img {
   width: 350px;
   height: 350px;
-  border-radius: 16px; /* Rounded corners for the image */
+  border-radius: 16px;
   object-fit: cover;
 }
 
-.blog-item h3 {
+.blog-section-item h3 {
   font-size: 23px;
   font-weight: bold;
   color: #111;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 
-.blog-item p {
+.blog-section-item p {
   font-size: 15px;
   color: #444;
   line-height: 1.6;
 }
 
-.blog-item a {
+.blog-section-item a {
   font-size: 0.875rem;
   font-weight: 600;
   color: #2563eb;
   transition: color 0.3s ease;
 }
 
-.blog-item a:hover {
+.blog-section-item a:hover {
   color: #1d4ed8;
 }
 
-/* Add the decorative circle in the bottom-right corner */
-.blog-item::after {
+.blog-section-item::after {
   content: '';
   width: 24px;
   height: 24px;
@@ -1583,172 +1607,68 @@ body {
 }
 
 /* Responsive Adjustments */
-
 @media (max-width: 768px) {
   .blog-section {
-    padding: 136px 50px 0px 50px;
-    background: linear-gradient(45deg, #f8fafc, #f1f5f9);
+    padding: 136px 50px 0;
   }
   
-  .blog-header {
-    font-family: 'Roboto Slab';
-    font-size: 30px;
-    font-weight: bold;
-    
-    border-left: 6px solid #B39957;
-  }
-  
-  .blog-header h2 {
-    padding-left: 10px;
+  .blog-section-header {
     font-size: 30px;
   }
   
-  .blog-grid {
-    display: flex;
-    gap: 24px; /* Spacing between cards */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    padding-bottom: 1rem;
-   
-    padding-top: 30px;
-    padding-bottom: 50px;
-    /* Hide scrollbar styles */
-    scrollbar-width: none; /* For Firefox */
+  .blog-section-title {
+    font-size: 30px;
   }
   
-  .blog-grid::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Edge */
-  }
-  
-  .blog-item {
-    background: #e5e7eb;
-    border-radius: 20px;
-    padding: 10px; /* Adjust padding */
-    flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
-    min-width: 280px; /* Sets consistent width for the cards */
+  .blog-section-item {
+    min-width: 280px;
     min-height: 400px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-snap-align: start; /* Aligns the card to the start when scrolling */
-    position: relative; /* For positioning elements like the circle */
   }
   
-  .blog-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .blog-image img {
-    width: 300px;
+  .blog-section-image img {
+    width: 360px;
     height: 300px;
-    border-radius: 16px; /* Rounded corners for the image */
-    object-fit: cover;
   }
   
-  .blog-item h3 {
+  .blog-section-item h3 {
     font-size: 15px;
-    font-weight: bold;
-    color: #111;
-    margin-top: 8px;
-    margin-bottom: 8px;
   }
   
-  .blog-item p {
+  .blog-section-item p {
     font-size: 13px;
-    color: #444;
-    line-height: 1.6;
   }
-  
-  .blog-item a {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #2563eb;
-    transition: color 0.3s ease;
-  }
-  
 }
 
 @media (max-width: 480px) {
   .blog-section {
-    padding: 136px 30px 0px 30px;
-    background: linear-gradient(45deg, #f8fafc, #f1f5f9);
+    padding: 136px 30px 0;
   }
   
-  .blog-header {
-    font-family: 'Roboto Slab';
-    font-size: 20px;
-    font-weight: bold;
-    
-    border-left: 6px solid #B39957;
-  }
-  
-  .blog-header h2 {
-    padding-left: 10px;
+  .blog-section-header {
     font-size: 20px;
   }
   
-  .blog-grid {
-    display: flex;
-    gap: 24px; /* Spacing between cards */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    padding-bottom: 1rem;
-   
-    padding-top: 30px;
-    padding-bottom: 50px;
-    /* Hide scrollbar styles */
-    scrollbar-width: none; /* For Firefox */
+  .blog-section-title {
+    font-size: 20px;
   }
   
-  .blog-grid::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Edge */
+  .blog-section-item {
+    min-width: 180px;
   }
   
-  .blog-item {
-    background: #e5e7eb;
-    border-radius: 20px;
-    padding: 10px; /* Adjust padding */
-    flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
-    min-width: 180px; /* Sets consistent width for the cards */
-    min-height: 400px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-snap-align: start; /* Aligns the card to the start when scrolling */
-    position: relative; /* For positioning elements like the circle */
-  }
-  
-  .blog-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .blog-image img {
-    max-width: 250px;
+  .blog-section-image img {
+    width: 360px;
     max-height: 250px;
-    border-radius: 16px; /* Rounded corners for the image */
-    object-fit: cover;
   }
   
-  .blog-item h3 {
+  .blog-section-item h3 {
     font-size: 13px;
-    font-weight: bold;
-    color: #111;
-    margin-top: 8px;
-    margin-bottom: 8px;
   }
   
-  .blog-item p {
+  .blog-section-item p {
     font-size: 10px;
-    color: #444;
-    line-height: 1.6;
-  }
-  
-  .blog-item a {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #2563eb;
-    transition: color 0.3s ease;
   }
 }
-
 /* Scroll Container */
 .scroll-container {
   display: flex; /* Arrange items in a row */

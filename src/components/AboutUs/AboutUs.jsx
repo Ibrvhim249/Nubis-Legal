@@ -1,6 +1,7 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
-import aboutImage2 from '../img/jera.jpeg';
+import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
+import aboutUs from '../img/assets/AboutUS/about us section in about us page.png';
 import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
 import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
 import visionImage from '../img/assets/AboutUs/our vission macbook screen.png'; // Import vision image
@@ -60,11 +61,22 @@ function AboutUS() {
   const renderGoalContent = () => {
     switch (activeTab) {
       case "mission":
-        return <p>Our mission is to provide innovative solutions...</p>;
+        return <p>We strive to provide cutting-edge,
+           client-centered legal services that simplify complex legal challenges. 
+           Our mission is to build long-term partnerships based on trust,
+            clarity, and impactful results.</p>;
       case "vision":
-        return <p>Our vision is to be a global leader...</p>;
+        return <p>To be recognized as a leading modern legal consultancy that 
+          transforms the way legal services are delivered—efficient,
+           transparent, and tailored to each client’s needs.</p>;
       case "values":
-        return <p>Our core values include integrity...</p>;
+        return <p>
+        o	Integrity: We uphold the highest ethical standards in everything we do. <br />
+        o	Innovation: We embrace modern solutions to deliver efficient, effective results. <br />
+        o	Client Focus: Your needs are at the heart of our work. <br />
+        o	Excellence: We strive for the highest quality in every case. <br />
+        o	Collaboration: We work with you as a partner, not just a service provider.
+        </p>;
       default:
         return null;
     }
@@ -146,7 +158,7 @@ function AboutUS() {
           <div className="about-us-page-content">
             {/* Left Image Blocks */}
             <div className="about-us-page-blocks">
-              <img src={aboutImage2} alt="About Us 2" />
+              <img src={aboutUs} alt="About Us 2" />
             </div>
 
             {/* Right Text Section */}
@@ -162,10 +174,10 @@ function AboutUS() {
       </section>
 
       {/* -- CEO Section -- */}
-      <section className="ceo" id="about">
-        <div className="ceo-container">
-          <div className="ceo-content">
-            <div className="ceo-text">
+      <section className="about-us-ceo" id="about">
+        <div className="about-us-ceo-container">
+          <div className="about-us-ceo-content">
+            <div className="about-us-ceo-text">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -176,7 +188,7 @@ function AboutUS() {
                 eget feugiat magna rhoncus.</p>
             </div>
           </div>
-          <div className="ceo-blocks">
+          <div className="about-us-ceo-blocks">
             <img src={aboutImage2} alt="About Us 2" />
           </div>
         </div>

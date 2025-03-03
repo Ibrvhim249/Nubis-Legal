@@ -6,22 +6,22 @@ import './Header.css';
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
   {
-    name: 'services',
+    name: 'Services',
     path: '/services',
-    // subLinks: [
-    //   { name: 'Web Development', path: '/services/web-development' },
-    //   { name: 'Mobile Development', path: '/services/mobile-development' },
-    //   { name: 'UI/UX Design', path: '/services/ui-ux-design' },
-    //   { name: 'SEO Optimization', path: '/services/seo-optimization' },
-    //   { name: 'E-commerce Solutions', path: '/services/ecommerce-solutions' },
-    //   { name: 'Cloud Services', path: '/services/cloud-services' },
-    //   { name: 'Data Analytics', path: '/services/data-analytics' },
-    //   { name: 'AI & Machine Learning', path: '/services/ai-ml' },
-    //   { name: 'Cybersecurity', path: '/services/cybersecurity' },
-    //   { name: 'Blockchain Development', path: '/services/blockchain' },
-    //   { name: 'Digital Marketing', path: '/services/digital-marketing' },
-    //   { name: 'IT Consulting', path: '/services/it-consulting' },
-    // ],
+    subLinks: [
+      { name: 'Contract Drafting and Review', path: '/services/contract-drafting' },
+      { name: 'Legal Consultation', path: '/services/legal-consultation' },
+      { name: 'Company Formation and Registration', path: '/services/companyformation' },
+      { name: 'Trademark and Intellectual Property Registration', path: '/services/trademark-registration' },
+      { name: 'Legal Document Preparation', path: '/services/document-preparation' },
+      { name: 'Debt Collection', path: '/services/debt-collection' },
+      { name: 'Litigation and Court Documents', path: '/services/litigation' },
+      { name: 'Dispute Resolution', path: '/services/dispute-resolution' },
+      { name: 'Contract Review and Analysis', path: '/services/contract-review' },
+      { name: 'Real Estate Legal Support', path: '/services/real-estate' },
+      { name: 'Tax and Financial Legal Services', path: '/services/tax-services' },
+      { name: 'Regulatory and Legal Compliance', path: '/services/compliance' },
+    ],
   },
   { name: 'About', path: '/about-us' },
   { name: 'Blog', path: '/blog' },
@@ -33,7 +33,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
-  // Scroll effect
+  // Scroll effect to add shadow and adjust header background
   useEffect(() => {
     const heroSection = document.querySelector('.hero');
     if (!heroSection) return;
@@ -47,7 +47,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Resize handler
+  // Resize handler to close mobile menu when switching to desktop view
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768 && isMobileMenuOpen) {
@@ -60,7 +60,7 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobileMenuOpen]);
 
-  // Click outside handler
+  // Click outside handler to close mobile menu and submenus
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -87,7 +87,7 @@ export default function Header() {
   };
 
   const handleSubmenuToggle = (path) => {
-    setOpenSubmenu(prev => prev === path ? null : path);
+    setOpenSubmenu(prev => (prev === path ? null : path));
   };
 
   return (
@@ -98,16 +98,14 @@ export default function Header() {
         </NavLink>
 
         <button
-          className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={toggleMobileMenu}
-          aria-label={`${isMobileMenuOpen ? 'Close' : 'Open'} menu`}
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="nav-menu"
-        >
-          <span className="hamburger-icon" />
-          <span className="hamburger-icon" />
-          <span className="hamburger-icon" />
-        </button>
+  className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}
+  onClick={toggleMobileMenu}
+  aria-label={`${isMobileMenuOpen ? 'Close' : 'Open'} menu`}
+  aria-expanded={isMobileMenuOpen}
+  aria-controls="nav-menu"
+>
+  <span className="hamburger-icon" />
+</button>
 
         <div 
           id="nav-menu"

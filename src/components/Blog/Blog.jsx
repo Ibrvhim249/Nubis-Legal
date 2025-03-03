@@ -95,8 +95,9 @@ function Blog() {
           <a href={post.link} className="link-icon">
           <LuSend />
               </a>
+              
         </article>
-        <div className="divider"></div>
+        <div className="bottom-divider"></div>
         
       </>
     ))

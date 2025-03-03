@@ -1,5 +1,5 @@
 // External Libraries
-
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -19,7 +19,7 @@ import { IoMdQuote } from "react-icons/io";
 // Assets
 import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
 import ceo from "../img/assets/Home/ceo home page .svg"
-import aboutImage2 from '../img/jera.jpeg';
+import aboutUsImg from '../img/assets/Home/about us section in home page .png';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
 import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
 import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
@@ -125,7 +125,7 @@ function Home() {
             <div className="about-us-blocks">
 
               
-                <img src={aboutImage2} alt="About Us 2" />
+                <img src={aboutUsImg} alt="About Us 2" />
               
 
             </div>
@@ -137,7 +137,7 @@ function Home() {
 <br />
 When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
 </p>
-                <button className="about-us-btn">Learn more</button>
+<Link to="/about-us" className="about-us-btn">Learn more</Link>
             </div>
             
           </div>
@@ -228,9 +228,9 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       
       <ImageComponent
   headings={[
-    "Experience the future",
-    "Blend virtual objects with your physical space",
-    "Transform your reality"
+    "Your Legal Ally, Every Step of the Way",
+    "Modern Legal Solutions for a Complex World",
+    "Simplifying Legal Challenges, Delivering Results"
   ]}
   imageUrl={backgroundImage}
 />
@@ -258,72 +258,84 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                 title: "Contract Drafting and Review",
                 description: "Clear, Strong, and Legally Sound Contracts for Your Business, Maximize business value from contracts.",
                 text:" with experts in strategy, implementation, and operational support.",
+                path: "/services/contract-drafting",
                 icon: svg1
               },
               {
                 title: "Legal Consultation",
                 description: "Expert Legal Advice, Personalized for You",
                 text:' and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/legal-consultation",
                 icon: svg2
               },
               {
                 title: "Company Formation and Registration",
                 description: "Start Your Business the Right Way",
                 text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
+                path: "/services/companyformation",
                 icon: svg3
               },
               {
                 title: "Trademark and Intellectual Property Registration",
                 description: "Protect Your Brand and Innovations",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/trademark-registration",
                 icon: svg4
               },
               {
                 title: "Legal Document Preparation",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/document-preparation",
                 icon: svg5
               },
               {
                 title: "Debt Collection",
                 description: "Transform your business with data-driven decisions",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/debt-collection",
                 icon: svg6
               },
               {
                 title: "Litigation and Court Documents",
                 description: "Full-stack technical support and maintenance",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/litigation",
                 icon: svg7
               },
               {
                 title: "Dispute Resolution",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/dispute-resolution",
                 icon: svg8
               },
               {
                 title: "Contract Review and Analysis",
                 description: "Transform your business with data-driven decisions",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/contract-review",
                 icon: svg9
               },
               {
                 title: "Real Estate Legal Support",
                 description: "Full-stack technical support and maintenance",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/real-estate",
                 icon: svg10
               },
               {
                 title: "Tax and Financial Legal Services",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/tax-services",
                 icon: svg11
               },
               {
                 title: "Regulatory and Legal Compliance",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                path: "/services/compliance",
                 icon: svg12
               },
             ].map((service, index) => (
@@ -334,15 +346,18 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                       src={service.icon} 
                       alt={service.title}
                       className="w-full h-full p-2 object-contain"
-                      style={{ color: "white" }} // Pass color to SVG
+                      style={{ color: "white" }}
                     />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
                   <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
-                  <div className="absolute bottom-4 right-4 text-gray-700 text-2xl">
-                  <LuArrowUpRight />
-                  </div>
+                  <Link className='services-section-link'
+                    to={service.path} 
+                    aria-label={`Learn more about ${service.title}`}
+                  >
+                    <LuArrowUpRight />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -361,8 +376,8 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
   >
     <div className="overlay"></div>
     <div className="text-container">
-      <h1>LOREM IPSUIM</h1>
-      <h2>LOREM IPSUIMMMM.</h2>
+      <h1>Nubis Legal</h1>
+      <h2>Where Expertise Meets Innovation</h2>
     </div>
     <div className="circle"></div>
   </div>
@@ -375,14 +390,10 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
-      {/* -- Bolg Section -- */}
-
-
-
 <section className="blog-section" id="blog">
   {/* Blog Header */}
-  <div className="blog-header">
-    <h2 className="blog-title">
+  <div className="blog-section-header">
+    <h2 className="blog-section-title">
       OUR <span className="uppercase">BLOG</span>
     </h2>
   </div>
@@ -390,10 +401,10 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
   {loading ? (
     <p className="text-center py-8">Loading posts...</p>
   ) : posts.length > 0 ? (
-    <div className="blog-grid">
+    <div className="blog-section-grid">
       {posts.map((post) => (
-        <div key={post.id} className="blog-item bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300">
-          <div className="blog-image rounded-lg overflow-hidden mb-4">
+        <div key={post.id} className="blog-section-item bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300">
+          <div className="blog-section-image rounded-lg overflow-hidden mb-4">
             <img
               src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'}
               alt={post.title.rendered}
