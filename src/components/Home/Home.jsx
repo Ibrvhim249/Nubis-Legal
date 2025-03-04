@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import FeatureCard from '../Animations/FeatureCard.jsx';
 
 const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&order=desc&orderby=date';
 
@@ -148,21 +149,21 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
       {/* -- Features Section -- */}
-      <section className="features">
-        <div className='features-container'>
-        <div className="feature-header">
-          <h2>
-            
-            <span className="features-title">OUR FEATURES</span>
-          </h2>
-        </div>
-        <div className="features-layout">
-          {[
-            { 
-              icon: icon1,
-              title: "Experienced Legal Professionals ",
-              text: "Decades of combined expertise.",
-            },
+   {/* -- Features Section -- */}
+<section className="features">
+  <div className='features-container'>
+    <div className="feature-header">
+      <h2>
+        <span className="features-title">OUR FEATURES</span>
+      </h2>
+    </div>
+    <div className="features-layout">
+      {[
+        { 
+          icon: icon1,
+          title: "Experienced Legal Professionals",
+          text: "Decades of combined expertise."
+        },
             {
               icon: icon2,
               title: "Client-Focused Approach",
@@ -179,22 +180,16 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
               text: "Clear, upfront costs with no hidden fees",
             },
           ].map((feature, index) => (
-            <div className="feature-card" key={index}>
-              <div className="feature-icon">
-              <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-full h-full p-2 object-contain"
-                      style={{ color: "white" }} // Pass color to SVG
-                    />
-              </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.text}</p>
-            </div>
+            <FeatureCard
+              key={index}
+              icon={feature.icon}
+              title={feature.title}
+              text={feature.text}
+            />
           ))}
         </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
 
 

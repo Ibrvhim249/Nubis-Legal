@@ -1,10 +1,6 @@
 /* ======================
  Hero Section
  ====================== */
-/* Hero Section */
-/* ======================
- Hero Section
- ====================== */
  .hero {
   position: relative;
   height: 100vh;
@@ -54,26 +50,26 @@
 }
 
 .hero-title {
-  padding-left: 80px;
+  padding-left: 10px;
   padding-top: 13rem;
   font-size: clamp(2rem, 5vw, 3.125rem);
   line-height: 1.2;
   margin-bottom: 0;
-  max-width: 62.5rem;
+  max-width: 70.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
   display: inline;
-  color: black;
+  color: rgb(161, 154, 154) !important;
   text-shadow: none;
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-size: 50px;
   font-weight: bold;
 }
 
 .hero-subtitle {
   padding: 2rem 0 4rem 80px;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: 23px;
   margin-bottom: 0;
   max-width: 37.5rem;
   opacity: 0.9;
@@ -107,9 +103,13 @@
     padding-left: 2rem;
     padding-top: 10rem;
   }
-
+  .highlight{
+    font-size: 40px;
+  }
+  
   .hero-subtitle {
     padding: 1.5rem 0 3rem 2rem;
+    font-size: 18px;
   }
 
   .hero-cta {
@@ -161,8 +161,6 @@
     );
   }
 }
-
-
 
   /* ======================
    Services Section
