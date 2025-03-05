@@ -108,9 +108,9 @@ function Home() {
     <p className="hero-subtitle">
     Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
     </p>
-    <div className="hero-cta">
+    {/* <div className="hero-cta">
       <button className="cta-button">Get Started</button>
-    </div>
+    </div> */}
   </div>
 </section>
 

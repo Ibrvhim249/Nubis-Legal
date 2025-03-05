@@ -282,8 +282,8 @@ body {
         justify-content: space-between;
     }
     .about-us img{
-      width: 438px;
-      height: 460px;
+      width: 358px;
+      height: 375px;
       border-radius: 12px;
       aspect-ratio: 5 / 6;
       object-fit: cover;
@@ -299,7 +299,7 @@ body {
       max-width: 300px;
     }
     .about-us-text{
-      max-width: 300px;
+      max-width: 345px;
     }
   
     .about-us-text p {
@@ -349,6 +349,7 @@ body {
   
     .about-us-text p {
       font-size:  15px;
+      
     }
   
     .about-us-btn {
@@ -473,6 +474,9 @@ body {
 .features-layout > *:nth-child(2) { transition-delay: 0.2s; }
 .features-layout > *:nth-child(3) { transition-delay: 0.3s; }
 .features-layout > *:nth-child(4) { transition-delay: 0.4s; }
+
+
+
 
 /* ======================
  Responsive Design
