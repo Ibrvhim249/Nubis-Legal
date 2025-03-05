@@ -295,6 +295,7 @@ function AboutUS() {
         <div className="team-members">
           <div className="team-intro">
             <h2>Meet Our Team</h2>
+            <br />
             <p>Our talented team members are dedicated to making an impact.</p>
           </div>
           <TeamMember

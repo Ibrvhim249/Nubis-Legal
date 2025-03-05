@@ -1224,3 +1224,70 @@
 }
 
 
+/* Existing CSS remains unchanged */
+
+@media screen and (max-width: 768px) {
+  .meet-our-team {
+    padding: 40px 5%;
+    flex-direction: column;
+  }
+
+  .team-intro,
+  .team-members {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .team-intro {
+    min-height: auto;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .team-members {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .team-member img {
+    width: 280px;
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .meet-our-team {
+    padding: 30px 5%;
+  }
+
+  .team-intro {
+    padding: 25px;
+    min-width: auto;
+  }
+
+  .team-member {
+    min-width: 220px;
+  }
+
+  .team-member img {
+    width: 220px;
+    height: 300px;
+  }
+
+  .member-info {
+    padding: 15px;
+  }
+
+  .member-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .member-info .role {
+    font-size: 0.85rem;
+  }
+
+  .member-info .description {
+    font-size: 0.75rem;
+  }
+}
