@@ -110,9 +110,9 @@
 .service-page-container {
   display: flex;
   overflow-x: auto;
-  /* scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; */
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   padding-bottom: 1rem;
 }
@@ -257,9 +257,9 @@
   .service-page-container {
     display: flex;
     overflow-x: auto;
-    /* scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; */
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     padding-bottom: 1rem;
   }
@@ -402,9 +402,9 @@
   .service-page-container {
     display: flex;
     overflow-x: auto;
-    /* scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; */
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     padding-bottom: 1rem;
   }
@@ -441,11 +441,11 @@
 }
 
 /* Hidden scrollbar */
-/* .service-page-container::-webkit-scrollbar {
+.service-page-container::-webkit-scrollbar {
   display: none;
-} */
+}
 
-/* .service-page-container {
+.service-page-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} */
+}
