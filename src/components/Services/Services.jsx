@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LuArrowUpRight } from "react-icons/lu";
 
 // Assets
-import backgroundImage from '../img/loading.png';
+import servicepageHero from '../img/assets/Service/Services nubi.jpg';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
 import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
 import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
@@ -150,27 +150,29 @@ function Services() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* -- Hero Section -- */}
       <section className="hero">
         <div className="hero-image-container">
           <img 
-            src={backgroundImage} 
+            src={servicepageHero} 
             alt="Decorative background" 
             className="hero-bg"
-            role="presentation"
+            role="presentation" // For screen readers (since it's decorative)
           />
           <div className="hero-overlay"></div>
         </div>
-        <div className="hero-content container">
+        <div className="hero-content">
           <h1 className="hero-title">
-            <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br />YOUR TRUSTED LEGAL PARTNER.</span>
+            <span>Innovative Legal Services<br />For Changning World</span>
+          
+            
           </h1>
           <p className="hero-subtitle">
-            Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
+          Leveraging Modern Legal Expertise and Innovative Approaches to Simplify Complex Challenges and Achieve Your Goals
           </p>
-          <div className="hero-cta">
+          {/* <div className="hero-cta">
             <button className="cta-button">Get Started</button>
-          </div>
+          </div> */}
         </div>
       </section>
 

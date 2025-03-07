@@ -1,8 +1,8 @@
 // External Libraries
 import { Link } from 'react-router-dom';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FeatureCard from '../Animations/FeatureCard.jsx';
@@ -18,6 +18,8 @@ import { IoMdQuote } from "react-icons/io";
 
 
 // Assets
+
+import homeHero from '../img/assets/Home/Home page nubis image .jpg';
 import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
 import ceo from "../img/assets/Home/ceo home page .svg"
 import aboutUsImg from '../img/assets/Home/about us section in home page .png';
@@ -92,21 +94,21 @@ function Home() {
 <section className="hero">
   <div className="hero-image-container">
     <img 
-      src={backgroundImage} 
+      src={homeHero} 
       alt="Decorative background" 
       className="hero-bg"
       role="presentation" // For screen readers (since it's decorative)
     />
     <div className="hero-overlay"></div>
   </div>
-  <div className="hero-content container">
+  <div className="hero-content">
     <h1 className="hero-title">
-      <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br /> YOUR TRUSTED LEGAL PARTNER.</span>
-      
+      <span>Modern Legal Solutions<br /> For a Complex World</span>
+    
       
     </h1>
     <p className="hero-subtitle">
-    Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
+    Leveraging Modern Legal Expertise and Innovative Approaches to Simplify Complex Challenges and Achieve Your Goals
     </p>
     {/* <div className="hero-cta">
       <button className="cta-button">Get Started</button>
@@ -119,7 +121,7 @@ function Home() {
 
 
      {/* -- About Us Section -- */}
-     <section className="about-us" id="about">
+     <section className="about-us">
         <div className="about-us-container">
           <div className="about-us-content">
             {/* Left Image Blocks */}
@@ -149,7 +151,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
       {/* -- Features Section -- */}
-   {/* -- Features Section -- */}
+
 <section className="features">
   <div className='features-container'>
     <div className="feature-header">

@@ -1,7 +1,6 @@
 .parallax-section {
   height: 1000vh;
   position: relative;
-  border-radius: 20px;
   padding: 0px 20px;
 }
 
@@ -19,7 +18,7 @@
   background-size: cover;
   background-position: center;
   transition: transform 0.8s ease-out;
-  border-radius: 20px
+
 }
 
 .overlay {

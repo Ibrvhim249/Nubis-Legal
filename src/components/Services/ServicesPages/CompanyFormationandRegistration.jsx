@@ -1,6 +1,6 @@
 import "./ServicesPages.css"
 // Assets
-import backgroundImage from '../../img/loading.png';
+import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L3 from "../../img/assets/final media/services IMAGE/L  3.png";
 import s3 from "../../img/assets/final media/services IMAGE/s 3.png";
 
@@ -9,27 +9,29 @@ function CompanyFormationandRegistration() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* -- Hero Section -- */}
       <section className="hero">
         <div className="hero-image-container">
           <img 
-            src={backgroundImage} 
+            src={servicepagesHero} 
             alt="Decorative background" 
             className="hero-bg"
-            role="presentation"
+            role="presentation" // For screen readers (since it's decorative)
           />
           <div className="hero-overlay"></div>
         </div>
-        <div className="hero-content container">
+        <div className="hero-content">
           <h1 className="hero-title">
-            <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br />YOUR TRUSTED LEGAL PARTNER.</span>
+            <span>Modern Legal Solutions<br /> For a Complex World</span>
+          
+            
           </h1>
           <p className="hero-subtitle">
-            Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
+          Leveraging Modern Legal Expertise and Innovative Approaches to Simplify Complex Challenges and Achieve Your Goals
           </p>
-          <div className="hero-cta">
+          {/* <div className="hero-cta">
             <button className="cta-button">Get Started</button>
-          </div>
+          </div> */}
         </div>
       </section>
 

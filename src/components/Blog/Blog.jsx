@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Blog.css';
-import backgroundImage from '../img/loading.png';
+import blogHero from '../img/assets/Blog/blog image .jpg';
 import { LuSend } from "react-icons/lu";
 
 
@@ -25,28 +25,30 @@ function Blog() {
   return (
     <>
       {/* -- Hero Section -- */}
-      <section className="hero">
-        <div className="hero-image-container">
-          <img 
-            src={backgroundImage} 
-            alt="Decorative background" 
-            className="hero-bg"
-            role="presentation" // For screen readers (since it's decorative)
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        <div className="hero-content container">
-          <h1 className="hero-title">
-            <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br /> YOUR TRUSTED LEGAL PARTNER.</span>
-          </h1>
-          <p className="hero-subtitle">
-            Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
-          </p>
-          <div className="hero-cta">
-            <button className="cta-button">Get Started</button>
-          </div>
-        </div>
-      </section>
+            <section className="hero">
+              <div className="hero-image-container">
+                <img 
+                  src={blogHero} 
+                  alt="Decorative background" 
+                  className="hero-bg"
+                  role="presentation" // For screen readers (since it's decorative)
+                />
+                <div className="hero-overlay"></div>
+              </div>
+              <div className="hero-content">
+                <h1 className="hero-title">
+                  <span>Your Trusted Source<br />for Legal Knowledge and Guidance</span>
+                
+                  
+                </h1>
+                <p className="hero-subtitle">
+                Stay Informed with the Latest Legal Trends, Expert Advice, and Practical Solutions to Navigate Your Legal Challenges
+                </p>
+                {/* <div className="hero-cta">
+                  <button className="cta-button">Get Started</button>
+                </div> */}
+              </div>
+            </section>
 
 {/* -- Blog Section -- */}
 <section className="blog-section">

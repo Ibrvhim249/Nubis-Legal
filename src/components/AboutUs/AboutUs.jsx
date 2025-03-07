@@ -1,5 +1,5 @@
 import './AboutUS.css';
-import backgroundImage from '../img/loading.png';
+import aboutusHero from '../img/assets/AboutUS/About us nubis.jpg';
 import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
 import aboutUs from '../img/assets/AboutUS/about us section in about us page.png';
 import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
@@ -132,23 +132,25 @@ function AboutUS() {
       <section className="hero">
         <div className="hero-image-container">
           <img 
-            src={backgroundImage} 
+            src={aboutusHero} 
             alt="Decorative background" 
             className="hero-bg"
-            role="presentation"
+            role="presentation" // For screen readers (since it's decorative)
           />
           <div className="hero-overlay"></div>
         </div>
-        <div className="hero-content container">
+        <div className="hero-content">
           <h1 className="hero-title">
-            <span className="highlight">Innovative Digital Solutions </span>
+            <span>We Don’t Just Solve Legal Problem<br />We Build Trust </span>
+          
+            
           </h1>
           <p className="hero-subtitle">
-            Transforming ideas into exceptional digital experiences
+          Partnering with You to Provide Lasting Solutions While Building Strong, Trust-Based Relationships Every Step of the Way
           </p>
-          <div className="hero-cta">
+          {/* <div className="hero-cta">
             <button className="cta-button">Get Started</button>
-          </div>
+          </div> */}
         </div>
       </section>
 
