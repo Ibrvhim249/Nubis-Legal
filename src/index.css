@@ -9,12 +9,17 @@
   }
    
    a {
-     text-decoration: none; /* Remove underlines from links by default */
-     color: inherit; /* Allow links to inherit text color */
+     text-decoration: none;
+     color: inherit; 
    }
    
    ul,
    ol {
-     list-style: none; /* Remove default list styles */
+     list-style: none; /
    }
-   
+   html,body{
+
+    width: 100%;
+    overflow-x:clip; 
+    
+   }

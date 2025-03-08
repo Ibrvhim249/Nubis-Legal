@@ -1,203 +1,120 @@
 /* --------------- service-description-section ---------------------- */
 
 .service-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 91px 136px 91px;
-    background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 5%;
+  background-color: #ffffff;
   }
-  
-  .service-description-blocks img {
-    max-width: 550px;
-    height: 510px;
-    padding-left: 0px;
-    border-radius: 12px;
-  }
-  
-  .service-description-title{
-  font-family: 'Roboto Slab';
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  
-  padding-left: 1rem;
-  }
-  
+
   .service-description-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     align-items: center;
     max-width: 1200px;
-  }
-  
+    justify-content: space-evenly;
+    }
+
   .service-description-content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content:space-evenly;
+    justify-content: space-between;
   }
   
-  .service-description-blocks {
-    display: grid;
-  
-    gap: 1.5rem;
+  .service-description-text {
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    line-height: 1.6;
+    text-align: justify;
+    width: 42%;
+    
+  }
+
+
+  .service-description-text p {
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 2%;
+  }
+
+  .service-description-blocks img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding-left: 0px;
+    border-radius: 12px;
+  }
+  
+  .service-description-title{
+    font-family: 'Roboto Slab', serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem); 
+  padding-left: 1%;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-left: 0.25rem solid #B39957;
+  line-height: 1.2;
+  color: black;
+  }
+  
+
+  
+  .service-description-blocks {
+    gap: 1.5rem;
+    width: 47%;
+    height: auto;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
   }
   
-  .image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
+
   
-  .service-description-text {
-    flex: 1;
-    max-width: 1000px;
-    padding: 1rem;
-  }
+
   
   .service-description-text p {
-    font-size: 20px;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
     color: #666;
     line-height: 1.6;
     text-align: justify;
-    padding-bottom: 64px; /* Fixed missing unit */
-    padding-right: 70px;
+    padding-bottom: 2%;
   }
   
 
   /* Responsive Design */
-  @media (max-width: 768px) {
-    .service-description{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 50px 136px 50px;
-    background-color: #ffffff;
-  }
-  
-  .service-description-blocks img {
-    width: 330px; /* Full-width images */
-    height: 410px;
-    padding-left: 0px;
-    border-radius: 12px;
-  }
-  
-  .service-description-title{
-  font-family: 'Roboto Slab';
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  
-  padding-left: 1rem;
-  }
-  
-  .service-description-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    max-width: 668px;
-  }
-  
-  .service-description-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content:space-evenly;
-  }
-  
-  .service-description-blocks {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 350px;
-    max-height: 400px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
-  
-  .image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .service-description-text {
-    flex: 1;
-    max-width: 400px;
-    padding: 1rem;
-  }
-  
-  .service-description-text p {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 44px; /* Fixed missing unit */
-    padding-right: 40px;
-    min-width: 300px;
-  
-  }}
-  
+
   @media (max-width: 480px) {
     .service-description{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 20px 136px 20px;
-    background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      flex-direction: column-reverse;
+      align-items: center;
   }
   
   .service-description-blocks img {
-    max-width: 515px;
-    max-height: 500px;
-    padding-left: 0px;
-    border-radius: 12px;
+    width: 13rem;
+  object-fit: cover;
   }
   
   .service-description-title{
-  font-family: 'Roboto Slab';
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  
-  padding-left: 1rem;
+    margin-bottom: 0px;
+    padding-left: 1rem;
   }
   
   .service-description-container {
-    display: flex
-    ;
-            flex-direction: column-reverse;
-            gap: 2rem;
-            max-width: 400px;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        
-        
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    max-width: 400px;
   }
   
   .service-description-content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content:space-evenly;
+    justify-content: space-between;
   }
   
   .service-description-blocks {
@@ -221,22 +138,14 @@
   }
   
   .service-description-text {
-    flex: 1;
-        max-width: 370px;
-        padding: 1rem;
-        padding-top: 50px;
+    padding-top: 0px;
+    width:90%;
   }
   
   .service-description-text p {
+    padding-bottom: 10px;
     font-size: 10px;
-    color: #666;
-    line-height: 1.6;
     text-align: justify;
-    padding-bottom: 44px; /* Fixed missing unit */
-    padding-right: 40px;
-    min-width: 370px;
-    
-  
   }}
 
 
@@ -248,7 +157,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 136px 91px;
+    padding:10% 5%;
     background-color: #ffffff;
   }
   

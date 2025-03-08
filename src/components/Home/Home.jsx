@@ -134,8 +134,7 @@ function Home() {
               
                 <img src={aboutUsImg} alt="About Us 2" />
               
-
-            </div>
+          </div>
 
             {/* Right Text Section */}
             <div className="about-us-text">
