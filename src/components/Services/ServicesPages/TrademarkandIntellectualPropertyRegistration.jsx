@@ -23,7 +23,7 @@ function TrademarkandIntellectualPropertyRegistration() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Modern Legal Solutions<br /> For a Complex World</span>
+                  <span>Secure Your Brand and Innovations</span>
                 
                   
                 </h1>
@@ -37,9 +37,9 @@ function TrademarkandIntellectualPropertyRegistration() {
             </section>
 
 {/* -- service-description Section -- */}
-      <section className="service-description" id="about">
+      <section className="service-description">
         <div className="service-description-container">
-          <div className="service-description-content">
+          
             <div className="service-description-text">
             <h2 className="service-description-title">service description</h2>
 
@@ -52,11 +52,12 @@ function TrademarkandIntellectualPropertyRegistration() {
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                 eget feugiat magna rhoncus.</p>
             </div>
-          </div>
+          
           <div className="service-description-blocks">
             <img src={L4} alt="About Us 2" />
           </div>
-        </div>
+          </div>
+        
       </section>
 
       <section className="service-data" id="service-data">

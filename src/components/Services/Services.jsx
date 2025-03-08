@@ -22,7 +22,7 @@ const SERVICES_DATA = [
   {
     id: 1,
     title: "Contract Drafting and Review",
-    path: "./ServicesPages/ContractDraftingandReview.jsx",
+    path: "contract-drafting",
     description: "Clear, Strong, and Legally Sound Contracts for Your Business, Maximize business value from contracts.",
     text: " with experts in strategy, implementation, and operational support.",
     icon: svg1
@@ -30,7 +30,7 @@ const SERVICES_DATA = [
   {
     id: 2,
     title: "Legal Consultation",
-    path: "./ServicesPages/LegalConsultation.jsx",
+    path: "legal-consultation",
     description: "Expert Legal Advice, Personalized for You",
     text: ' and then provide legal services to help these teams execute their new strategies quickly and with ease.',
     icon: svg2
@@ -38,7 +38,7 @@ const SERVICES_DATA = [
   {
                   id: 3,
                   title: "Company Formation and Registration",
-                  path: "./ServicesPages/CompanyFormationandRegistration.jsx",
+                  path: "companyformation",
                   description: "Start Your Business the Right Way",
                   text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
                   icon: svg3
@@ -46,7 +46,7 @@ const SERVICES_DATA = [
                 {
                   id: 4,
                   title: "Trademark and Intellectual Property Registration",
-                  path: "./ServicesPages/TrademarkandIntellectualPropertyRegistration.jsx",
+                  path: "trademark-registration",
                   description: "Protect Your Brand and Innovations",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg4
@@ -54,7 +54,7 @@ const SERVICES_DATA = [
                 {
                   id: 5,
                   title: "Legal Document Preparation",
-                  path: "./ServicesPages/LegalDocumentPreparation.jsx",
+                  path: "document-preparation",
                   description: "Protect your digital assets with enterprise-grade security",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg5
@@ -62,7 +62,7 @@ const SERVICES_DATA = [
                 {
                   id: 6,
                   title: "Debt Collection",
-                  path: "./ServicesPages/DebtCollection.jsx",
+                  path: "debt-collection",
                   description: "Transform your business with data-driven decisions",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg6
@@ -70,7 +70,7 @@ const SERVICES_DATA = [
                 {
                   id: 7,
                   title: "Litigation and Court Documents",
-                  path: "./ServicesPages/LitigationandCourtDocuments.jsx",
+                  path: "litigation",
                   description: "Full-stack technical support and maintenance",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg7
@@ -78,7 +78,7 @@ const SERVICES_DATA = [
                 {
                   id: 8,
                   title: "Dispute Resolution",
-                  path: "./ServicesPages/DisputeResolution.jsx",
+                  path: "dispute-resolution",
                   description: "Protect your digital assets with enterprise-grade security",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg8
@@ -86,7 +86,7 @@ const SERVICES_DATA = [
                 {
                   id: 9,
                   title: "Contract Review and Analysis",
-                  path: "./ServicesPages/ContractReviewandAnalysis.jsx",
+                  path: "contract-review",
                   description: "Transform your business with data-driven decisions",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg9
@@ -94,7 +94,7 @@ const SERVICES_DATA = [
                 {
                   id: 10,
                   title: "Real Estate Legal Support",
-                  path: "./ServicesPages/RealEstateLegalSupport.jsx",
+                  path: "real-estate",
                   description: "Full-stack technical support and maintenance",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg10
@@ -102,7 +102,7 @@ const SERVICES_DATA = [
                 {
                   id: 11,
                   title: "Tax and Financial Legal Services",
-                  path: "./ServicesPages/TaxandFinancialLegalServices.jsx",
+                  path: "tax-services",
                   description: "Protect your digital assets with enterprise-grade security",
                   text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                   icon: svg11
@@ -111,7 +111,7 @@ const SERVICES_DATA = [
               {
                  id: 12,
                  title: "Regulatory and Legal Compliance",
-                 path: "./ServicesPages/RegulatoryandLegalCompliance.jsx",
+                 path: "compliance",
                  description: "Protect your digital assets with enterprise-grade security",
                  text: 'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
                  icon: svg12

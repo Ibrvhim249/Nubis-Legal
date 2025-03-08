@@ -2,151 +2,176 @@
    Services Section
    ====================== */
 
-
-.pagination-dots {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 2rem 0;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #cbd5e1;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.dot.active {
-  background-color: #213d8a;
-  transform: scale(1.3);
-}
-
-.service-page {
-  padding: 136px 91px;
-  background: linear-gradient(45deg, #f8fafc, #f1f5f9);
-}
-
-.service-page-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-page-title {
-  font-family: 'Roboto Slab', serif;
-  font-size: 40px;
-  font-weight: bold;
-  padding-left: 15px;
-  color: #111;
-  text-transform: uppercase;
-}
-
-.service-page-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 0fr);
-  gap: 2rem;
-  padding: 2rem 0;
-  justify-items: center;
-  padding-left: 300px;
-}
-
-.service-page-item {
-  background: rgba(3, 45, 101, 0.95);
-  border-radius: 20px;
-  padding: 2rem;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 410px;
-  width: 370px;
-  border: 1px solid rgba(191, 219, 254, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
-  display: flex;
-  flex-direction: column;
-  /* padding-left: 300px; */
-}
-
-.service-page-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.service-page-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  background-color: #213d8a;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-}
-
-.service-page-icon img {
-  filter: brightness(0) invert(1);
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-}
-
-.service-page-item h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.service-page-item p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-}
-
-.service-page-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  padding-bottom: 1rem;
-}
-
-/* Service Link Styles */
-.service-page-link {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  color: white;
-  transition: all 0.3s ease-in-out;
-  display: inline-block;
-  z-index: 20;
-}
-
-.service-page-link:hover {
-  color: white;
-  transform: translateY(-2px);
-}
-
-.service-page-link:focus {
-  outline: 2px solid rgba(66, 153, 225, 0.5);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-.service-page-link svg {
-  transition: transform 0.2s ease-in-out;
-}
-
-.service-page-link:hover svg {
-  transform: translate(2px, -2px);
-}
-
+   .service-page {
+    padding: 5rem 2rem;
+    background: linear-gradient(45deg, #f8fafc, #f1f5f9);
+  }
+  
+  .service-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .service-page-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-left: 15px;
+    color: #111;
+    text-transform: uppercase;
+  }
+  
+  .service-page-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  /* Responsive grid adjustments */
+  @media (min-width: 640px) {
+    .service-page-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .service-page-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .service-page-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .service-page-item {
+    background: rgba(3, 45, 101, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: 380px;
+    border: 1px solid rgba(191, 219, 254, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .service-page-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-page-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: #213d8a;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-page-icon img {
+    filter: brightness(0) invert(1);
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+  }
+  
+  .service-page-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .service-page-item p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Service Link Styles */
+  .service-page-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    z-index: 20;
+    font-size: 1.25rem;
+  }
+  
+  .service-page-link:hover {
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .service-page-link:focus {
+    outline: 2px solid rgba(66, 153, 225, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  .service-page-link svg {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .service-page-link:hover svg {
+    transform: translate(2px, -2px);
+  }
+  
+  /* Pagination styles */
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  
+  .dot.active {
+    background-color: #213d8a;
+    transform: scale(1.3);
+  }
+  
+  @media (max-width: 639px) {
+    .service-page {
+      padding: 3rem 1rem;
+    }
+  
+    .service-page-title {
+      font-size: 2rem;
+    }
+  
+    .service-page-item {
+      min-height: 320px;
+    }
+  }
+  
+  
 /* ======================
    Responsive Design
    ====================== */

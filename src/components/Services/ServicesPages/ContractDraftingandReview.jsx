@@ -24,7 +24,7 @@ function ContractDraftingandReview() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Modern Legal Solutions<br /> For a Complex World</span>
+                  <span>Clear, Strong, and Legally Sound Agreements</span>
                 
                   
                 </h1>
