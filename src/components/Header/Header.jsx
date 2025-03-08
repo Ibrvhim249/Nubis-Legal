@@ -80,7 +80,7 @@ export default function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(prev => {
       const newState = !prev;
-      document.body.style.overflow = newState ? 'hidden' : '';
+      document.body.style.overflow = newState ? 'clip' : '';
       return newState;
     });
     setOpenSubmenu(null);
