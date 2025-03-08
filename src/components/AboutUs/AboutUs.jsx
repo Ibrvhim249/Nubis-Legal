@@ -1,7 +1,9 @@
 import './AboutUS.css';
 import aboutusHero from '../img/assets/AboutUS/About us nubis.jpg';
 import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
+import aboutceo from '../img/assets/AboutUS/CEO ABOUT US.svg';
 import aboutUs from '../img/assets/AboutUS/about us section in about us page.png';
+import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
 import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
 import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
 import visionImage from '../img/assets/AboutUs/our vission macbook screen.png'; // Import vision image
@@ -155,7 +157,7 @@ function AboutUS() {
       </section>
 
       {/* -- About Us Section -- */}
-      <section className="about-us-page" id="about">
+      <section className="about-us-page">
         <div className="about-us-page-container">
           <div className="about-us-page-content">
             {/* Left Image Blocks */}
@@ -176,9 +178,9 @@ function AboutUS() {
       </section>
 
       {/* -- CEO Section -- */}
-      <section className="about-us-ceo" id="about">
+      <section className="about-us-ceo">
+        <img src={ceoBanner} alt="banner" />
         <div className="about-us-ceo-container">
-          <div className="about-us-ceo-content">
             <div className="about-us-ceo-text">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
@@ -189,11 +191,10 @@ function AboutUS() {
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                 eget feugiat magna rhoncus.</p>
             </div>
+            <div className="about-us-ceo-blocks">
+            <img src={aboutceo} alt="About Us 2" />
           </div>
-          <div className="about-us-ceo-blocks">
-            <img src={aboutImage2} alt="About Us 2" />
           </div>
-        </div>
       </section>
 
       {/* -- Counter Section -- */}
@@ -229,7 +230,7 @@ function AboutUS() {
       </section>
 
       {/* -- Nimo Section -- */}
-      <section className="nimo" id="about">
+      <section className="nimo">
         <div className="nimo-container">
           <div className="nimo-content">
             <div className="nimo-blocks">

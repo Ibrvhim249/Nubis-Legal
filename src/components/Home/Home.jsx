@@ -17,6 +17,7 @@ import { IoMdQuote } from "react-icons/io";
 
 
 
+
 // Assets
 
 import homeHero from '../img/assets/Home/Home page nubis image .jpg';
@@ -42,6 +43,9 @@ import icon2 from '../img/assets/final media/our features icon SVG/Client-Focuse
 import icon3 from '../img/assets/final media/our features icon SVG/Modern Legal Solutions.svg';
 import icon4 from '../img/assets/final media/our features icon SVG/Transparent Pricing .svg';
 
+
+//image section icon
+import imagesection from '../img/assets/Home/Scale icon.svg';
 
 
 // Styles
@@ -196,7 +200,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
            {/* -- CEO Section -- */}
-     <section className="ceo" id="ceo">
+     <section className="ceo">
         <div className="ceo-container">
           
            {/* Right Text Section */}
@@ -237,12 +241,11 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
       {/* -- Services Section -- */}
-{/* -- Services Section -- */}
+
 <section className="services" id="services">
-  <div className="container mx-auto px-4 py-16">
+  <div className="container">
     {/* Services Header */}
-    <div className="services-header flex items-center mb-12">
-      <span className="w-1 h-10 bg-gray-400 mr-3"></span>
+    <div className="services-header">
       <h2 className="services-title">
         Our Services
       </h2>
@@ -368,15 +371,15 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
       <section className="image-section">
   <div
-    className="image-section-bg"
-    style={{ backgroundImage: `url(${backgroundImage})` }}
-  >
-    <div className="overlay"></div>
+    className="image-section-bg">
+    <div className="image-section-overlay"></div>
     <div className="text-container">
       <h1>Nubis Legal</h1>
       <h2>Where Expertise Meets Innovation</h2>
     </div>
-    <div className="circle"></div>
+    <img className="circle"
+    src={imagesection}
+    />
   </div>
 </section>
 
@@ -446,9 +449,9 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       <div className="position-absolute top-0 start-50 translate-middle">
         <img
           src={testimonials[activeTestimonial].image}
-          className="avatar rounded-circle border-4 border-white"
+          className="avatar"
           alt={testimonials[activeTestimonial].name}
-          style={{ width: '96px', height: '96px', objectFit: 'cover' }}
+         
         />
       </div>
 
@@ -460,8 +463,8 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
           <p className="testimonial-text text-white text-center lh-base mb-0">
             {testimonials[activeTestimonial].testimonial}
           </p>
-          <div className="client-info text-center mt-4">
-            <h4 className="client-name text-white mb-1">
+          <div className="client-info">
+            <h4 className="client-name">
               {testimonials[activeTestimonial].name}
             </h4>
             <p className="client-role text-light mb-0">
