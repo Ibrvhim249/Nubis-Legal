@@ -36,8 +36,8 @@
 
 .header.scrolled {
   background-color:#80808099;
-  color:black
- 
+  color:black;
+  filter: blur();
 }
 
 /* .container {
@@ -230,6 +230,41 @@
   bottom: 0;
   transform: rotate(-45deg);
 }
+
+/* ------------------------------------------------------------- */
+
+
+.nav-link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submenu-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.25em;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0.3em solid currentColor;
+  transition: transform 0.2s;
+}
+
+.submenu-toggle.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
 
 /* Mobile Styles */
 @media (max-width: 480px) {

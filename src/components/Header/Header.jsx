@@ -98,14 +98,14 @@ export default function Header() {
         </NavLink>
 
         <button
-  className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}
-  onClick={toggleMobileMenu}
-  aria-label={`${isMobileMenuOpen ? 'Close' : 'Open'} menu`}
-  aria-expanded={isMobileMenuOpen}
-  aria-controls="nav-menu"
->
-  <span className="hamburger-icon" />
-</button>
+          className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label={`${isMobileMenuOpen ? 'Close' : 'Open'} menu`}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="nav-menu"
+        >
+          <span className="hamburger-icon" />
+        </button>
 
         <div 
           id="nav-menu"
@@ -120,15 +120,28 @@ export default function Header() {
               >
                 {link.subLinks ? (
                   <div className="dropdown-container">
-                    <button
-                      className={`nav-link submenu-toggle ${openSubmenu === link.path ? 'active' : ''}`}
-                      onClick={() => handleSubmenuToggle(link.path)}
-                      aria-expanded={openSubmenu === link.path}
-                      aria-controls={`dropdown-${link.path.replace(/\//g, "-")}`}
-                    >
-                      {link.name}
-                      <span className="dropdown-arrow" />
-                    </button>
+                    <div className="nav-link-wrapper">
+                      <NavLink
+                        to={link.path}
+                        className={({ isActive }) => 
+                          `nav-link ${isActive ? 'active' : ''}`
+                        }
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setOpenSubmenu(null);
+                        }}
+                      >
+                        {link.name}
+                      </NavLink>
+                      <button
+                        className={`submenu-toggle ${openSubmenu === link.path ? 'active' : ''}`}
+                        onClick={() => handleSubmenuToggle(link.path)}
+                        aria-expanded={openSubmenu === link.path}
+                        aria-controls={`dropdown-${link.path.replace(/\//g, "-")}`}
+                      >
+                        <span className="dropdown-arrow"style={{color: 'white' }} />
+                      </button>
+                    </div>
                     <ul
                       id={`dropdown-${link.path.replace(/\//g, "-")}`}
                       className={`dropdown-menu ${openSubmenu === link.path ? 'visible' : ''}`}
