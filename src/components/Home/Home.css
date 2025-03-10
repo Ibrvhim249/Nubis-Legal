@@ -227,21 +227,21 @@
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
     }
-  
+  */
   
   
   @media (max-width: 480px) {
     .about-us {
-      padding: 136px 50px;
+      padding: 10% 5%;
     }
     .about-us-content {
       gap: 1rem;
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
+        flex-direction: column-reverse;
         justify-content: center;
     }
-    .about-us img{
+    /* .about-us img{
       width: 273px;
       height: 289px;
       border-radius: 12px;
@@ -272,8 +272,8 @@
       max-width: 300px;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
-    }
-  } */
+    } */
+  } 
 
   
 
@@ -656,7 +656,6 @@
   width: 47%;
   height: auto;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
 }
 
 .ceo-blocks img{

@@ -3,7 +3,7 @@ import aboutusHero from '../img/assets/AboutUS/About us nubis.jpg';
 import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
 import aboutceo from '../img/assets/AboutUS/CEO ABOUT US.svg';
 import aboutUs from '../img/assets/AboutUS/about us section in about us page.png';
-import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
+// import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
 import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
 import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
 import visionImage from '../img/assets/AboutUs/our vission macbook screen.png'; // Import vision image
@@ -178,23 +178,24 @@ function AboutUS() {
       </section>
 
       {/* -- CEO Section -- */}
-      <section className="about-us-ceo">
-        <img src={ceoBanner} alt="banner" />
+    <section className="about-us-ceo">
         <div className="about-us-ceo-container">
-            <div className="about-us-ceo-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+          
+           {/* Right Text Section */}
+           <div className="about-us-ceo-text">
+                <p>&quot; The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions...&quot;</p>
+                
             </div>
-            <div className="about-us-ceo-blocks">
-            <img src={aboutceo} alt="About Us 2" />
+            
+          
+           {/* Left Image Blocks */}
+           <div className="about-us-ceo-blocks">
+          
+              
+          <img src={aboutceo} alt="About Us 2" />
+        
           </div>
-          </div>
+      </div>
       </section>
 
       {/* -- Counter Section -- */}

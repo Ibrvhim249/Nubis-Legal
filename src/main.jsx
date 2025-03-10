@@ -8,9 +8,8 @@ import Home from './components/Home/Home';
 import AboutUs from './components/AboutUs/AboutUs';
 import Blog from './components/Blog/Blog';
 import Services from './components/Services/Services';
-import IntroVideo from './components/intro/IntroVideo'; // ✅ تأكد أن الاسم صحيح
+import IntroVideo from './components/intro/IntroVideo'; 
 
-// استيراد صفحات الخدمات
 import ContractDraftingandReview from "./components/Services/ServicesPages/ContractDraftingandReview";
 import LegalConsultation from "./components/Services/ServicesPages/LegalConsultation";
 import CompanyFormationandRegistration from "./components/Services/ServicesPages/CompanyFormationandRegistration";
@@ -29,10 +28,10 @@ export const MainApp = () => {
 
   return (
     <>
-      {/* عرض الفيديو أولًا ثم إخفاؤه بعد الانتهاء */}
+      {/* introvideo*/}
       {!showMainContent && <IntroVideo onFinish={() => setShowMainContent(true)} />}
 
-      {/* عرض الموقع بعد انتهاء الفيديو */}
+      {/* introVidio*/}
       {showMainContent && (
         <Router>
           <Header />
@@ -43,7 +42,7 @@ export const MainApp = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/services" element={<Services />} />
               
-              {/* صفحات الخدمات */}
+              {/* service pages */}
               <Route path="/services/contract-drafting" element={<ContractDraftingandReview />} />
               <Route path="/services/legal-consultation" element={<LegalConsultation />} />
               <Route path="/services/companyformation" element={<CompanyFormationandRegistration />} />

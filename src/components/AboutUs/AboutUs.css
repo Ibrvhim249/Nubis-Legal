@@ -71,6 +71,21 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
+
+
+  @media (max-width: 480px) {
+
+    
+    .about-us-page-content {
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 450px;
+    }
+  }
   
   /* ======================
      Responsive Design
@@ -229,28 +244,26 @@
 /* --------------- about-us-ceo-section ---------------------- */
 
 
-.about-us-ceo {
-  display: flex;
+/* ======================
+   ceo Section
+   ====================== */
+
+
+   .about-us-ceo {
+    display: flex;
         justify-content: center;
         align-items: center;
         padding: 10% 5%;
-        
- }
+        background-color: #ffffff;
+   }
   
-.about-us-ceo img{
-  position: absolute;
-  z-index: -1;
-  height: 90%;
-  width: 95%;
-}
-
   .about-us-ceo-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     align-items: center;
     max-width: 1200px;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   
   .about-us-ceo-content {
@@ -261,7 +274,7 @@
   }
   
   
-  .image-container {
+  .about-us-image-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -270,7 +283,6 @@
     padding: 8px;
     background-color: white;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-
   }
   
 
@@ -280,16 +292,15 @@
     line-height: 1.6;
     text-align: justify;
     width: 42%;
-    padding-bottom: 10px;
-  
+    padding-top: 18%;
   }
   
   .about-us-ceo-text p{
     font-size: clamp(1rem, 1.25vw, 1.25rem);
-    color:white;
+    color: #666;
     line-height: 1.6;
     text-align: justify;
-    padding-top: 29%;
+    padding-bottom: 2%;
   }
 
 
@@ -297,20 +308,75 @@
 .about-us-ceo-blocks {
 
   gap: 1.5rem;
-  width: 51%;
+  width: 47%;
   height: auto;
-  padding-bottom: 11%;
-  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-us-ceo-blocks img{
-  position: relative;
   width: 90%;
   height: 47%;
 }
 
 
 
+@media (max-width: 480px) {
+  .about-us-ceo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+   
+  }
+  
+  .about-us-ceo-container {
+    display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+        align-items: center;
+        max-width: 400px;
+  }
+  
+  .about-us-ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  
+  .about-us-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .about-us-ceo-text {
+    padding-top: 0px;
+    width:90%;
+  }
+  
+  .about-us-ceo-text p{
+    padding-bottom: 10px;
+    font-size: 10px;
+    text-align: justify;
+  }
+
+
+.about-us-ceo-blocks img{
+  width: 100%;
+  object-fit: cover;
+}
+
+
+} 
 
 /* Responsive Media Queries */
 /* @media (max-width: 768px) {
@@ -683,7 +749,15 @@
     margin-bottom: 2rem;
   }
   
-  
+  @media (max-width: 480px) {
+    
+    .nimo-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+
+  }
   
   
   /* ======================
