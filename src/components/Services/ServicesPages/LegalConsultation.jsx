@@ -23,7 +23,7 @@ function LegalConsultation() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Expert Guidance for Every Legal Challenge</span>
+                  <span>Expert Legal Advice, Personalized for You</span>
                 
                   
                 </h1>
@@ -41,16 +41,9 @@ function LegalConsultation() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Legal Consultation</h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+              <p>Our legal consultations provide clarity and actionable solutions for your legal challenges. Whether you’re a business owner or an individual, we’re here to guide you. We listen to your concerns, analyze your situation, and provide clear, practical solutions to protect your rights and interests.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -73,37 +66,37 @@ function LegalConsultation() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>One-on-one consultations with experienced lawyers.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Business and personal legal advice.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Step-by-step legal guidance on complex matters.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Schedule a consultation at your convenience.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Discuss your legal issue with our experts.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Receive practical, actionable advice</p>
         </div>
       </div>
     </div>

@@ -1,8 +1,6 @@
 // External Libraries
 import { Link } from 'react-router-dom';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FeatureCard from '../Animations/FeatureCard.jsx';
@@ -23,7 +21,7 @@ import { IoMdQuote } from "react-icons/io";
 import homeHero from '../img/assets/Home/Home page nubis image .jpg';
 import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
 import ceo from "../img/assets/Home/ceo home page .svg"
-import aboutUsImg from '../img/assets/Home/about us section in home page .png';
+import aboutUsImg from '../img/assets/Home/New about us section img  Home page.png';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
 import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
 import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
@@ -73,21 +71,21 @@ function Home() {
       role: "Web Developer",
       image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
       testimonial:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem. Est, exercitationem id ipsa ipsum laboriosam perferendis.",
+        "A aliquam amet animi blanditiis. Est, exercitationem id ipsa ipsum laboriosam perferendis.",
     },
     {
       name: "Lisa Cudrow",
       role: "Graphic Designer",
       image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
       testimonial:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+        "totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
     },
     {
       name: "John Smith",
       role: "Marketing Specialist",
       image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
       testimonial:
-        "At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
+        "At vero eos  quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
     },
   ];
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -349,6 +347,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                     />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                  <br />
                   <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
                   <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
                   <Link className='services-section-link'
@@ -402,7 +401,12 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
   ) : posts.length > 0 ? (
     <div className="blog-section-grid">
       {posts.map((post) => (
-        <div key={post.id} className="blog-section-item bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300">
+        <a 
+          key={post.id} 
+          href={post.link}
+          className="blog-section-item block bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:no-underline cursor-pointer"
+          aria-label={`Read more about ${post.title.rendered}`}
+        >
           <div className="blog-section-image rounded-lg overflow-hidden mb-4">
             <img
               src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'}
@@ -418,16 +422,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
             className="text-base text-gray-700 leading-relaxed mb-4" 
             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
           />
-          <a 
-            href={post.link} 
-            className="read-more flex items-center gap-1 text-primary hover:text-primary-dark"
-          >
-            Read more
-            <span className="read-more-icon">
-              <LuArrowUpRight />
-            </span>
-          </a>
-        </div>
+        </a>
       ))}
     </div>
   ) : (

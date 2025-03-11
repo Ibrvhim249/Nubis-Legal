@@ -23,7 +23,7 @@ function TrademarkandIntellectualPropertyRegistration() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Secure Your Brand and Innovations</span>
+                  <span>Protect Your Brand and Innovations</span>
                 
                   
                 </h1>
@@ -41,16 +41,9 @@ function TrademarkandIntellectualPropertyRegistration() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Trademark and Intellectual Property Registration</h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+              <p>Safeguard your intellectual property with our streamlined trademark and IP registration services.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -73,37 +66,37 @@ function TrademarkandIntellectualPropertyRegistration() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Exclusive rights to your brand and creations.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Protection against unauthorized use.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Expert guidance on IP strategy.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Trademark searches & application filing.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Copyright and patent registration.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Defending against infringement claims</p>
         </div>
       </div>
     </div>

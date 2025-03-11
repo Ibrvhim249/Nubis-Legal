@@ -40,16 +40,9 @@ function TaxandFinancialLegalServices() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Taxand Financial Legal Services</h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+              <p>Our experts help you stay compliant with tax regulations and resolve financial legal disputes.</p>
             </div>
           
           <div className="service-description-blocks">

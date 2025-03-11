@@ -40,7 +40,7 @@ function DebtCollection() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Debt Collection</h2>
 
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,

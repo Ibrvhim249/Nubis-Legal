@@ -22,7 +22,7 @@ function LegalDocumentPreparation() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Legally Sound Documents, Tailored for You</span>
+                  <span>Precision-Crafted Legal Documents</span>
                 
                   
                 </h1>
@@ -40,16 +40,9 @@ function LegalDocumentPreparation() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Legal Document Preparation</h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+              <p>From wills to employment agreements, we prepare legally sound documents tailored to your needs.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -72,37 +65,37 @@ function LegalDocumentPreparation() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Documents that reflect your specific requirements.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Reduced risk of disputes or legal challenges.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Peace of mind knowing your documents are legally enforceable.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Drafting and reviewing contracts, agreements, and legal notices.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Customization to fit personal, business, and industry-specific needs.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Ensuring compliance with local, national, and international laws..</p>
         </div>
       </div>
     </div>

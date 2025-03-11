@@ -7,13 +7,7 @@
     background-color: #ffffff;
   }
   
-  /* .about-us-page-container {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-  } */
+
   
   .about-us-page-content {
     display: grid;
@@ -28,7 +22,7 @@
   }
   
   .about-us-page-blocks img {
-    width: 100%;
+    width: 90%;
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -87,157 +81,7 @@
     }
   }
   
-  /* ======================
-     Responsive Design
-     ====================== */
-    /* @media (max-width: 768px) {
-      .about-us-page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 136px 50px 0px;
-        background-color: #ffffff;
-      }
-      
-      .about-us-page-container {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 668px;
-      }
 
-      .about-us-page-blocks {
-        display: grid;
-        grid-template-columns: none;
-        grid-template-rows: none;
-        gap: 1.5rem;
-        width: fit-content;
-        height: fit-content;
-      }
-      
-      .about-us-page-content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 2rem;
-        justify-content: space-evenly;
-        max-width: 1200px;
-      }
-      
-      
-      .about-us-page-blocks img {
-        width: 345px;
-        height: 440px;
-        object-fit: cover;
-        border-radius: 12px;
-      }
-      
-      .about-us-page-text {
-        flex: 1;
-        max-width: 300px;
-        padding-left: 30px;
-
-      }
-      
-      .about-us-page-title {
-        font-family: 'Roboto Slab';
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        border-left: 5px solid #B39957;
-        padding-left: 3px;
-      }
-      
-      .about-us-page-text p {
-        font-size: 15px;
-        color: #666;
-        text-align: justify;
-        padding-bottom: 20px;
-      }
-      
-      
-    }
-  
-  @media (max-width: 480px) {
-    .about-us-page {
-      padding: 40px 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #ffffff;
-    }
-    .about-us-page-container {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: space-evenly;
-      width: 450px;
-    }
-    
-    .about-us-page-content {
-      display: flex;
-      flex-direction: column-reverse;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-      justify-content: center;
-      max-width: 450px;
-    }
-    
-    .about-us-page-blocks {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1.5rem;
-      width: 360px;
-      height: 500px;
-    }
-    
-    .about-us-page-blocks img {
-      width: 345px;
-      height: 440px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-    
-    .about-us-page-text {
-      padding-bottom: 30px;
-      flex: 1;
-    }
-    
-    .about-us-page-title {
-      font-family: 'Roboto Slab';
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      border-left: 5px solid #B39957;
-      padding-left: 0px;
-    }
-    
-    .about-us-page-text p {
-      font-size: 15px;
-      color: #666;
-      text-align: justify;
-      padding-bottom: 20px;
-    }
-    
-    .about-us-page-btn {
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 25px;
-      background: black;
-      color: white;
-      transition: all 0.3s ease;
-      
-    }
-    
-    .about-us-page-btn:hover {
-      transform: scale(1.05) translateY(-4px);
-      box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
-    }
-  } */
 
 
 
@@ -288,7 +132,7 @@
 
   
   .about-us-ceo-text {
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-size: clamp(1rem, 1.25vw, 1.4rem);
     line-height: 1.6;
     text-align: justify;
     width: 42%;
@@ -314,7 +158,7 @@
 }
 
 .about-us-ceo-blocks img{
-  width: 90%;
+  width: 88%;
   height: 47%;
 }
 
@@ -378,177 +222,7 @@
 
 } 
 
-/* Responsive Media Queries */
-/* @media (max-width: 768px) {
-  
-  .about-us-ceo {
-    display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 60px 91px 241px 91px;
-        background-color: #ffffff;
-   }
-  
-  .about-us-ceo-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-    max-height: 800px;
-  }
-  
-  .about-us-ceo-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-  }
-  
-  
-  .image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
 
-  
-  .about-us-ceo-text {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 10px;
-    max-width: 200px;
-  }
-  
-  .about-us-ceo-text p{
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 10px;
-  }
-
-
-
-.about-us-ceo-blocks {
-
-    gap: 1.5rem;
-    width: 315px;
-    height: 350px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-.about-us-ceo-blocks img{
-  width: 300px;
-  height: 327px;
-}
-.about-us-ceo-title {
-  font-family: 'Roboto Slab';
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  border-left: 6px solid #B39957;
-  padding-left: 1rem;
-}
-}
-
-
-
-@media (max-width: 480px) {
-  
-  .about-us-ceo {
-    display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 60px 91px 241px 91px;
-        background-color: #ffffff;
-   }
-  
-  .about-us-ceo-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    max-width: 400px;
-    max-height: 700px;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-        
-  }
-  
-  .about-us-ceo-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-  }
-  
-  
-  .image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-
-  
-  .about-us-ceo-text {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 10px;
-    max-width: 200px;
-  }
-  
-  .about-us-ceo-text p{
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 10px;
-  }
-
-
-
-.about-us-ceo-blocks {
-
-    gap: 1.5rem;
-    width: 315px;
-    height: 350px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-.about-us-ceo-blocks img{
-  width: 280px;
-  height: 300px;
-}
-.about-us-ceo-title {
-  font-family: 'Roboto Slab';
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  border-left: 6px solid #B39957;
-  padding-left: 1rem;
-}
-} */
 
   
 
@@ -685,13 +359,7 @@
     background-color: #ffffff;
   }
   
-  /* .nimo-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-  } */
+
   
   .nimo-content {
     display: grid;
@@ -760,94 +428,6 @@
   }
   
   
-  /* ======================
-     Responsive Design
-     ====================== */
-  
-  /* For iPad (768px and below) */
-  /* @media (max-width: 768px) {
-    .nimo {
-      padding: 4rem 1.5rem; 
-    }
-  
-    .nimo-blocks {
-      width: 400px;
-      height: 400px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; 
-    }
-  
-    .nimo-blocks img {
-      width: 390px;
-      height: 330px;
-      padding-right: 0;
-    }
-.nimo-title{
-    font-family: 'Roboto Slab';
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-left: 5px solid #B39957;
-    padding-left: 3px;
-  }
-  
-  .nimo-text {
-    flex: 1;
-    max-width: 500px;
-    padding: 1rem;
-    padding-left: 0px;
-  }
-  .nimo-text p{
-    font-size: 15px;
-    color: #666;
-    text-align: justify;
-    padding-bottom: 20px;
-  }
-} */
-  /* For Phones (480px and below) */
-  /* @media (max-width: 480px) {
-    .nimo {
-      padding: 3rem 1rem; 
-    }
-
-    .nimo-blocks {
-      width: 400px;
-      height: 400px;
-      display: flex;
-      flex-wrap: wrap;
-      padding-left: 15px;
-      justify-content: center; 
-    }
-  
-    .nimo-text {
-      padding-bottom: 30px;
-      flex: 1;
-    }
-    
-    .nimo-title {
-      font-family: 'Roboto Slab';
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      border-left: 5px solid #B39957;
-      padding-left: 0px;
-    }
-
-    .nimo-blocks img{
-    width: 370px;
-    height: 313px;
-    padding-right: 0;
-
-}
-
-    .nimo-text p {
-      font-size: 15px;
-      color: #666;
-      text-align: justify;
-      padding-bottom: 20px;
-    }}
- */
 
 /* ======================
      c-goal
@@ -1022,8 +602,14 @@
   color: white;
   padding: 40px;
   border-radius: 12px;
-  min-width: 230px;
+  min-width: 200px;
+  max-width: 300px;
   min-height: 270px;
+}
+
+.team-intro p{
+  margin-top: 30%;
+  text-align: -webkit-auto; 
 }
 
 .team-members {

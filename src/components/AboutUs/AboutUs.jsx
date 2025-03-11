@@ -2,7 +2,7 @@ import './AboutUS.css';
 import aboutusHero from '../img/assets/AboutUS/About us nubis.jpg';
 import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
 import aboutceo from '../img/assets/AboutUS/CEO ABOUT US.svg';
-import aboutUs from '../img/assets/AboutUS/about us section in about us page.png';
+import aboutUs from '../img/assets/AboutUS/New about us section img about us page.png';
 // import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
 import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
 import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
@@ -239,14 +239,9 @@ function AboutUS() {
             </div>
             <div className="nimo-text">
               <h2 className="nimo-title">ABOUT US</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p><br />
+              <p>When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
+You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
+.</p><br />
             </div>
           </div>
         </div>

@@ -42,16 +42,9 @@ function ContractDraftingandReview() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">service description</h2>
+            <h2 className="service-description-title">Contract Drafting and Review</h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+              <p>We specialize in drafting and reviewing contracts that protect your interests and ensure compliance with legal standards. Whether it’s an NDA, employment agreement, or commercial contract, our team ensures clarity, enforceability, legally binding and risk-free..</p>
             </div>
           
           <div className="service-description-blocks">
@@ -74,37 +67,37 @@ function ContractDraftingandReview() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Drafting contracts tailored to your business needs.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Reviewing existing contracts for legal risks.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Negotiation support to protect your interests.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Initial consultation to understand your needs.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Drafting or reviewing the contract with attention to detail.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Finalizing the document and providing actionable advice.</p>
         </div>
       </div>
     </div>
