@@ -22,7 +22,7 @@ function RealEstateLegalSupport() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Your Trusted Partner in Property Deals</span>
+                  <span>Your Partner in Real Estate Transactions</span>
                 
                   
                 </h1>
@@ -65,37 +65,37 @@ function RealEstateLegalSupport() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Expert guidance on real estate transactions.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Protection against legal pitfalls.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Peace of mind throughout the process.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Initial consultation to understand your needs.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Review of property documents and agreements.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Negotiation and finalization of terms.</p>
         </div>
       </div>
     </div>

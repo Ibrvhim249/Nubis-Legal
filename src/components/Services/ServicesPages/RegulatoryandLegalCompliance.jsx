@@ -22,7 +22,7 @@ function RegulatoryandLegalCompliance() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Helping You Stay Compliant and Secure</span>
+                  <span>Stay Compliant, Stay Ahead</span>
                 
                   
                 </h1>
@@ -42,7 +42,7 @@ function RegulatoryandLegalCompliance() {
             <div className="service-description-text">
             <h2 className="service-description-title">Regulatory and Legal Compliance</h2>
 
-              <p>Keeping up with regulations is critical for businesses. We help businesses navigate complex regulatory landscapes and avoid costly penalties</p>
+              <p>Keeping up with regulations is critical for businesses. We help businesses navigate complex regulatory landscapes and avoid costly penalties.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -65,37 +65,37 @@ function RegulatoryandLegalCompliance() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Industry-specific compliance strategies.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Risk assessments and policy development.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Legal audits and regulatory updates</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Drafting and reviewing internal policies and procedures.</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Licensing and permit applications.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Training employees on regulatory compliance.</p>
         </div>
       </div>
     </div>

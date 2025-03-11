@@ -22,7 +22,7 @@ function ContractReviewandAnalysis() {
                   </div>
                   <div className="hero-content">
                     <h1 className="hero-title">
-                      <span>Identify Risks Before They Become Issues</span>
+                      <span>Spot Risks Before They Become Problems</span>
                     
                       
                     </h1>
@@ -40,16 +40,9 @@ function ContractReviewandAnalysis() {
          <div className="service-description-container">
            
              <div className="service-description-text">
-             <h2 className="service-description-title">Contract Reviewand Analysis</h2>
+             <h2 className="service-description-title">Contract Review and Analysis</h2>
  
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                 eget feugiat magna rhoncus.</p>
+               <p>Our team meticulously reviews contracts to identify risks and recommend improvements.</p>
              </div>
            
            <div className="service-description-blocks">
@@ -72,37 +65,37 @@ function ContractReviewandAnalysis() {
             {/* Item 1 */}
             <div className="service-data-item">
               <span className="service-number">1</span>
-              <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+              <p>Identification of potential risks and loopholes.</p>
             </div>
     
             {/* Item 2 */}
             <div className="service-data-item">
               <span className="service-number">2</span>
-              <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+              <p>Clear, actionable recommendations.</p>
             </div>
     
             {/* Item 3 */}
             <div className="service-data-item">
               <span className="service-number">3</span>
-              <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+              <p>Confidence in your contractual agreements.</p>
             </div>
     
             {/* Item 4 */}
             <div className="service-data-item">
               <span className="service-number">4</span>
-              <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+              <p>Detailed review of the contract.</p>
             </div>
     
             {/* Item 5 */}
             <div className="service-data-item">
               <span className="service-number">5</span>
-              <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+              <p>Identification of risks and areas for improvement.</p>
             </div>
     
             {/* Item 6 */}
             <div className="service-data-item">
               <span className="service-number">6</span>
-              <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+              <p>Provision of a comprehensive report and recommendations.</p>
             </div>
           </div>
         </div>

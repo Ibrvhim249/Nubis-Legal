@@ -22,7 +22,7 @@ function TaxandFinancialLegalServices() {
               </div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  <span>Expert Tax and Financial Legal Support</span>
+                  <span>Navigating Tax and Financial Laws with Confidence</span>
                 
                   
                 </h1>
@@ -40,7 +40,7 @@ function TaxandFinancialLegalServices() {
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">Taxand Financial Legal Services</h2>
+            <h2 className="service-description-title">Tax and Financial Legal Services</h2>
 
               <p>Our experts help you stay compliant with tax regulations and resolve financial legal disputes.</p>
             </div>
@@ -65,37 +65,37 @@ function TaxandFinancialLegalServices() {
         {/* Item 1 */}
         <div className="service-data-item">
           <span className="service-number">1</span>
-          <p>Expert Legal Consultation: Our team provides comprehensive legal advice tailored to your specific business needs.</p>
+          <p>Compliance with tax and financial regulations.</p>
         </div>
 
         {/* Item 2 */}
         <div className="service-data-item">
           <span className="service-number">2</span>
-          <p>Contract Management: We draft, review, and negotiate contracts to protect your organization&apos;s interests.</p>
+          <p>Expert representation in disputes.</p>
         </div>
 
         {/* Item 3 */}
         <div className="service-data-item">
           <span className="service-number">3</span>
-          <p>Dispute Resolution: Professional mediation and litigation services to resolve commercial conflicts efficiently.</p>
+          <p>Tailored advice for financial planning.</p>
         </div>
 
         {/* Item 4 */}
         <div className="service-data-item">
           <span className="service-number">4</span>
-          <p>Regulatory Compliance: Ensure your operations meet all legal requirements with our compliance audits.</p>
+          <p>Assistance with tax audits and investigations</p>
         </div>
 
         {/* Item 5 */}
         <div className="service-data-item">
           <span className="service-number">5</span>
-          <p>Corporate Governance: Strategic guidance for board management and shareholder relations.</p>
+          <p>Structuring business entities for tax efficiency.</p>
         </div>
 
         {/* Item 6 */}
         <div className="service-data-item">
           <span className="service-number">6</span>
-          <p>International Law: Cross-border legal support for global business operations and expansions.</p>
+          <p>Resolving tax disputes with government authorities.</p>
         </div>
       </div>
     </div>
