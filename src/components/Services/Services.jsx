@@ -181,7 +181,7 @@ function Services() {
         <div className="container mx-auto px-4 py-16">
           <header className="service-page-header flex items-center mb-12">
             <span className="w-1 h-10 bg-gray-400 mr-3" aria-hidden="true"></span>
-            <h2 className="service-page-title">Our Services</h2>
+            <h2 className="service-page-title">Services</h2>
           </header>
 
           <div className="service-page-grid" role="list">

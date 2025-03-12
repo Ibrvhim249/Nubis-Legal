@@ -30,10 +30,11 @@ function Footer() {
           <div className="footer-section-col">
             <h4>Contact us</h4>
             <ul className="footer-section-links">
-              <li><a href="#">+974838273</a></li>
-              <li><a href="#">info@nubis.com</a></li>
-              <li><a href="#">uae,dubai,</a></li>
-              <li><a href="#">office 8.</a></li>
+              <li><a href="#">+971509088954</a></li>
+              <li><a href="#">Info.nubislegal.com</a></li>
+              <li><a href="#">Dubai,Al Masaagd Tower, UAE</a></li>
+              <li><a href="#"> Sharjah Publishing City Business Center, UAE</a></li>
+              <li><a href="#">London, NW8 8SS United Kingdom</a></li>
             </ul>
           </div>
         </div>

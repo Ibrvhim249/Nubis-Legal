@@ -57,7 +57,7 @@
 }
  
 .hero-title {
-  color: rgb(161, 154, 154);
+  color: white;
   font-size: clamp(2rem, 5vw, 3.125rem);
   line-height: 1.2;
   margin-bottom: 0;
