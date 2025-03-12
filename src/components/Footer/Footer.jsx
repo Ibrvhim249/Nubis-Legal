@@ -30,11 +30,11 @@ function Footer() {
           <div className="footer-section-col">
             <h4>Contact us</h4>
             <ul className="footer-section-links">
-              <li><a href="#">+971509088954</a></li>
-              <li><a href="#">Info.nubislegal.com</a></li>
-              <li><a href="#">Dubai,Al Masaagd Tower, UAE</a></li>
-              <li><a href="#"> Sharjah Publishing City Business Center, UAE</a></li>
-              <li><a href="#">London, NW8 8SS United Kingdom</a></li>
+              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">+971509088954</a></li>
+              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">Info.nubislegal.com</a></li>
+              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">Dubai,Al Masaagd Tower, UAE</a></li>
+              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#"> Sharjah Publishing City Business Center, UAE</a></li>
+              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">London, NW8 8SS United Kingdom</a></li>
             </ul>
           </div>
         </div>
