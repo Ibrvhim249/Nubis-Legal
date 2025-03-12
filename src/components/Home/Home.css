@@ -803,7 +803,7 @@
 
 .circle {
   position: absolute;
-  top: 72%;
+  top: 50%;
   right: 9%;
   transform: translateY(-50%);
   width: 6.5%;
