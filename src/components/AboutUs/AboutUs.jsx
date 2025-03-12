@@ -4,7 +4,7 @@ import aboutImage2 from '../img/assets/AboutUS/about us section in about us page
 import aboutceo from '../img/assets/AboutUS/CEO ABOUT US.svg';
 import aboutUs from '../img/assets/AboutUS/New about us section img about us page.png';
 // import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
-import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
+import ourarea from '../img/assets/AboutUS/Our areas of experites new img.png';
 import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
 import visionImage from '../img/assets/AboutUs/our vission macbook screen.png'; // Import vision image
 import valuesImage from '../img/assets/AboutUS/our value macbook screen.png'; // Import values image
@@ -63,22 +63,12 @@ function AboutUS() {
   const renderGoalContent = () => {
     switch (activeTab) {
       case "mission":
-        return <p>We strive to provide cutting-edge,
-           client-centered legal services that simplify complex legal challenges. 
-           Our mission is to build long-term partnerships based on trust,
-            clarity, and impactful results.</p>;
+        return <p>We are dedicated to providing cutting-edge, client-centered legal services that simplify complex legal challenges. Our mission is to build long-term partnerships based on trust, transparency, and impactful results. We aim to deliver efficient, innovative solutions tailored to each client&apos;s unique needs, ensuring their goals are met with precision and professionalism. Through our commitment to excellence and ethical practices, we seek to create lasting value and make a positive difference in the lives of our clients.</p>;
       case "vision":
-        return <p>To be recognized as a leading modern legal consultancy that 
-          transforms the way legal services are delivered—efficient,
-           transparent, and tailored to each client’s needs.</p>;
+        return <p>Our vision is to be recognized as a leading modern legal consultancy that transforms the delivery of legal services—offering solutions that are efficient, transparent, and tailored to each client’s specific needs. We aspire to set new standards in the legal industry by leveraging technology, fostering innovation, and continuously evolving to meet the changing landscape. By prioritizing client satisfaction and trust, we aim to be the go-to legal partner known for delivering exceptional value and impactful results.</p>;
       case "values":
         return <p>
-        o	Integrity: We uphold the highest ethical standards in everything we do. <br />
-        o	Innovation: We embrace modern solutions to deliver efficient, effective results. <br />
-        o	Client Focus: Your needs are at the heart of our work. <br />
-        o	Excellence: We strive for the highest quality in every case. <br />
-        o	Collaboration: We work with you as a partner, not just a service provider.
-        </p>;
+       Our core values focus on integrity, innovation, and client satisfaction. We uphold ethical standards, embrace new technologies for efficiency, and prioritize tailored solutions to meet each client&apos;s unique needs. These principles drive our commitment to delivering exceptional legal services and building long-term relationships.</p>;
       default:
         return null;
     }
@@ -137,7 +127,7 @@ function AboutUS() {
             src={aboutusHero} 
             alt="Decorative background" 
             className="hero-bg"
-            role="presentation" // For screen readers (since it's decorative)
+            role="presentation" 
           />
           <div className="hero-overlay"></div>
         </div>

@@ -1,5 +1,5 @@
 import './Footer.css';
-import nubisIcon from '../img/assets/final media/our features icon SVG/Client-Focused Approach.svg';
+// import nubisIcon from '../img/assets/final media/our features icon SVG/Client-Focused Approach.svg';
 
 function Footer() {
   return (
@@ -8,13 +8,12 @@ function Footer() {
       <footer className="footer-section">
         <div className="container footer-section-grid">
           <div className="footer-section-col">
-            <h3 className="footer-section-logo"><img src={nubisIcon} />NUBIS</h3>
+            <h3 className="footer-section-logo">NUBIS</h3>
             <p className="footer-section-about">Where innovation meets <br /> expertise delivering smarter <br /> legal solutions.</p>
             <div className="footer-section-social-links">
               <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
               <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="#" aria-label="GitHub"><i className="fab fa-github"></i></a>
-              <a href="#" aria-label="Dribbble"><i className="fab fa-dribbble"></i></a>
+              <a href="#" aria-label="GitHub"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
           
