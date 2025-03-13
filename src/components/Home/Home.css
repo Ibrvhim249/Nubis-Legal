@@ -1126,6 +1126,10 @@
 }
 
 
+.blog-section-date{
+  color: white;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .blog-section {

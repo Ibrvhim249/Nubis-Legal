@@ -304,7 +304,7 @@
   }
 
   .dropdown-menu {
-    position: static;
+    position: relative;
     box-shadow: none;
     opacity: 1;
     visibility: hidden;
@@ -314,14 +314,15 @@
     transition: max-height 0.3s ease, padding 0.3s ease;
     padding: 0;
     margin: 0;
-    width: 100%;
+    min-width: auto;
     background-color: #f5f7ff;
     border-radius: 4px;
+    overflow-y: scroll;
   }
 
   .dropdown-menu.visible {
     visibility: visible;
-    max-height: 500px;
+    max-height: 100%;
     padding: 0.5rem 0;
     margin: 0.5rem 0;
   }

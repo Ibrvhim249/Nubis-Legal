@@ -10,7 +10,7 @@ const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&ord
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
-import { IoMdQuote } from "react-icons/io";
+// import { IoMdQuote } from "react-icons/io";
 
 
 
@@ -65,30 +65,30 @@ function Home() {
       .finally(() => setLoading(false));
   }, []);
  
-  const testimonials = [
-    {
-      name: "Maria Smantha",
-      role: "Web Developer",
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
-      testimonial:
-        "A aliquam amet animi blanditiis. Est, exercitationem id ipsa ipsum laboriosam perferendis.",
-    },
-    {
-      name: "Lisa Cudrow",
-      role: "Graphic Designer",
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
-      testimonial:
-        "totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
-    },
-    {
-      name: "John Smith",
-      role: "Marketing Specialist",
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
-      testimonial:
-        "At vero eos  quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
-    },
-  ];
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  // const testimonials = [
+  //   {
+  //     name: "Maria Smantha",
+  //     role: "Web Developer",
+  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+  //     testimonial:
+  //       "A aliquam amet animi blanditiis. Est, exercitationem id ipsa ipsum laboriosam perferendis.",
+  //   },
+  //   {
+  //     name: "Lisa Cudrow",
+  //     role: "Graphic Designer",
+  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+  //     testimonial:
+  //       "totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+  //   },
+  //   {
+  //     name: "John Smith",
+  //     role: "Marketing Specialist",
+  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+  //     testimonial:
+  //       "At vero eos  quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
+  //   },
+  // ];
+  // const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   return (
     <>
@@ -414,9 +414,9 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
               className="w-full h-40 object-cover"
             />
           </div>
-          <span className="text-sm text-gray-500">
+          <span className="blog-section-date">
             {new Date(post.date).toLocaleDateString()}
-          </span>
+        </span>
           <h3 className="text-xl font-bold mt-2 mb-4">{post.title.rendered}</h3>
           <div 
             className="text-base text-gray-700 leading-relaxed mb-4" 
@@ -434,7 +434,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
-{/* ----------- Testimonials ----------- */}
+{/* ----------- Testimonials -----------
 <section className="testimonials">
   <div className="container my-5 py-5">
     <h1 className="testimonials-title">TESTIMONIAL</h1>
@@ -486,7 +486,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       </div>
     </div>
   </div>
-</section>
+</section> */}
 
 
 
