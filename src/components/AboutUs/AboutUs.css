@@ -75,7 +75,7 @@
       flex-direction: column;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 0rem;
       justify-content: center;
       max-width: 450px;
     }
@@ -217,7 +217,7 @@
   
   .about-us-ceo-text p{
     padding-bottom: 10px;
-    font-size: 10px;
+    
     text-align: justify;
   }
 
@@ -514,7 +514,7 @@
     }
     
     .c-goal-text p {
-      font-size: 22px;
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
       color: #666;
       line-height: 1.6;
       margin-bottom: 2rem;
@@ -545,9 +545,7 @@
         font-size: 18px;
       }
     
-      .c-goal-text p {
-        font-size: 18px;
-      }
+     
     
       .c-goal-image {
         height: 277px;
@@ -589,9 +587,7 @@
         width: 279px;
       }
     
-      .c-goal-text p {
-        font-size: 10px;
-      }
+     
     }
 
 

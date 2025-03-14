@@ -93,7 +93,7 @@
   }
   
   .service-description-blocks img {
-    width: 13rem;
+    width: 100%;
   object-fit: cover;
   }
   
@@ -104,7 +104,7 @@
   
   .service-description-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2rem;
     align-items: center;
     max-width: 400px;
@@ -120,8 +120,7 @@
   .service-description-blocks {
     display: grid;
     gap: 1.5rem;
-    max-width: 300px;
-    max-height: 350px;
+    width: auto;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
   }
@@ -144,14 +143,14 @@
   
   .service-description-text p {
     padding-bottom: 10px;
-    font-size: 10px;
+    
     text-align: justify;
   }}
 
 
 
   /* ======================
-   About Us Section
+   service data Section
    ====================== */
    .service-data {
     display: flex;
@@ -178,7 +177,6 @@
   
   .service-data-blocks {
     flex: 1;
-    max-width: 600px;
   }
   
   .service-data-blocks img {
@@ -217,7 +215,7 @@
   }
   
   .service-data-text p {
-    font-size: 18px;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
     color: #666;
     line-height: 1.6;
     margin: 0;
@@ -290,7 +288,6 @@
     }
     
     .service-data-text p {
-      font-size: 15px;
       color: #666;
       line-height: 1.6;
       margin: 0;
@@ -368,14 +365,13 @@
     }
     
     .service-data-text p {
-      font-size: 10px;
       color: #666;
       line-height: 1.6;
       margin: 0;
       padding-right: 20px;
     }
     
-    /* Responsive Design */
+
     
   
   }
