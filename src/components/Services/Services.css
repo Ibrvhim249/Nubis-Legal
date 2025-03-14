@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3%;
   }
   
   .service-page-title {
@@ -59,7 +59,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     min-height: 380px;
-    border: 1px solid white;
+    border: 2px solid white;
     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
     display: flex;
     flex-direction: column;
@@ -89,14 +89,14 @@
   }
   
   .service-page-item h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 700;
     color: white;
     margin-bottom: 1rem;
   }
   
   .service-page-item p {
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     margin-bottom: 0.5rem;
@@ -213,7 +213,7 @@
     font-size: 30px;
     font-weight: bold;
     padding-left: 15px;
-    color: #111;
+    color: white;
     text-transform: uppercase;
   }
   
@@ -234,7 +234,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-height: 310px;
     width: 270px;
-    border: 1px solid white;
+    border: 2px solid white;
     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
     display: flex;
     flex-direction: column;
@@ -264,14 +264,14 @@
   }
   
   .service-page-item h3 {
-    font-size: 20px;
+  
     font-weight: 700;
     color: white;
     margin-bottom: 1rem;
   }
   
   .service-page-item p {
-    font-size: 15px;
+    
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     margin-bottom: 0.5rem;
@@ -365,7 +365,7 @@
     gap: 2rem;
     padding: 2rem 0;
     justify-items: center;
-    padding-left: 50px;
+    padding-left: 85px;
   }
   
   .service-page-item {
@@ -376,7 +376,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-height: 290px;
     max-width: 240px;
-    border: 1px solid white;
+    border: 2px solid white;
     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
     display: flex;
     flex-direction: column;
@@ -406,14 +406,14 @@
   }
   
   .service-page-item h3 {
-    font-size: 15px;
+
     font-weight: 700;
     color: white;
     margin-bottom: 1rem;
   }
   
   .service-page-item p {
-    font-size: 10px;
+    
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     margin-bottom: 0.5rem;

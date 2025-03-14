@@ -48,7 +48,7 @@ const SERVICES_DATA = [
                   title: "Trademark and Intellectual Property Registration",
                   path: "trademark-registration",
                   description: "Protect Your Brand and Innovations",
-                  text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                  text:' help these teams execute their new strategies quickly and with ease.',
                   icon: svg4
                 },
                 {

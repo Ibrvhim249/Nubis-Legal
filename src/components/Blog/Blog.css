@@ -124,7 +124,7 @@
     align-items: center;
     text-decoration: none;
     color: #002B5A;
-    font-size: 10px;
+    font-size: clamp(0.92rem,0.92vw,0.9375rem);
     font-weight: bold;
   }
   
@@ -184,9 +184,6 @@
     height: 18px;
   }
 
-  .read-more {
-    font-size: 12px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -225,7 +222,5 @@
     height: 16px;
   }
 
-  .read-more {
-    font-size: 11px;
-  }
+ 
 }

@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { throttle } from 'lodash-es';
 import './Header.css';
+import { IoIosArrowDropdown } from "react-icons/io";
+
 
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
@@ -134,13 +136,13 @@ export default function Header() {
                         {link.name}
                       </NavLink>
                       <button
-                        className={`submenu-toggle ${openSubmenu === link.path ? 'active' : ''}`}
-                        onClick={() => handleSubmenuToggle(link.path)}
-                        aria-expanded={openSubmenu === link.path}
-                        aria-controls={`dropdown-${link.path.replace(/\//g, "-")}`}
-                      >
-                        <span className="dropdown-arrow"style={{color: 'white' }} />
-                      </button>
+  className={`submenu-toggle ${openSubmenu === link.path ? 'active' : ''}`}
+  onClick={() => handleSubmenuToggle(link.path)}
+  aria-expanded={openSubmenu === link.path}
+  aria-controls={`dropdown-${link.path.replace(/\//g, "-")}`}
+>
+  <IoIosArrowDropdown className="dropdown-icon" />
+</button>
                     </div>
                     <ul
                       id={`dropdown-${link.path.replace(/\//g, "-")}`}

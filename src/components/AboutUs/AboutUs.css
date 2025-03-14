@@ -72,12 +72,17 @@
     
     .about-us-page-content {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       flex-wrap: wrap;
       align-items: center;
       gap: 1rem;
       justify-content: center;
       max-width: 450px;
+    }
+
+    .about-us-page-blocks img {
+      width: 100%;
+    
     }
   }
   
@@ -218,7 +223,7 @@
 
 
 .about-us-ceo-blocks img{
-  width: 100%;
+  width: 120%;
   object-fit: cover;
 }
 
@@ -427,6 +432,10 @@
       flex-direction: column;
     }
 
+    .nimo-blocks{
+      min-height: 0px;
+
+    }
 
   }
   
@@ -567,7 +576,7 @@
 
       .c-goal-btn {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: left;
       }
     
       .c-goal-btn button {

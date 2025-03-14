@@ -372,8 +372,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
     className="image-section-bg">
     <div className="image-section-overlay"></div>
     <div className="text-container">
-      <h1>Nubis Legal Where Expertise</h1>
-      <h2>Meets Innovation</h2>
+      <h2>Nubis Legal Where Expertise <br />Meets Innovation</h2>
     </div>
     <img className="circle"
     src={imagesection}
