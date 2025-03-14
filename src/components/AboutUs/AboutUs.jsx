@@ -160,7 +160,8 @@ function AboutUS() {
               <h2 className="about-us-page-title">ABOUT US</h2>
               <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
               <br />
-              When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
+              When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
+You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
               </p>
             </div>
           </div>
@@ -172,9 +173,7 @@ function AboutUS() {
         <div className="about-us-ceo-container">
           
            {/* Right Text Section */}
-           <div className="about-us-ceo-text">
-                <p>&quot; The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions...&quot;</p>
-                
+           <div className="about-us-ceo-text" style={{ color: 'white' }}>           &quot; The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions that empower them to thrive in an ever-evolving world. Our team of legal professionals is here to guide you every step of the way, ensuring your rights and interests are always protected.&quot;                
             </div>
             
           
