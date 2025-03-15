@@ -22,13 +22,14 @@ const TeamMember = ({ image, name, role, description }) => {
       </div>
     </div>
   );
+  
 };
 
 TeamMember.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 function AboutUS() {
@@ -74,7 +75,7 @@ function AboutUS() {
     }
   };
 
-  const CounterCard = ({ number, title, description, start }) => {
+  const CounterCard = ({ number, title, description, start, symbol = "+" }) => {
     const [count, setCount] = useState(1);
     const hasAnimated = useRef(false);
 
@@ -88,7 +89,7 @@ function AboutUS() {
           const incrementTime = 50;
 
           const increment = () => {
-            startCount = Math.min(startCount + 2, end);
+            startCount = Math.min(startCount + 30, end);
             setCount(startCount);
             if (startCount < end) {
               setTimeout(increment, incrementTime);
@@ -104,7 +105,7 @@ function AboutUS() {
 
     return (
       <div className="counter-card">
-        <h2 className="counter-number">{count}+</h2>
+        <h2 className="counter-number">{count}{symbol}</h2>
         <h3 className="counter-title">{title}</h3>
         <p className="counter-description">{description}</p>
       </div>
@@ -116,6 +117,8 @@ function AboutUS() {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     start: PropTypes.bool.isRequired,
+    symbol: PropTypes.string,
+
   };
 
   return (
@@ -193,28 +196,29 @@ You can choose from a comprehensive range of service solutions, all backed by de
           <div className="counter-grid">
             <CounterCard 
               start={isCounterVisible}
-              number={70} 
-              title="Coded Elements" 
-              description="From buttons, to inputs, navbars, alerts or cards, you are covered"
+              number={500} 
+              title="Successful Legal Cases" 
+              description="Protecting clients with expert legal representation."
             />
             <CounterCard 
               start={isCounterVisible}
-              number={15} 
-              title="Design Blocks" 
-              description="Mix the sections, change the colors and unleash your creativity"
+              number={1000} 
+              title="Contracts Drafted & Reviewed" 
+              description="Ensuring risk-free, legally binding agreements"
             />
             <CounterCard 
               start={isCounterVisible}
-              number={4} 
-              title="Pages" 
-              description="Save 3-4 weeks of work when you use our pre-made pages for your website"
+              number={200} 
+              title="Businesses Registered" 
+              description="Hassle-free company formation & compliance"
             />
             <CounterCard 
-              start={isCounterVisible}
-              number={99} 
-              title="Satisfaction" 
-              description="Join thousands of happy customers using our templates and components"
-            />
+  start={isCounterVisible}
+  number={98} 
+  title="Client Satisfaction" 
+  description="Trusted by businesses and individuals alike"
+  symbol="%"
+/>
           </div>
         </div>
       </section>
