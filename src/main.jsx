@@ -1,6 +1,6 @@
-import { StrictMode, useState } from 'react';
+import { StrictMode, useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -8,8 +8,9 @@ import Home from './components/Home/Home';
 import AboutUs from './components/AboutUs/AboutUs';
 import Blog from './components/Blog/Blog';
 import Services from './components/Services/Services';
-import IntroVideo from './components/intro/IntroVideo'; 
+import IntroVideo from './components/intro/IntroVideo';
 
+// Service components
 import ContractDraftingandReview from "./components/Services/ServicesPages/ContractDraftingandReview";
 import LegalConsultation from "./components/Services/ServicesPages/LegalConsultation";
 import CompanyFormationandRegistration from "./components/Services/ServicesPages/CompanyFormationandRegistration";
@@ -23,17 +24,27 @@ import RealEstateLegalSupport from "./components/Services/ServicesPages/RealEsta
 import TaxandFinancialLegalServices from "./components/Services/ServicesPages/TaxandFinancialLegalServices";
 import RegulatoryandLegalCompliance from "./components/Services/ServicesPages/RegulatoryandLegalCompliance";
 
+// Scroll to top component
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 export const MainApp = () => {
   const [showMainContent, setShowMainContent] = useState(false);
 
   return (
     <>
-      {/* introvideo*/}
       {!showMainContent && <IntroVideo onFinish={() => setShowMainContent(true)} />}
 
-      {/* introVidio*/}
       {showMainContent && (
         <Router>
+          <ScrollToTop />
           <Header />
           <main>
             <Routes>
@@ -42,7 +53,7 @@ export const MainApp = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/services" element={<Services />} />
               
-              {/* service pages */}
+              {/* Service pages */}
               <Route path="/services/contract-drafting" element={<ContractDraftingandReview />} />
               <Route path="/services/legal-consultation" element={<LegalConsultation />} />
               <Route path="/services/companyformation" element={<CompanyFormationandRegistration />} />

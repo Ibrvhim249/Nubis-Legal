@@ -402,7 +402,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       {posts.map((post) => (
         <a 
           key={post.id} 
-          href={post.link}
+          href="/blog"
           className="blog-section-item block bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:no-underline cursor-pointer"
           aria-label={`Read more about ${post.title.rendered}`}
         >
