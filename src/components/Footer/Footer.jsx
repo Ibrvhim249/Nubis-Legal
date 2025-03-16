@@ -11,9 +11,9 @@ function Footer() {
             <h3 className="footer-section-logo">NUBIS</h3>
             <p className="footer-section-about">Where innovation meets <br /> expertise delivering smarter <br /> legal solutions.</p>
             <div className="footer-section-social-links">
-              <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-              <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="#" aria-label="GitHub"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/nubis-legal-555982333/" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+              <a href="https://x.com/nubislegal" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/nubislegal/" aria-label="GitHub"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
           
