@@ -234,7 +234,7 @@ You can choose from a comprehensive range of service solutions, all backed by de
               <h2 className="nimo-title">Our Area of Expertise</h2>
               <p>When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
 You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
-.</p><br />
+</p>
             </div>
           </div>
         </div>
