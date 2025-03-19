@@ -182,25 +182,24 @@
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 2rem;
-  padding: 136px 50px 136px 50px;
+  padding: 8.5rem 3.125rem;
   
 }
 
 .features-container {
-  display: grid;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto; 
 }
 
 .feature-header h2 {
   display: grid;
-  padding-bottom: 30px;
+  margin-bottom: 1.875rem;
   align-items: center;
   text-align: center;
-  font-size: 40px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem); 
   text-transform: uppercase;
   font-weight: bold;
   color: white;
@@ -219,13 +218,14 @@
 
 .feature-card {
   background: transparent;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1rem;
   text-align: left;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 384px; /* Ensure cards take full width on smaller screens */
-  height: 250px;
+  /* height: 250px; */
+  height: auto;
   border: 4px solid #fff;
   box-sizing: border-box;
 
@@ -250,14 +250,14 @@
 }
 
 .feature-card h3 {
-  font-size: 23px;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   margin-bottom: 1rem;
   font-weight: bold;
   color: white;
 }
 
 .feature-card p {
-  font-size: 15px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: white;
   line-height: 1.6;
 }
@@ -315,7 +315,7 @@
   
   .feature-header h2 {
     display: grid;
-    padding-bottom: 30px;
+    
     align-items: center;
     text-align: center;
     font-size: 30px;
@@ -337,13 +337,12 @@
   
   .feature-card {
     background: transparent;
-    padding: 2rem;
     border-radius: 1rem;
     text-align: left;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 320px; 
-    height: 200px;
+    /* height: 200px; */
     border: 3px solid #fff;
     box-sizing: border-box;
   
@@ -371,14 +370,12 @@
     height: 27px;
   }
   .feature-card h3 {
-    font-size: 15px;
     margin-bottom: 1rem;
     font-weight: bold;
     color: white;
   }
   
   .feature-card p {
-    font-size: 10px;
     color: white;
     line-height: 1.6;
   }
@@ -399,7 +396,7 @@
     align-items: flex-start;
     background: #fff;
     gap: 2rem;
-    padding: 80px 30px;
+    padding: 80px 16px;
     margin-top: 130px;
   }
   
@@ -414,10 +411,9 @@
   
   .feature-header h2 {
     display: grid;
-    padding-bottom: 30px;
     align-items: center;
     text-align: center;
-    font-size: 40px;
+    /* font-size: 40px; */
     text-transform: uppercase;
     font-weight: bold;
     color: white;
@@ -436,13 +432,13 @@
   
   .feature-card {
     background: transparent;
-    padding: 2rem;
     border-radius: 1rem;
     text-align: left;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 320px; 
-    max-height: 180px;
+    width: fit-content;
+    /* max-width: 20rem;  */
+    /* max-height: 180px; */
     border: 3px solid #fff;
     box-sizing: border-box;
   
@@ -467,14 +463,12 @@
   }
   
   .feature-card h3 {
-    font-size: 15px;
     margin-bottom: 1rem;
     font-weight: bold;
     color: white;
   }
   
   .feature-card p {
-    font-size: 10px;
     color: white;
     line-height: 1.6;
   }
@@ -614,7 +608,6 @@
   
   .ceo-text p{
     padding-bottom: 10px;
-    font-size: 10px;
     text-align: justify;
   }
 
@@ -731,7 +724,7 @@
   
   .services-section-link {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 0.5rem;
     right: 1.5rem;
     color: white;
     font-size: 2rem;
@@ -760,7 +753,12 @@
     transform: translateX(5px);
   }
   
+@media (max-width: 480px) {
 
+  .services{
+    padding: 10% 1rem;
+  }
+}
 
 
 
@@ -1064,14 +1062,15 @@
 
 .blog-section-header {
   font-family: 'Roboto Slab';
-  font-size: 40px;
+  
   font-weight: bold;
   border-left: 6px solid #B39957;
 }
 
 .blog-section-title {
   padding-left: 10px;
-  font-size: 40px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);  
+
 }
 
 .blog-section-grid {
@@ -1110,14 +1109,14 @@
 }
 
 .blog-section-item h3 {
-  font-size: 23px;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: bold;
   color: #FFFFED;
   margin: 8px 0;
 }
 
 .blog-section-item p {
-  font-size: 15px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: #d3d3d3;
   line-height: 1.6;
   padding-bottom: 5%;
@@ -1163,26 +1162,12 @@
     height: 300px;
   }
   
-  .blog-section-item h3 {
-    font-size: 15px;
-  }
-  
-  .blog-section-item p {
-    font-size: 13px;
-  }
+ 
 }
 
 @media (max-width: 480px) {
   .blog-section {
-    padding: 136px 30px 0;
-  }
-  
-  .blog-section-header {
-    font-size: 20px;
-  }
-  
-  .blog-section-title {
-    font-size: 20px;
+    padding: 10% 1rem;
   }
   
   .blog-section-item {
@@ -1195,13 +1180,8 @@
     max-height: 250px;
   }
   
-  .blog-section-item h3 {
-    font-size: 13px;
-  }
   
-  .blog-section-item p {
-    font-size: 10px;
-  }
+
 }
 /* Scroll Container */
 .scroll-container {

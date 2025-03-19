@@ -20,7 +20,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 
 import homeHero from '../img/assets/Home/Home page nubis image .jpg';
 import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
-import ceo from "../img/assets/Home/ceo home page .svg"
+import ceo from "../img/assets/Home/ceo home page.png"
 import aboutUsImg from '../img/assets/Home/New about us section img  Home page.png';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
 import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
@@ -164,23 +164,23 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       {[
         { 
           icon: icon1,
-          title: "Experienced Legal Professionals",
-          text: "Decades of combined expertise."
+          title: "Modern Legal Solutions",
+          text: "uses technology to improve efficiency, cut costs, and provide faster, more personalized legal services."
         },
             {
               icon: icon2,
-              title: "Client-Focused Approach",
-              text: "Tailored solutions for your unique needs.",
+              title: "Experienced Legal Professionals",
+              text: "deliver expert legal guidance with strong advocacy and tailored solutions, ensuring successful outcomes for clients.",
             },
             {
               icon:  icon3,
-              title: "Modern Legal Solutions",
-              text: "Leveraging technology for efficiency",
+              title: "Client-Focused Approach",
+              text: "centers on understanding and addressing clients' unique needs. It emphasizes personalized solutions, clear communication, and achieving optimal results.",
             },
             { 
               icon: icon4,
               title: "Transparent Pricing",
-              text: "Clear, upfront costs with no hidden fees",
+              text: "ensures clients understand the full cost of services upfront. It offers clear, predictable pricing with no hidden fees, fostering trust and financial clarity.",
             },
           ].map((feature, index) => (
             <FeatureCard

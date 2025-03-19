@@ -9,6 +9,12 @@ const ImageComponent = ({ headings, imageUrl }) => {
 
   const parallaxRef = useRef(null);
   const stickyContainerRef = useRef(null);
+  const currentIndexRef = useRef(currentIndex);
+
+  // Sync ref with current index
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   // Track component visibility
   useEffect(() => {
@@ -21,26 +27,30 @@ const ImageComponent = ({ headings, imageUrl }) => {
     return () => currentRef && observer.unobserve(currentRef);
   }, []);
 
-  // Handle scroll effects when visible
+  // Optimized scroll handler
   const handleScroll = useCallback(() => {
     if (!isVisible || !parallaxRef.current) return;
 
-    const { top, height } = parallaxRef.current.getBoundingClientRect();
-    const scrollRange = height - window.innerHeight;
-    const scrollProgress = Math.max(0, -top / scrollRange);
+    requestAnimationFrame(() => {
+      const { top, height } = parallaxRef.current.getBoundingClientRect();
+      const scrollRange = height - window.innerHeight;
+      const scrollProgress = Math.max(0, -top / scrollRange);
 
-    // Update current section index
-    const newIndex = Math.min(
-      Math.floor(scrollProgress * headings.length),
-      headings.length - 1
-    );
-    if (newIndex !== currentIndex) setCurrentIndex(newIndex);
+      // Update index using ref to avoid stale state
+      const newIndex = Math.min(
+        Math.floor(scrollProgress * headings.length),
+        headings.length - 1
+      );
+      if (newIndex !== currentIndexRef.current) {
+        setCurrentIndex(newIndex);
+      }
 
-    // Update background scale
-    setScale(1 + scrollProgress * 0.1);
-  }, [isVisible, currentIndex, headings.length]);
+      // Update scale
+      setScale(1 + scrollProgress * 0.1);
+    });
+  }, [isVisible, headings.length]);
 
-  // Attach scroll listener
+  // Scroll listener with passive handling
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);

@@ -1,7 +1,7 @@
 import './AboutUS.css';
 import aboutusHero from '../img/assets/AboutUS/About us nubis.jpg';
 import aboutImage2 from '../img/assets/AboutUS/about us section in about us page.png';
-import aboutceo from '../img/assets/AboutUS/CEO ABOUT US.svg';
+import aboutceo from '../img/assets/AboutUS/Group 690.png';
 import aboutUs from '../img/assets/AboutUS/New about us section img about us page.png';
 // import ceoBanner from '../img/assets/AboutUS/ABOUT US CEO BANNER.svg';
 import ourarea from '../img/assets/AboutUS/Our areas of experites new img.png';
@@ -75,10 +75,17 @@ function AboutUS() {
     }
   };
 
-  const CounterCard = ({ number, title, description, start, symbol = "+" }) => {
+  const CounterCard = ({ 
+    number, 
+    title, 
+    description, 
+    start, 
+    symbol = "+", 
+    increment = 30 // Default increment of 30 if not specified
+  }) => {
     const [count, setCount] = useState(1);
     const hasAnimated = useRef(false);
-
+  
     useEffect(() => {
       if (start && !hasAnimated.current) {
         hasAnimated.current = true;
@@ -87,22 +94,22 @@ function AboutUS() {
           let startCount = 1;
           const end = number;
           const incrementTime = 50;
-
-          const increment = () => {
-            startCount = Math.min(startCount + 30, end);
+  
+          const incrementFn = () => {
+            startCount = Math.min(startCount + increment, end);
             setCount(startCount);
             if (startCount < end) {
-              setTimeout(increment, incrementTime);
+              setTimeout(incrementFn, incrementTime);
             }
           };
-
-          increment();
+  
+          incrementFn();
         };
-
+  
         incrementCount();
       }
-    }, [start, number]);
-
+    }, [start, number, increment]); // Added increment to dependencies
+  
     return (
       <div className="counter-card">
         <h2 className="counter-number">{count}{symbol}</h2>
@@ -111,14 +118,14 @@ function AboutUS() {
       </div>
     );
   };
-
+  
   CounterCard.propTypes = {
     number: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     start: PropTypes.bool.isRequired,
     symbol: PropTypes.string,
-
+    increment: PropTypes.number, // Added increment prop type
   };
 
   return (
@@ -197,24 +204,28 @@ You can choose from a comprehensive range of service solutions, all backed by de
             <CounterCard 
               start={isCounterVisible}
               number={500} 
+              increment={20}
               title="Successful Legal Cases" 
               description="Protecting clients with expert legal representation."
             />
             <CounterCard 
               start={isCounterVisible}
-              number={1000} 
+              number={1000}
+              increment={30} 
               title="Contracts Drafted & Reviewed" 
               description="Ensuring risk-free, legally binding agreements"
             />
             <CounterCard 
               start={isCounterVisible}
               number={200} 
+              increment={7}
               title="Businesses Registered" 
               description="Hassle-free company formation & compliance"
             />
             <CounterCard 
   start={isCounterVisible}
   number={98} 
+  increment={3}
   title="Client Satisfaction" 
   description="Trusted by businesses and individuals alike"
   symbol="%"

@@ -275,7 +275,7 @@
 }
 
 .counter-description {
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
   color: white;
   line-height: 1.6;
   max-width: 300px;
@@ -311,7 +311,7 @@
   }
   
   .counter-description {
-    font-size: 0.5rem;
+    
     line-height: 1.6;
     max-width: 300px;
     margin: 0 auto;
@@ -336,19 +336,17 @@
   }
 
   .counter-number {
-    font-size: 1.5rem;
+    
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
   
   .counter-title {
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   
   .counter-description {
-    font-size: 0.7rem;
-
     line-height: 1.6;
     max-width: 300px;
     margin: 0 auto;
@@ -426,10 +424,15 @@
   }
   
   @media (max-width: 480px) {
+
+    .nimo{
+      padding-bottom:0px ;
+    }
     
     .nimo-content {
       display: flex;
       flex-direction: column;
+      gap: 0rem;
     }
 
     .nimo-blocks{

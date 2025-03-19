@@ -228,7 +228,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 136px 50px;
+      
       background-color: #ffffff;
     }
     
@@ -303,7 +303,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 136px 20px;
       background-color: #ffffff;
     }
     
