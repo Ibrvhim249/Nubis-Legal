@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Blog.css';
 import blogHero from '../img/assets/Blog/blog image .jpg';
-import { LuSend } from "react-icons/lu";
+// import { LuSend } from "react-icons/lu";
 
 
 const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&order=desc&orderby=date';
@@ -81,7 +81,7 @@ function Blog() {
               dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
             />
             <div className="in-divider"></div>
-            <div className="blog-links-container">
+            {/* <div className="blog-links-container">
               
               <a href={post.link} className="read-more">
                 READ MORE
@@ -91,12 +91,12 @@ function Blog() {
                   </svg>
                 </span>
               </a>
-            </div>
+            </div> */}
             
           </div>
-          <a href={post.link} className="link-icon">
+          {/* <a href={post.link} className="link-icon">
           <LuSend />
-              </a>
+              </a> */}
               
         </article>
         <div className="bottom-divider"></div>
