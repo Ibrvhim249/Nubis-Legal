@@ -1,52 +1,81 @@
-import './Footer.css';
-// import nubisIcon from '../img/assets/final media/our features icon SVG/Client-Focused Approach.svg';
+"use client";
 
-function Footer() {
+import { Linkedin, Twitter, Instagram } from "lucide-react";
+import './Footer.css';
+
+export default function Footer() {
   return (
-    <>
-      {/* -- Footer -- */}
-      <footer className="footer-section">
-        <div className="container footer-section-grid">
-          <div className="footer-section-col">
-            <h3 className="footer-section-logo">NUBIS</h3>
-            <p className="footer-section-about">Where innovation meets <br /> expertise delivering smarter <br /> legal solutions.</p>
-            <div className="footer-section-social-links">
-              <a href="https://www.linkedin.com/in/nubis-legal-555982333/" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-              <a href="https://x.com/nubislegal" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/nubislegal/" aria-label="GitHub"><i className="fab fa-instagram"></i></a>
-            </div>
+    <footer className="footer-container">
+      <div className="footer-content">
+        {/* Top Section */}
+        <div className="footer-top">
+          <div className="footer-logo-section">
+            <h2 className="footer-logo">NUBIS</h2>
+            <p className="footer-description">
+              Where innovation meets expertise delivering smarter legal solutions.
+            </p>
           </div>
-          
-          <div className="footer-section-col">
-            <h4>Useful links</h4>
-            <ul className="footer-section-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#blog">Blog</a></li>
+
+          {/* Social Links */}
+          <div className="footer-social-links">
+            <a
+              href="https://www.linkedin.com/in/nubis-legal-555982333/"
+              aria-label="LinkedIn"
+              className="footer-social-icon"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="https://x.com/nubislegal"
+              aria-label="Twitter"
+              className="footer-social-icon"
+            >
+              <Twitter size={18} />
+            </a>
+            <a
+              href="https://www.instagram.com/nubislegal/"
+              aria-label="Instagram"
+              className="footer-social-icon"
+            >
+              <Instagram size={18} />
+            </a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="footer-divider" />
+
+        {/* Content Grid */}
+        <div className="footer-grid">
+          {/* Useful Links Column */}
+          <div className="footer-column">
+            <h3 className="footer-column-title">Useful links</h3>
+            <ul className="footer-links">
+              <li><a href="#home" className="footer-link">Home</a></li>
+              <li><a href="#about" className="footer-link">About Us</a></li>
+              <li><a href="#services" className="footer-link">Services</a></li>
+              <li><a href="#blog" className="footer-link">Blog</a></li>
             </ul>
           </div>
-          
-          <div className="footer-section-col">
-            <h4>Contact us</h4>
-            <ul className="footer-section-links">
-              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">+971509088954</a></li>
-              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">Info.nubislegal.com</a></li>
-              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">Dubai,Al Masaagd Tower, UAE</a></li>
-              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#"> Sharjah Publishing City Business Center, UAE</a></li>
-              <li style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)" }}><a href="#">London, NW8 8SS United Kingdom</a></li>
+
+          {/* Contact Column */}
+          <div className="footer-column">
+            <h3 className="footer-column-title">Contact us</h3>
+            <ul className="footer-links">
+              <li><a href="tel:+971509088954" className="footer-link">+971 50 908 8954</a></li>
+              <li><a href="mailto:info@nubislegal.com" className="footer-link">info@nubislegal.com</a></li>
+              <li className="footer-address">Dubai, Al Masaagd Tower, UAE</li>
+              <li className="footer-address">Sharjah Publishing City Business Center, UAE</li>
+              <li className="footer-address">London, NW8 8SS United Kingdom</li>
             </ul>
           </div>
         </div>
-        
-        <div className="footer-section-bottom">
-          <div className="container">
-            <p>&copy; ALL COPYRIGHT RESERVED FOR NUBIS</p>
-          </div>
+
+        {/* Copyright */}
+        <div className="footer-copyright">
+          <p>&copy; ALL COPYRIGHT RESERVED FOR NUBIS</p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
-
-export default Footer;

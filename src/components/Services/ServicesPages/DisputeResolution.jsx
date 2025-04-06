@@ -1,12 +1,20 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L8 from "../../img/assets/final media/services IMAGE/L  8.png";
 import s8 from "../../img/assets/final media/services IMAGE/s 8.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 
 function DisputeResolution() {
 
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -52,6 +60,46 @@ function DisputeResolution() {
           </div>
         
       </section>
+
+
+      {/* -- Main Point Section -- */}
+                         <section className="main-point">
+                           <div className="main-point-container">
+                             <div className="main-point-content">
+                               {/* Left Image Blocks */}
+                               <div className="main-point-blocks">
+                                 <img src={L8} alt="About Us 2" />
+                               </div>
+                   
+                               {/* Right Text Section */}
+                               <div className="main-point-text">
+                                 <h2 className="main-point-title">Main points</h2>
+                                 
+                                 {/* Accordion 1 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                                     <span>Effective Conflict Resolution Without Going to Court</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                                     <p>Not every dispute needs to end in litigation. We specialize in alternative dispute resolution methods like mediation and arbitration that save you time, money, and stress. Our approach focuses on understanding both sides, facilitating productive dialogue, and finding fair solutions that protect your interests while avoiding the delays and costs of courtroom battles.</p>
+                                   </div>
+                                 </div>
+                   
+                                 {/* Accordion 2 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                                     <span>Preserving Business and Personal Relationships</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                                     <p>Disputes don’t have to damage valuable relationships. Whether it’s a business disagreement, partnership conflict, or personal matter, we aim to resolve issues with diplomacy and professionalism. Our goal is to help you reach an agreement that works — while maintaining respect, communication, and trust between the parties involved.</p>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

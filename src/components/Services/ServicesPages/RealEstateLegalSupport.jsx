@@ -1,11 +1,18 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L10 from "../../img/assets/final media/services IMAGE/L  10.png";
 import s10 from "../../img/assets/final media/services IMAGE/s 10.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 function RealEstateLegalSupport() {
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -51,6 +58,46 @@ function RealEstateLegalSupport() {
           </div>
         
       </section>
+
+
+      {/* -- Main Point Section -- */}
+                         <section className="main-point">
+                           <div className="main-point-container">
+                             <div className="main-point-content">
+                               {/* Left Image Blocks */}
+                               <div className="main-point-blocks">
+                                 <img src={L10} alt="About Us 2" />
+                               </div>
+                   
+                               {/* Right Text Section */}
+                               <div className="main-point-text">
+                                 <h2 className="main-point-title">Main points</h2>
+                                 
+                                 {/* Accordion 1 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                                     <span>Expert Guidance for Every Real Estate Transaction</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                                     <p>Real estate transactions can be complex and high-stakes, whether you’re buying, selling, leasing, or developing property. Our team provides expert legal advice throughout every step of the process, ensuring that your interests are protected. We assist with negotiations, contract drafting, title searches, and any legal challenges that may arise, ensuring a smooth transaction from start to finish.</p>
+                                   </div>
+                                 </div>
+                   
+                                 {/* Accordion 2 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                                     <span>Comprehensive Support for Property Agreements and Disputes</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                                     <p>In addition to facilitating transactions, we offer full legal support for property-related agreements, including lease negotiations, purchase contracts, and property management agreements. If disputes arise, we also provide strategic solutions to resolve conflicts, whether through negotiation, mediation, or legal action. Our goal is to help you make informed decisions and achieve successful outcomes in all your real estate matters.</p>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

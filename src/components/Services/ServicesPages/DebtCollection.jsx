@@ -1,10 +1,19 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L6 from "../../img/assets/final media/services IMAGE/L  6.png";
 import s6 from "../../img/assets/final media/services IMAGE/s 6.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
+
 
 function DebtCollection() {
+
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
 
   return (
@@ -51,6 +60,47 @@ function DebtCollection() {
           </div>
         
       </section>
+
+
+{/* -- Main Point Section -- */}
+                   <section className="main-point">
+                     <div className="main-point-container">
+                       <div className="main-point-content">
+                         {/* Left Image Blocks */}
+                         <div className="main-point-blocks">
+                           <img src={L6} alt="About Us 2" />
+                         </div>
+             
+                         {/* Right Text Section */}
+                         <div className="main-point-text">
+                           <h2 className="main-point-title">Main points</h2>
+                           
+                           {/* Accordion 1 */}
+                           <div className="accordion-item">
+                             <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                               <span>Strategic and Professional Debt Recovery</span>
+                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                             </button>
+                             <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                               <p>We understand that unpaid debts can strain your cash flow and business operations. Our team takes a strategic and respectful approach to debt collection, combining persistence with professionalism. Whether it’s an overdue invoice or a long-standing delinquent account, we work to recover what you’re owed swiftly while maintaining your reputation and client relationships.</p>
+                             </div>
+                           </div>
+             
+                           {/* Accordion 2 */}
+                           <div className="accordion-item">
+                             <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                               <span>Legally Compliant and Risk-Free Process</span>
+                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                             </button>
+                             <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                               <p>Debt recovery isn’t just about results — it’s about doing it right. We ensure that every step of the collection process adheres strictly to legal standards and regulations. From sending formal demand letters to initiating legal action if necessary, we protect your business from liability while maximizing the chances of successful recovery.</p>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </section>
+
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

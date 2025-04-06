@@ -1,12 +1,20 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L2 from "../../img/assets/final media/services IMAGE/L  2.png";
 import s2 from "../../img/assets/final media/services IMAGE/s 2.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 
 function LegalConsultation() {
 
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -52,6 +60,45 @@ function LegalConsultation() {
           </div>
         
       </section>
+
+      {/* -- Main Point Section -- */}
+                         <section className="main-point">
+                           <div className="main-point-container">
+                             <div className="main-point-content">
+                               {/* Left Image Blocks */}
+                               <div className="main-point-blocks">
+                                 <img src={L2} alt="About Us 2" />
+                               </div>
+                   
+                               {/* Right Text Section */}
+                               <div className="main-point-text">
+                                 <h2 className="main-point-title">Main points</h2>
+                                 
+                                 {/* Accordion 1 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                                     <span>Personalized Legal Guidance Tailored to Your Needs</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                                     <p>We understand that every legal situation is unique, which is why our consultations are never one-size-fits-all. Whether you’re facing a business dispute, navigating personal legal matters, or just need guidance on the next steps, we take the time to understand your specific concerns. Our expert team listens closely, asks the right questions, and offers strategic advice that’s directly aligned with your goals — all in plain, understandable language.</p>
+                                   </div>
+                                 </div>
+                   
+                                 {/* Accordion 2 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                                     <span>Clear, Actionable Solutions You Can Rely On</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                                     <p>Legal issues can be complex, but our job is to make them manageable. After carefully analyzing your situation, we provide straightforward recommendations you can act on immediately. We help you understand your options, assess potential risks, and make informed decisions that protect your rights and interests. Whether it’s preventative advice or urgent legal support, our consultations are designed to give you clarity and confidence moving forward.</p>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

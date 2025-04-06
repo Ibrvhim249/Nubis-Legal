@@ -1,11 +1,19 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L9 from "../../img/assets/final media/services IMAGE/L  9.png";
 import s9 from "../../img/assets/final media/services IMAGE/s 9.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 function ContractReviewandAnalysis() {
 
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
         <>
@@ -51,6 +59,45 @@ function ContractReviewandAnalysis() {
            </div>
          
        </section>
+
+       {/* -- Main Point Section -- */}
+                   <section className="main-point">
+                     <div className="main-point-container">
+                       <div className="main-point-content">
+                         {/* Left Image Blocks */}
+                         <div className="main-point-blocks">
+                           <img src={L9} alt="About Us 2" />
+                         </div>
+             
+                         {/* Right Text Section */}
+                         <div className="main-point-text">
+                           <h2 className="main-point-title">Main points</h2>
+                           
+                           {/* Accordion 1 */}
+                           <div className="accordion-item">
+                             <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                               <span>Thorough Risk Identification and Legal Clarity</span>
+                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                             </button>
+                             <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                               <p>We go beyond surface-level reviews to uncover hidden risks, vague clauses, and unfavorable terms that could hurt you down the line. Our legal team carefully analyzes each section of your contract to ensure it’s clear, fair, and enforceable. We highlight potential red flags, explain their implications, and offer practical solutions to safeguard your rights and interests.</p>
+                             </div>
+                           </div>
+             
+                           {/* Accordion 2 */}
+                           <div className="accordion-item">
+                             <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                               <span>Strategic Recommendations for Stronger Agreements</span>
+                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                             </button>
+                             <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                               <p>A good contract isn’t just about avoiding risk — it’s about strengthening your position. After our detailed review, we provide tailored recommendations to enhance the contract’s language, structure, and balance. Whether it’s a business agreement, lease, partnership deal, or vendor contract, we help you negotiate better terms and move forward with confidence.</p>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </section>
     
           <section className="service-data" id="service-data">
       <div className="service-data-container">

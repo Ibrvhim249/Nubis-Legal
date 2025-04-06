@@ -50,8 +50,20 @@ import imagesection from '../img/assets/Home/Scale icon.svg';
 import './Home.css';
 
 function Home() {
+  
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+// =================================
+
+const [showQuoteModal, setShowQuoteModal] = useState(false);
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // Add your form submission logic here
+  console.log('Form submitted');
+  setShowQuoteModal(false);
+};
+// =======================================
 
   // Add this useEffect hook
   useEffect(() => {
@@ -65,31 +77,6 @@ function Home() {
       .finally(() => setLoading(false));
   }, []);
  
-  // const testimonials = [
-  //   {
-  //     name: "Maria Smantha",
-  //     role: "Web Developer",
-  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
-  //     testimonial:
-  //       "A aliquam amet animi blanditiis. Est, exercitationem id ipsa ipsum laboriosam perferendis.",
-  //   },
-  //   {
-  //     name: "Lisa Cudrow",
-  //     role: "Graphic Designer",
-  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
-  //     testimonial:
-  //       "totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
-  //   },
-  //   {
-  //     name: "John Smith",
-  //     role: "Marketing Specialist",
-  //     image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
-  //     testimonial:
-  //       "At vero eos  quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
-  //   },
-  // ];
-  // const [activeTestimonial, setActiveTestimonial] = useState(0);
-
   return (
     <>
 {/* -- Hero Section -- */}
@@ -431,64 +418,92 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
+{/* -- Quote Trigger Section -- */}
+<section className="popup-section">
+  <div className="popup-section-overlay"></div>
+  <div className="popup-section-content">
+    <h2>Do You Need<br />Legal Consultation</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Lorem ipsum dolor sit amet.
+    </p>
+    <button 
+      className="popup-section-btn" 
+      onClick={() => setShowQuoteModal(true)}
+    >
+      Get Quote
+    </button>
+  </div>
+</section>
 
-
-{/* ----------- Testimonials -----------
-<section className="testimonials">
-  <div className="container my-5 py-5">
-    <h1 className="testimonials-title">TESTIMONIAL</h1>
-
-    <div className="testimonial-wrapper position-relative">
-      <div className="position-absolute top-0 start-50 translate-middle">
-        <img
-          src={testimonials[activeTestimonial].image}
-          className="avatar"
-          alt={testimonials[activeTestimonial].name}
-         
-        />
-      </div>
-
-      <div className="testimonial-card bg-primary rounded-4 p-5 pt-5 position-relative">
-        <span className="quote-mark fs-1 text-warning text-center d-block mb-3"><IoMdQuote />
-        </span>
+{/* -- Quote Modal -- */}
+{showQuoteModal && (
+  <div className="modal-overlay" onClick={() => setShowQuoteModal(false)}>
+    <div className="modal-quote-container" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-quote-form">
+        <div className="modal-form-header">
+          <h2>Get Your Quote</h2>
+          <p>Legal Assistance included with Lowest price guarantee</p>
+        </div>
         
-        <div className="testimonial-content">
-          <p className="testimonial-text text-white text-center lh-base mb-0">
-            {testimonials[activeTestimonial].testimonial}
-          </p>
-          <div className="client-info">
-            <h4 className="client-name">
-              {testimonials[activeTestimonial].name}
-            </h4>
-            <p className="client-role text-light mb-0">
-              {testimonials[activeTestimonial].role}
-            </p>
+        <form onSubmit={handleSubmit}>
+          <div className="modal-form__row">
+            <div className="modal-form__group">
+              <label className="modal-quote-label" htmlFor="firstName">Full Name</label>
+              <input 
+                className="modal-quote-input" 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                required 
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="dots d-flex justify-content-center gap-2 mt-4">
-          {testimonials.map((_, index) => (
-            <span 
-              key={index}
-              className={`dot rounded-pill ${index === activeTestimonial ? 'active' : ''}`}
-              onClick={() => setActiveTestimonial(index)}
-              style={{
-                width: index === activeTestimonial ? '32px' : '8px',
-                height: '8px',
-                backgroundColor: index === activeTestimonial ? '#2563eb' : '#e5e5e5',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            ></span>
-          ))}
-        </div>
+          <div className="modal-form__row">
+            <div className="modal-form__group">
+              <label className="modal-quote-label" htmlFor="email">Email</label>
+              <input 
+                className="modal-quote-input" 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+              />
+            </div>
+          </div>
+          <div className="modal-form__group">
+              <label className="modal-quote-label" htmlFor="phone">Phone Number</label>
+              <input 
+                className="modal-quote-input" 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+              />
+            </div>
+          <div className="modal-form__group">
+            <label className="modal-quote-label" htmlFor="quote">Leave a quote</label>
+            <textarea 
+              className="modal-quote-textarea" 
+              id="quote" 
+              name="quote" 
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" className="modal-quote-submit">
+            Get Quote
+          </button>
+        </form>
+      </div>
+      
+      <div className="modal-image-section">
+        <img src={aboutUsImg} alt="Legal consultation" />
       </div>
     </div>
   </div>
-</section> */}
-
-
-
+)}
     </>
   );
 }

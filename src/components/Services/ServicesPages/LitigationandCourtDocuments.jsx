@@ -1,12 +1,20 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L7 from "../../img/assets/final media/services IMAGE/L  7.png";
 import s7 from "../../img/assets/final media/services IMAGE/s 7.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 
 function LitigationandCourtDocuments() {
 
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -52,6 +60,45 @@ function LitigationandCourtDocuments() {
           </div>
         
       </section>
+
+      {/* -- Main Point Section -- */}
+                         <section className="main-point">
+                           <div className="main-point-container">
+                             <div className="main-point-content">
+                               {/* Left Image Blocks */}
+                               <div className="main-point-blocks">
+                                 <img src={L7} alt="About Us 2" />
+                               </div>
+                   
+                               {/* Right Text Section */}
+                               <div className="main-point-text">
+                                 <h2 className="main-point-title">Main points</h2>
+                                 
+                                 {/* Accordion 1 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                                     <span>Accurate and Strategic Court Document Preparation</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                                     <p>Success in court starts with well-prepared documentation. We draft, review, and file court documents with precision and attention to detail — from complaints and motions to affidavits and pleadings. Our team ensures everything is complete, compliant, and strategically written to support your case and position you for the best possible outcome.</p>
+                                   </div>
+                                 </div>
+                   
+                                 {/* Accordion 2 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                                     <span>Supportive Legal Representation Every Step of the Way</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                                     <p>Litigation can be stressful, but you don’t have to face it alone. We provide strong, reliable legal support tailored to your specific case. Whether you’re initiating a lawsuit or responding to one, we guide you through the entire legal process, explaining your options and advocating for your interests with clarity, confidence, and professionalism.</p>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

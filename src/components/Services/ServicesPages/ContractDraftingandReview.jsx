@@ -1,13 +1,21 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L1 from "../../img/assets/final media/services IMAGE/L  1.png";
 import s1 from "../../img/assets/final media/services IMAGE/s 1.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
+
 
 
 
 function ContractDraftingandReview() {
 
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -53,6 +61,46 @@ function ContractDraftingandReview() {
           </div>
         
       </section>
+
+
+      {/* -- Main Point Section -- */}
+            <section className="main-point">
+              <div className="main-point-container">
+                <div className="main-point-content">
+                  {/* Left Image Blocks */}
+                  <div className="main-point-blocks">
+                    <img src={L1} alt="About Us 2" />
+                  </div>
+      
+                  {/* Right Text Section */}
+                  <div className="main-point-text">
+                    <h2 className="main-point-title">Main points</h2>
+                    
+                    {/* Accordion 1 */}
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                        <span>Expert Contract Drafting and Review</span>
+                        <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                        <p>Our team brings legal precision and business insight to every contract we handle. We don’t just write legal jargon — we create contracts that are clear, actionable, and aligned with your business goals. By anticipating potential legal pitfalls and addressing them proactively, we help you avoid costly disputes and confusion down the line. Every clause is tailored to your specific needs, ensuring your agreements are not just legally sound, but also practical and easy to understand.</p>
+                      </div>
+                    </div>
+      
+                    {/* Accordion 2 */}
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                        <span>Comprehensive Legal Coverage</span>
+                        <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                        <p>From confidentiality agreements (NDAs) that protect your proprietary information to employment agreements that define clear terms of engagement, we cover a broad spectrum of business contracts. We also handle commercial agreements, vendor contracts, partnership arrangements, and more. Our thorough review process ensures each contract is compliant with current laws and free of loopholes or risky clauses. We focus on enforceability and risk management, so you can move forward with confidence in every business transaction.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

@@ -1,11 +1,18 @@
 import "./ServicesPages.css"
+import { useState } from 'react';
+
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L5 from "../../img/assets/final media/services IMAGE/L  5.png";
 import s5 from "../../img/assets/final media/services IMAGE/s 5.png";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 function LegalDocumentPreparation() {
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
 
   return (
     <>
@@ -51,6 +58,45 @@ function LegalDocumentPreparation() {
           </div>
         
       </section>
+
+      {/* -- Main Point Section -- */}
+                         <section className="main-point">
+                           <div className="main-point-container">
+                             <div className="main-point-content">
+                               {/* Left Image Blocks */}
+                               <div className="main-point-blocks">
+                                 <img src={L5} alt="About Us 2" />
+                               </div>
+                   
+                               {/* Right Text Section */}
+                               <div className="main-point-text">
+                                 <h2 className="main-point-title">Main points</h2>
+                                 
+                                 {/* Accordion 1 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                                     <span>Customized Legal Documents for Every Situation</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                                     <p>Every legal document should reflect your specific needs and circumstances — not just generic templates. We prepare customized, accurate, and enforceable documents including wills, powers of attorney, employment contracts, lease agreements, and more. Each document is carefully drafted to protect your interests and meet all legal requirements, ensuring peace of mind and clarity for all parties involved.</p>
+                                   </div>
+                                 </div>
+                   
+                                 {/* Accordion 2 */}
+                                 <div className="accordion-item">
+                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                                     <span>Professional Drafting with Attention to Detail</span>
+                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
+                                   </button>
+                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                                     <p>Legal paperwork can be complex, but we make it simple and stress-free. Our legal experts handle all the drafting with precision, using clear and concise language that’s legally sound and easy to understand. We also offer guidance throughout the process, explaining each clause and ensuring the final document aligns with your goals and obligations.</p>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </section>
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">
