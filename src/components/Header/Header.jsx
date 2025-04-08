@@ -112,7 +112,7 @@ export default function Header() {
 
   return (
     <header className="header" ref={headerRef} onKeyDown={handleKeyDown}>
-      <nav className="navbar container" aria-label="Main navigation">
+      <nav className="navbar hcontainer" aria-label="Main navigation">
         <NavLink 
           to="/" 
           className="logo" 
@@ -126,7 +126,7 @@ export default function Header() {
           <Hamburger 
             toggled={isOpen} 
             toggle={() => setIsOpen(prev => !prev)}
-            color={isOpen ? "#4a6cf7" : "white"}
+            color={isOpen ? "#2f3d78" : "white"}
             size={32}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}

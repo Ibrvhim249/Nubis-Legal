@@ -1,64 +1,128 @@
-.parallax-section {
-  height: 1000vh;
-  position: relative;
-  touch-action: pan-y; /* Improve touch scrolling */
+:root {
+  --parallax-section-height: 1000vh;
+  --sticky-container-height: 100vh;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --scroll-indicator-bg: rgba(255, 255, 255, 0.8);
+  --dot-inactive: rgba(255, 255, 255, 0.2);
+  --dot-active: #1f2937;
+  --heading-max-width: 64rem;
+  --mobile-heading-size: clamp(1.25rem, 5vw, 1.5rem);
+  --scale-transition: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Base parallax layout */
+.parallax-section {
+  height: var(--parallax-section-height);
+  position: relative;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Sticky container with bidirectional support */
 .sticky-container {
-  height: 100vh;
+  height: var(--sticky-container-height);
   position: sticky;
   top: 0;
+  bottom: 0;
   overflow: hidden;
-  padding: 20px;
-  isolation: isolate; /* Create new stacking context */
-  -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
+  padding: 1.25rem;
+  isolation: isolate;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
 }
 
+/* Optimized background transitions */
 .background-image {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); /* Faster transition */
-  transform: translateZ(0); /* Force hardware acceleration */
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform;
+  transition: transform 0.25s var(--scale-transition);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* Safari fix */
-  will-change: transform; /* Hint for browser optimizations */
 }
 
+/* Enhanced overlay */
 .overlay {
   position: absolute;
   inset: 0;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  pointer-events: none; /* Allow click-through */
+  background-color: var(--overlay-color);
+  pointer-events: none;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px); /* Safari support */
 }
 
+/* Content transitions */
 .content {
   position: relative;
   z-index: 10;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1rem;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
 }
 
 .heading {
-  font-size: 60px;
-  font-weight: bold;
+  font-size: clamp(2rem, 8vw, 3.75rem);
+  font-weight: 700;
   text-align: center;
-  max-width: 64rem;
-  animation: fadeIn 0.5s ease-in-out;
+  max-width: var(--heading-max-width);
   color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fade-in 0.5s ease-out;
+  line-height: 1.2;
+  transition: opacity 0.3s ease-in-out;
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased; /* Smoother text */
+  -webkit-font-smoothing: antialiased; /* Smoother text on WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Smoother text on Firefox */
 }
 
-@keyframes fadeIn {
+/* Direction-aware scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  transition: transform 0.3s var(--scale-transition);
+}
+
+.scroll-indicator ul {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0.75rem;
+  margin: 0; /* Reset default margins */
+  background: var(--scroll-indicator-bg);
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth dot transitions */
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--dot-inactive);
+  transition: all 0.3s var(--scale-transition);
+}
+
+.dot[aria-current="step"] {
+  background: var(--dot-active);
+  transform: scale(1.25);
+}
+
+/* Animations */
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;
@@ -66,78 +130,70 @@
   }
 }
 
-.scroll-indicator {
-  position: fixed;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
-  pointer-events: none; /* Non-interactive */
-}
-
-.scroll-indicator ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #ffffff82;
-  height: 70px;
-  width: 32px;
-  align-content: center;
-  border-radius: 17px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-right: 0px;
-  transition: transform 0.3s ease; /* Smooth scaling */
-}
-
-.dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Optimized easing */
-}
-
-.dot[aria-current="step"] {
-  background-color: #1f2937;
-  transform: scale(1.25);
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .heading {
-    font-size: 30px;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    padding-inline: 1rem;
   }
   
-  .sticky-container {
-    -webkit-overflow-scrolling: touch; /* Momentum scrolling */
+  .scroll-indicator {
+    right: 0.5rem;
+    transform: translateY(-50%) scale(0.9);
   }
 }
 
 @media (max-width: 480px) {
-  .heading {
-    font-size: 20px;
+  :root {
+    --sticky-container-height: 100dvh; /* Dynamic viewport height for mobile */
+    --parallax-section-height: 500vh;
   }
 
-  .scroll-indicator {
-    right: 2%;
-    transform: translateY(-50%) scale(0.9); /* Scaled down */
+  .sticky-container {
+    padding: 1rem;
   }
 
   .scroll-indicator ul {
-    gap: 8px;
-    max-height: 50px;
-    max-width: 23px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
   
   .dot {
-    max-width: 0.65rem;
-    max-height: 0.65rem;
+    width: 0.625rem;
+    height: 0.625rem;
   }
+}
 
-  .background-image {
-    transition-duration: 0.1s; /* Faster transition on mobile */
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .background-image,
+  .heading,
+  .dot {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .parallax-section {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --scroll-indicator-bg: rgba(0, 0, 0, 0.3);
+    --dot-active: #e5e7eb;
+    --overlay-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Support for RTL languages */
+[dir="rtl"] .scroll-indicator {
+  right: auto;
+  left: 1rem;
+}
+
+@supports (height: 100dvh) {
+  .sticky-container {
+    height: 100dvh; /* Dynamic viewport height when supported */
   }
 }

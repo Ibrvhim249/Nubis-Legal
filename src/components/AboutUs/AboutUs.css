@@ -3,7 +3,7 @@
    ====================== */
    
    .about-us-page {
-    padding: 10% 5%;
+    padding: 7% 5% 0%;
     background-color: #ffffff;
   }
   
@@ -448,7 +448,7 @@
      c-goal
      ====================== */
      .c-goal {
-      padding: 10% 5%;
+      padding: 0% 5% 7%;
       background-color: #ffffff;
     }
     
@@ -568,7 +568,7 @@
     
       .c-goal-container {
         display: flex;
-        gap: 4rem;
+        gap: 0rem;
         max-width: 668px;
         margin: 0 auto;
         flex-direction: column;

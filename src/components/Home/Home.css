@@ -101,7 +101,7 @@
   
   .about-us-blocks {
     position: relative;
-    min-height: 400px; /* Optional for height control */
+    /* min-height: 400px; Optional for height control */
   }
 
 
@@ -581,7 +581,7 @@
   .ceo-container {
     display: flex;
         flex-direction: column-reverse;
-        gap: 2rem;
+        gap: 1rem;
         align-items: center;
         max-width: 400px;
   }
@@ -603,6 +603,7 @@
     padding: 8px;
     background-color: white;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    
   }
   
 
@@ -1068,15 +1069,15 @@
 /* ============================================================= */
 /* Popup Trigger Section */
 .popup-section {
-  width: 100%;
-  max-width: 1000px;
+  width: 90%;
+  /* max-width: 1000px; */
   height: 400px;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   background-color: #4a4a4a;
-  margin: 2rem auto;
+  margin: 5% auto;
   
 }
 
@@ -1124,10 +1125,10 @@
 
 .popup-section-btn {
   display: inline-block;
-  background-color: #1a56db;
+  background-color: #002B5A;
   color: white;
   padding: 12px 24px;
-  border-radius: 4px;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -1162,7 +1163,8 @@
   border-radius: 21px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   display: flex;
-  max-width: 900px;
+  height: 95%;
+  
   width: 95%;
   overflow: hidden;
   animation: modalSlideIn 0.3s ease-out;
@@ -1244,7 +1246,7 @@
   border: none;
   padding: 14px 30px;
   font-size: 16px;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 10px;
@@ -1257,7 +1259,7 @@
 
 /* Image Section */
 .modal-image-section {
-  width: 50%;
+  width: 55%;
   background-color: white;
   padding: 2rem 1rem ;
 }
@@ -1283,11 +1285,17 @@
   .modal-quote-form,
   .modal-image-section {
     width: 100%;
+    padding: 0rem 2rem 2rem;
+  }
+
+  .modal-quote-textarea {
+    min-height: 2rem;
   }
 
   .modal-image-section {
     order: -1;
     height: 250px;
+    padding: 1rem ;
   }
 
   .modal-form__row {
@@ -1318,6 +1326,17 @@
   }
 
   .modal-quote-form {
-    padding: 25px;
+    padding: 0rem 2rem 1rem;
+  }
+  .modal-form-header h2 {
+    margin-bottom: 0.5rem;
+  }
+  .modal-form-header p {
+    margin-bottom: 1rem;
+    padding-bottom: 0px;
+  }
+  .modal-quote-input, .modal-quote-textarea {
+    
+    padding: 0.5rem;
   }
 }
