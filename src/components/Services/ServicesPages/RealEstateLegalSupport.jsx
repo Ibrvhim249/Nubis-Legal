@@ -14,6 +14,41 @@ function RealEstateLegalSupport() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What real estate matters do you handle?",
+    answer: "We handle purchases, leases, property transfers, title verification, and real estate disputes."
+  },
+  {
+    question: "Do you represent buyers, sellers, and landlords?",
+    answer: "Yes. Our legal support is available for all parties involved in a property transaction or dispute."
+  },
+  {
+    question: "Can you help review and draft lease agreements?",
+    answer: "Absolutely. We ensure that lease terms are fair, clear, and legally sound."
+  },
+  {
+    question: "What is involved in a property title review?",
+    answer: "We check ownership, legal claims, liens, encumbrances, and confirm that the title is clear and transferable."
+  },
+  {
+    question: "Do you handle disputes over property boundaries or usage?",
+    answer: "Yes. We offer mediation or litigation services to resolve property-related conflicts."
+  },
+  {
+    question: "How can I avoid legal issues in real estate transactions?",
+    answer: "By involving us early to review documents, verify ownership, and ensure full compliance with real estate laws."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -49,7 +84,7 @@ function RealEstateLegalSupport() {
             <div className="service-description-text">
             <h2 className="service-description-title">Real Estate Legal Support</h2>
 
-              <p>From property purchases to lease agreements, we provide comprehensive legal support for all real estate matters</p>
+              <p>From property purchases to lease agreements, we provide comprehensive legal support for all real estate matters. Our team guides you through every step of the process, ensuring that transactions are smooth, legally sound, and compliant with regulations. Whether you&apos;re buying, selling, leasing, or managing property, we handle the legal details so you can focus on your real estate goals. With our expertise, you can confidently navigate the complexities of real estate law, minimizing risks and maximizing your successز</p>
             </div>
           
           <div className="service-description-blocks">
@@ -146,6 +181,36 @@ function RealEstateLegalSupport() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

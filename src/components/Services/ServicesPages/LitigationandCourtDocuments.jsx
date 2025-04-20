@@ -16,6 +16,41 @@ function LitigationandCourtDocuments() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  // ===============================================
+  const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What types of court documents do you handle?",
+    answer: "We draft and file complaints, petitions, motions, responses, affidavits, and more for civil and commercial cases."
+  },
+  {
+    question: "Do you provide legal representation in court?",
+    answer: "Yes. We represent clients through all litigation phases, including hearings, trials, and appeals."
+  },
+  {
+    question: "How do you prepare for a litigation case?",
+    answer: "We gather facts, research legal precedents, draft arguments, and develop strategies tailored to your goals."
+  },
+  {
+    question: "Can you help with settlement negotiations?",
+    answer: "Absolutely. We often pursue settlement options before or during litigation to save time and costs."
+  },
+  {
+    question: "Do you assist with appeals?",
+    answer: "Yes. We help with filing appeals, writing appellate briefs, and appearing in appellate court."
+  },
+  {
+    question: "What’s your process for filing motions or legal briefs?",
+    answer: "We review your case details, determine the right motion or argument, and file it with the appropriate court within required deadlines."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -51,7 +86,7 @@ function LitigationandCourtDocuments() {
             <div className="service-description-text">
             <h2 className="service-description-title">Litigation and Court Documents</h2>
 
-              <p>We prepare and file court documents precisely, ensuring your case is presented effectively..</p>
+              <p>We prepare and file court documents with precision, ensuring that your case is presented effectively. Our experienced team works diligently to support you through every stage of litigation, providing strong legal representation when you need it most. We handle all the necessary paperwork, from filing motions to drafting pleadings, with attention to detail and compliance. With our expertise, you can rest assured that your case is in capable hands, maximizing your chances of a favorable outcome in court.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -147,6 +182,37 @@ function LitigationandCourtDocuments() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

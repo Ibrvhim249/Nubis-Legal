@@ -23,6 +23,14 @@ import ContractReviewandAnalysis from "./components/Services/ServicesPages/Contr
 import RealEstateLegalSupport from "./components/Services/ServicesPages/RealEstateLegalSupport";
 import TaxandFinancialLegalServices from "./components/Services/ServicesPages/TaxandFinancialLegalServices";
 import RegulatoryandLegalCompliance from "./components/Services/ServicesPages/RegulatoryandLegalCompliance";
+import CourtDocument from "./components/Services/ServicesPages/CourtDocument";
+import RiskA from "./components/Services/ServicesPages/RiskA";
+import BusinessConsultation from "./components/Services/ServicesPages/BusinessConsultation";
+import LegalSubscription from "./components/Services/ServicesPages/LegalSubscription";
+import SettlementAgreement from "./components/Services/ServicesPages/SettlementAgreement";
+import LeaseAgreement from "./components/Services/ServicesPages/LeaseAgreement";
+import PropertyDueDiligence from "./components/Services/ServicesPages/PropertyDueDiligence";
+import TitleOwnership from "./components/Services/ServicesPages/TitleOwnership";
 
 // Scroll to top component
 const ScrollToTop = () => {
@@ -66,6 +74,18 @@ export const MainApp = () => {
               <Route path="/services/real-estate" element={<RealEstateLegalSupport />} />
               <Route path="/services/tax-services" element={<TaxandFinancialLegalServices />} />
               <Route path="/services/compliance" element={<RegulatoryandLegalCompliance />} />
+              <Route path="/services/CourtDocument" element={<CourtDocument />} />
+              <Route path="/services/RiskA" element={<RiskA />} />
+              <Route path="/services/BusinessConsultation" element={<BusinessConsultation />} />
+              <Route path="/services/LegalSubscription" element={<LegalSubscription />} />
+              <Route path="/services/SettlementAgreement" element={<SettlementAgreement />} />
+              <Route path="/services/LeaseAgreement" element={<LeaseAgreement />} />
+              <Route path="/services/PropertyDueDiligence" element={<PropertyDueDiligence />} />
+              <Route path="/services/TitleOwnership" element={<TitleOwnership />} />
+
+              
+              {/* Fallback route */}
+              
             </Routes>
           </main>
           <Footer />

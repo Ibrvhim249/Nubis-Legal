@@ -14,6 +14,41 @@ function RegulatoryandLegalCompliance() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: ". Why is legal compliance important for businesses?",
+    answer: "It helps avoid fines, lawsuits, and reputational harm while ensuring your business operates legally."
+  },
+  {
+    question: "What areas of compliance do you cover?",
+    answer: "We cover industry-specific regulations, employment law, data protection, health and safety, and more."
+  },
+  {
+    question: "Can you help with licensing and permits?",
+    answer: "Yes. We assist with applications, renewals, and ensuring your operations meet all licensing conditions."
+  },
+  {
+    question: "Do you offer compliance audits?",
+    answer: "Yes. We conduct audits to identify gaps, improve policies, and avoid regulatory risks."
+  },
+  {
+    question: "How often should I update my compliance policies?",
+    answer: "Policies should be reviewed annually or whenever there’s a major legal or business change."
+  },
+  {
+    question: "Do you provide employee training for compliance?",
+    answer: "Yes. We offer workshops and materials to train your staff on legal responsibilities and best practices."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -49,7 +84,7 @@ function RegulatoryandLegalCompliance() {
             <div className="service-description-text">
             <h2 className="service-description-title">Regulatory and Legal Compliance</h2>
 
-              <p>Keeping up with regulations is critical for businesses. We help businesses navigate complex regulatory landscapes and avoid costly penalties.</p>
+              <p>Keeping up with regulations is critical for businesses to avoid costly penalties and maintain smooth operations. We help businesses navigate complex regulatory landscapes, ensuring full compliance with local, state, and federal laws. Our team provides proactive advice, helping you understand and implement necessary changes to stay ahead of evolving regulations. Whether you&apos;re dealing with industry-specific rules or general legal requirements, we offer the expertise to keep your business compliant and minimize legal risks.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -147,6 +182,36 @@ function RegulatoryandLegalCompliance() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

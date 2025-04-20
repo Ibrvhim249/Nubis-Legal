@@ -926,7 +926,7 @@
   font-family: 'Roboto Slab';
   
   font-weight: bold;
-  border-left: 6px solid #B39957;
+  border-left: 0.25rem solid #B39957;
 }
 
 .blog-section-title {
@@ -1340,3 +1340,4 @@
     padding: 0.5rem;
   }
 }
+

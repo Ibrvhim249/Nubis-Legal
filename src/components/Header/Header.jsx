@@ -1,36 +1,65 @@
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { throttle } from 'lodash-es';
-import { IoIosArrowDropdown } from 'react-icons/io';
+// import { IoIosArrowDropdown } from 'react-icons/io';
 import { Sling as Hamburger } from 'hamburger-react';
 import './Header.css';
-
-
 
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about-us' },
   { name: 'Blog', path: '/blog' },
-
   {
     name: 'Services',
     path: '/services',
-    subLinks: [
-      { name: 'Contract Drafting and Review', path: '/services/contract-drafting' },
-      { name: 'Legal Consultation', path: '/services/legal-consultation' },
-      { name: 'Company Formation and Registration', path: '/services/companyformation' },
-      { name: 'Trademark and Intellectual Property Registration', path: '/services/trademark-registration' },
-      { name: 'Legal Document Preparation', path: '/services/document-preparation' },
-      { name: 'Debt Collection', path: '/services/debt-collection' },
-      { name: 'Litigation and Court Documents', path: '/services/litigation' },
-      { name: 'Dispute Resolution', path: '/services/dispute-resolution' },
-      { name: 'Contract Review and Analysis', path: '/services/contract-review' },
-      { name: 'Real Estate Legal Support', path: '/services/real-estate' },
-      { name: 'Tax and Financial Legal Services', path: '/services/tax-services' },
-      { name: 'Regulatory and Legal Compliance', path: '/services/compliance' },
+    categories: [
+      {
+        name: 'Contract and Document Services',
+        services: [
+          { name: 'Contract Drafting and Review', path: '/services/contract-drafting' },
+          { name: 'Contract Review and Analysis', path: '/services/contract-review' },
+          { name: 'Legal Document Preparation', path: '/services/document-preparation' },
+          { name: 'Court Document Filing & Motion Drafting', path: '/services/CourtDocument' },
+        ],
+      },
+      {
+        name: 'Advisory and Consultation Services',
+        services: [
+          { name: 'Legal Consultation', path: '/services/legal-consultation' },
+          { name: 'Tax and Financial Legal Services', path: '/services/tax-services' },
+          { name: 'Regulatory and Legal Compliance', path: '/services/compliance' },
+          { name: 'Risk Assessment & Legal Strategy Planning', path: '/services/RiskA' },
+        ],
+      },
+      {
+        name: 'Business Formation and Protection',
+        services: [
+          { name: 'Company Formation and Registration', path: '/services/companyformation' },
+          { name: 'Trademark and Intellectual Property Registration', path: '/services/trademark-registration' },
+          { name: 'Business Structure Consultation', path: '/services/BusinessConsultation' },
+          { name: 'Legal Subscription Plans for Startups', path: '/services/LegalSubscription' },
+        ],
+      },
+      {
+        name: 'Dispute and Debt Resolution',
+        services: [
+          { name: 'Dispute Resolution (Mediation & Arbitration)', path: '/services/dispute-resolution' },
+          { name: 'Debt Collection Services', path: '/services/debt-collection' },
+          { name: 'Litigation and Court Representation', path: '/services/litigation' },
+          { name: 'Settlement Agreement Drafting', path: '/services/SettlementAgreement' },
+        ],
+      },
+      {
+        name: 'Real Estate Legal Services',
+        services: [
+          { name: 'Real Estate Transaction Review', path: '/services/real-estate' },
+          { name: 'Lease Agreement Drafting & Negotiation', path: '/services/LeaseAgreement' },
+          { name: 'Property Due Diligence', path: '/services/PropertyDueDiligence' },
+          { name: 'Title & Ownership Dispute Resolution', path: '/services/TitleOwnership' },
+        ],
+      },
     ],
   },
-  
 ];
 
 export default function Header() {
@@ -106,9 +135,9 @@ export default function Header() {
     }
   }, [openSubmenu]);
 
-  const toggleSubmenu = useCallback((path) => {
-    setOpenSubmenu((prev) => (prev === path ? null : path));
-  }, []);
+  // const toggleSubmenu = useCallback((path) => {
+  //   setOpenSubmenu((prev) => (prev === path ? null : path));
+  // }, []);
 
   return (
     <header className="header" ref={headerRef} onKeyDown={handleKeyDown}>
@@ -136,7 +165,7 @@ export default function Header() {
         <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
           <ul className="nav-links">
             {memoizedNavLinks.map((link) => {
-              const hasSubmenu = Boolean(link.subLinks);
+              const hasSubmenu = Boolean(link.categories);
               const submenuId = `submenu-${link.path.replace(/\//g, '-')}`;
               const isSubmenuOpen = openSubmenu === link.path;
 
@@ -156,7 +185,7 @@ export default function Header() {
                         >
                           {link.name}
                         </NavLink>
-                        <button
+                        {/* <button
                           className={`submenu-toggle ${isSubmenuOpen ? 'active' : ''}`}
                           onClick={(e) => {
                             e.stopPropagation();
@@ -167,7 +196,7 @@ export default function Header() {
                           aria-haspopup="true"
                         >
                           <IoIosArrowDropdown className="dropdown-icon" aria-hidden="true" />
-                        </button>
+                        </button> */}
                       </div>
                       <ul
                         id={submenuId}
@@ -175,15 +204,22 @@ export default function Header() {
                         role="menu"
                         aria-hidden={!isSubmenuOpen}
                       >
-                        {link.subLinks.map((subLink) => (
-                          <li key={subLink.path}>
-                            <NavLink
-                              to={subLink.path}
-                              className={({ isActive }) => `dropdown-link ${isActive ? 'active' : ''}`}
-                              tabIndex={isSubmenuOpen ? 0 : -1}
-                            >
-                              {subLink.name}
-                            </NavLink>
+                        {link.categories.map((category) => (
+                          <li key={category.name} className="dropdown-column">
+                            <h3 className="category-title">{category.name}</h3>
+                            <ul className="category-services">
+                              {category.services.map((service) => (
+                                <li key={service.path}>
+                                  <NavLink
+                                    to={service.path}
+                                    className={({ isActive }) => `dropdown-link ${isActive ? 'active' : ''}`}
+                                    tabIndex={isSubmenuOpen ? 0 : -1}
+                                  >
+                                    {service.name}
+                                  </NavLink>
+                                </li>
+                              ))}
+                            </ul>
                           </li>
                         ))}
                       </ul>

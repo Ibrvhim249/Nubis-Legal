@@ -16,6 +16,42 @@ function DisputeResolution() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+// ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What types of disputes can you help resolve?",
+    answer: "We handle business, personal, property, and employment disputes through mediation or arbitration."
+  },
+  {
+    question: "How is dispute resolution different from litigation?",
+    answer: "It’s typically faster, less expensive, and more collaborative, helping preserve relationships."
+  },
+  {
+    question: "What’s the first step in starting dispute resolution?",
+    answer: "We begin with a consultation to understand the issue and recommend the best resolution method."
+  },
+  {
+    question: "Who leads the mediation or arbitration process?",
+    answer: "A neutral third-party facilitator or arbitrator, often a trained legal professional, manages the process."
+  },
+  {
+    question: "Is the outcome legally binding?",
+    answer: "Mediation outcomes may be made binding by agreement; arbitration outcomes are usually binding by default."
+  },
+  {
+    question: "What if the other party refuses to cooperate?",
+    answer: "We’ll assess the situation and recommend whether to escalate the matter to formal litigation if necessary."
+  },
+  // Add more FAQ items as needed
+];
+
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -51,7 +87,7 @@ function DisputeResolution() {
             <div className="service-description-text">
             <h2 className="service-description-title">DisputeResolution</h2>
 
-              <p>From mediation to arbitration, we provide efficient and cost-effective dispute resolution services.</p>
+              <p>From mediation to arbitration, we provide efficient and cost-effective dispute resolution services tailored to your needs. Our team works to resolve conflicts swiftly while preserving relationships, whether for individuals or businesses. We focus on finding mutually beneficial solutions that avoid lengthy litigation, saving you time and money. With our expert guidance, you’ll navigate disputes smoothly and achieve positive outcomes. Let us help you resolve conflicts in a way that maintains trust and minimizes disruption.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -148,6 +184,37 @@ function DisputeResolution() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

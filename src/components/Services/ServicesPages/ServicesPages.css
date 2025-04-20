@@ -157,9 +157,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0% 5%;
+    padding: 5%;
     background-color: #ffffff;
-    margin-bottom: 80px;
   }
   
   .service-data-container {
@@ -513,4 +512,109 @@
   font-size: clamp(1rem, 1.25vw, 1.25rem);
   line-height: 1.6;
   margin: 0;
+}
+
+/* ======================
+   FAQ Section
+   ====================== */
+.faqs {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-header {
+  color: #1e3a5f;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.faq-subheader {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+  font-weight: 500;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item.active .faq-question {
+  background-color: #f3f4f6;
+  color: #1e3a5f;
+}
+
+.faq-number {
+  color: #000;
+  margin-right: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.faq-item.active .faq-number {
+  color: #1e3a5f;
+  opacity: 1;
+}
+
+.faq-arrow {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.faq-content {
+  padding: 0 20px 0 60px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  line-height: 1.6;
+  color: #333;
+  opacity: 0;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  padding: 0.5rem 2rem 1.5rem;
+  opacity: 1;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .faq-content {
+    padding-left: 20px;
+  }
+  
+  .faq-item.active .faq-content {
+    padding-left: 20px;
+  }
 }

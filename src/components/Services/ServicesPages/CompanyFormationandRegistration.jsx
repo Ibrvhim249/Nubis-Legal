@@ -14,8 +14,43 @@ function CompanyFormationandRegistration() {
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
+    setActiveAccordion(activeAccordion === id ? null : id);};
+    
+
+// ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What business structures do you recommend?",
+    answer: "LLCs, corporations, sole proprietorships—based on liability, tax, and growth needs."
+  },
+  {
+    question: "How long does registration take?",
+    answer: "[X] days/weeks, depending on jurisdiction and entity type."
+  },
+  {
+    question: "What documents are required?",
+    answer: "Articles of Incorporation/Organization, EIN, bylaws (we handle filings)."
+  },
+  {
+    question: "Can you register my business in multiple states?",
+    answer: "Yes, we ensure compliance with interstate requirements."
+  },
+  {
+    question: "Do you provide registered agent services?",
+    answer: "Yes, we can act as your agent for legal notices."
+  },
+  {
+    question: "What ongoing compliance is needed?",
+    answer: "Annual reports, tax filings, and license renewals (we offer reminders/services)."
+  },
+  // Add more FAQ items as needed
+];
 
 
   return (
@@ -51,7 +86,7 @@ function CompanyFormationandRegistration() {
         <div className="service-description-container">
           <div className="service-description-text">
             <h2 className="service-description-title">Business Management & Corporate Support</h2>
-            <p>Running a business in the UAE requires strategic planning, compliance, and operational efficiency. Esnad provides end-to-end corporate support to ensure long-term success.</p>
+            <p>Starting a business requires the right legal structure to ensure long-term success. We handle the complexities of company formation and registration, making sure you comply with all local laws and regulations. From selecting the right business type to filing necessary documents, we streamline the entire process. Our expert team ensures that your business is set up correctly from the start, so you can focus on growth and operations. With our support, you can confidently take the first step toward building your business.</p>
           </div>
           <div className="service-description-blocks">
             <img src={L3} alt="Business formation" />
@@ -149,6 +184,38 @@ function CompanyFormationandRegistration() {
     </div>
   </div>
 </section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 
     </>
   );

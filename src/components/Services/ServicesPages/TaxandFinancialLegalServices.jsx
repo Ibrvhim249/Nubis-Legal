@@ -14,6 +14,41 @@ function TaxandFinancialLegalServices() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What services do you offer for tax compliance?",
+    answer: "We assist with tax planning, audit support, reporting obligations, and resolving tax disputes."
+  },
+  {
+    question: "Can you help structure my business for tax savings?",
+    answer: "Yes. We advise on legal structures that reduce tax burdens while maintaining compliance."
+  },
+  {
+    question: "Do you represent clients in tax audits?",
+    answer: "Yes. We provide full representation and support during tax authority investigations or audits."
+  },
+  {
+    question: "What if I receive a notice from the tax office?",
+    answer: "Contact us immediately. We’ll review the notice and represent you in any necessary communication or action."
+  },
+  {
+    question: "Can you help with financial contract drafting?",
+    answer: "Yes. We draft, review, and negotiate financial agreements like loan contracts or investment terms."
+  },
+  {
+    question: "Are your services available for individuals and businesses?",
+    answer: "Yes. We support both personal tax matters and corporate financial legal needs."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -49,7 +84,7 @@ function TaxandFinancialLegalServices() {
             <div className="service-description-text">
             <h2 className="service-description-title">Tax and Financial Legal Services</h2>
 
-              <p>Our experts help you stay compliant with tax regulations and resolve financial legal disputes.</p>
+              <p>Our experts help you stay compliant with tax regulations and resolve financial legal disputes efficiently. We provide guidance on navigating complex tax laws, from individual returns to corporate tax strategies. Whether you’re facing an audit, need advice on tax planning, or require assistance with financial disputes, we offer tailored solutions to protect your interests. With our in-depth knowledge of tax and financial law, you can approach your financial matters with confidence, ensuring compliance and minimizing risks.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -145,6 +180,37 @@ function TaxandFinancialLegalServices() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

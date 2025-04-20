@@ -14,6 +14,41 @@ function LegalDocumentPreparation() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+    // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What documents do you prepare?",
+    answer: "Wills, trusts, employment contracts, leases, and more."
+  },
+  {
+    question: "How do you customize documents?",
+    answer: "We tailor clauses to your assets, family needs, or business goals."
+  },
+  {
+    question: "Can you notarize or witness signatures?",
+    answer: "Yes, we arrange notarization and ensure legal validity."
+  },
+  {
+    question: "What’s the cost for a will?",
+    answer: "Flat fees from $[X] (simple to complex estates)."
+  },
+  {
+    question: "Do you store copies of my documents?",
+    answer: "Yes, secure digital/paper backups are available."
+  },
+  {
+    question: "Can you update existing documents?",
+    answer: "Absolutely—we revise for life changes (marriage, business expansion, etc.)."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -49,7 +84,7 @@ function LegalDocumentPreparation() {
             <div className="service-description-text">
             <h2 className="service-description-title">Legal Document Preparation</h2>
 
-              <p>From wills to employment agreements, we prepare legally sound documents tailored to your needs.</p>
+              <p>From wills to employment agreements, we prepare legally sound documents tailored to your needs. Our team ensures that each document is crafted with precision, adhering to the latest legal standards. Whether you require contracts, agreements, or estate planning documents, we provide comprehensive solutions that protect your interests. With our expertise, you can be confident that your legal documents are clear, enforceable, and fully compliant. Let us handle the details so you can focus on what matters most to you.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -145,6 +180,37 @@ function LegalDocumentPreparation() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

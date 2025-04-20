@@ -15,6 +15,41 @@ function TrademarkandIntellectualPropertyRegistration() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What IP can you register?",
+    answer: "What IP can you register."
+  },
+  {
+    question: "How long does trademark registration take?",
+    answer: "6–12 months (we expedite where possible)."
+  },
+  {
+    question: "What’s the cost?",
+    answer: "Fees vary by type/country—we provide transparent pricing upfront."
+  },
+  {
+    question: "Can you handle international IP registration?",
+    answer: "Yes, via the Madrid Protocol or country-specific filings."
+  },
+  {
+    question: "What if my trademark is challenged?",
+    answer: "We defend your rights through oppositions or litigation."
+  },
+  {
+    question: "Do you offer IP infringement monitoring?",
+    answer: "Yes, we track unauthorized use and send cease-and-desist letters."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -50,7 +85,7 @@ function TrademarkandIntellectualPropertyRegistration() {
             <div className="service-description-text">
             <h2 className="service-description-title">Trademark and Intellectual Property Registration</h2>
 
-              <p>Safeguard your intellectual property with our streamlined trademark and IP registration services.</p>
+              <p>Safeguard your intellectual property with our streamlined trademark and IP registration services. We help protect your brand, innovations, and creative works by ensuring that your intellectual property is properly registered. From trademarks to patents and copyrights, we guide you through the entire registration process. Our expert team ensures that your ideas and creations are legally protected, allowing you to focus on growing your brand with peace of mind. Trust us to secure your intellectual property and strengthen your competitive advantage.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -147,6 +182,38 @@ function TrademarkandIntellectualPropertyRegistration() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

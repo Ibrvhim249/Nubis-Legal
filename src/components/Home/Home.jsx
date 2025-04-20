@@ -34,6 +34,14 @@ import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg'
 import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg'
 import svg11 from '../img/assets/Home/Tax and Financial Legal Services mac.svg'
 import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
+import svg13 from '../img/assets/Home/icon 1.svg'
+import svg14 from '../img/assets/Home/icons 2.svg'
+import svg15 from '../img/assets/Home/icons 3.svg'
+import svg16 from '../img/assets/Home/icons 4.svg'
+import svg17 from '../img/assets/Home/icons 5.svg'
+import svg18 from '../img/assets/Home/icons 6.svg'
+import svg19 from '../img/assets/Home/icon 7.svg'
+import svg20 from '../img/assets/Home/icon 8.svg'
 
 //features icons
 import icon1 from '../img/assets/final media/our features icon SVG/Experienced Legal Professionals .svg';
@@ -227,7 +235,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
       {/* -- Services Section -- */}
 
 <section className="services" id="services">
-  <div className="container">
+  <div className="containe">
     {/* Services Header */}
     <div className="services-header">
       <h2 className="services-title">
@@ -322,6 +330,70 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                 path: "/services/compliance",
                 icon: svg12
               },
+              {
+                               id: 13,
+                               title: "Court Document Filing & Motion Drafting",
+                               path: "/services/CourtDocument",
+                               description: "Accurate preparation and filing of legal pleadings and court documents ",
+                               text: 'We specialize in the meticulous preparation of legal pleadings and documents, ensuring they are thoroughly reviewed and error-free.',
+                               icon: svg13
+                             },
+                            {
+                               id: 14,
+                               title: "Risk Assessment & Legal Strategy Planning",
+                               path: "/services/RiskA",
+                               description: "We conduct comprehensive risk assessments to identify potential legal challenges and vulnerabilities in your case",
+                               text: '',
+                               icon: svg14
+                             },
+                            {
+                               id: 15,
+                               title: "Business Structure Consultation",
+                               path: "/services/BusinessConsultation",
+                               description: "We offer expert advice to help you choose the best legal structure for your business",
+                               text: 'ensuring that your choice aligns with your financial, operational, and liability goals.',
+                               icon: svg15
+                             },
+                            {
+                               id: 16,
+                               title: "Legal Subscription Plans for Startups",
+                               path: "/services/LegalSubscription",
+                               description: "We offer affordable, ongoing legal coverage designed specifically for startups",
+                               text: 'ensuring that your business has reliable legal support as it scales.',
+                               icon: svg16
+                             },
+                            {
+                               id: 17,
+                               title: "Settlement Agreement Drafting",
+                               path: "/services/SettlementAgreement",
+                               description: "We offer expert drafting services for settlement agreements",
+                               text: 'ensuring that the terms of resolution are clearly defined and legally enforceable.',
+                               icon: svg17
+                             },
+                            {
+                               id: 18,
+                               title: "Lease Agreement Drafting & Negotiation",
+                               path: "/services/LeaseAgreement",
+                               description: "We offer professional lease agreement drafting and negotiation services for both landlords and tenants",
+                               text: 'ensuring that all terms are clear, fair, and legally enforceable.',
+                               icon: svg18
+                             },
+                            {
+                               id: 19,
+                               title: "Property Due Diligence",
+                               path: "/services/PropertyDueDiligence",
+                               description: "Our property due diligence services are designed ",
+                               text: 'to provide you with a comprehensive analysis of a property before making a purchase.',
+                               icon: svg19
+                             },
+                            {
+                               id: 20,
+                               title: "Title & Ownership Dispute Resolution",
+                               path: "/services/TitleOwnership",
+                               description: "We offer comprehensive legal services to resolve title and ownership disputes",
+                               text: 'helping you navigate complex issues that may arise during property transactions or ownership.',
+                               icon: svg20
+                             },
             ].map((service, index) => (
               <div key={index}>
                 <div className="service-item  ">

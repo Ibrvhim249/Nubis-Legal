@@ -15,6 +15,41 @@ function ContractReviewandAnalysis() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+// ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What’s included in your contract review service?",
+    answer: "We examine the terms, identify risks, suggest improvements, and provide a detailed report with recommendations."
+  },
+  {
+    question: "How does your review help me?",
+    answer: "It protects you from hidden risks, unfavorable clauses, and ensures that your interests are clearly represented."
+  },
+  {
+    question: "What types of contracts do you analyze?",
+    answer: "We analyze business agreements, leases, employment contracts, partnership agreements, and more."
+  },
+  {
+    question: "Can you review contracts I’ve already signed?",
+    answer: "Yes. Reviewing signed contracts can help prepare you for possible disputes or future renegotiations."
+  },
+  {
+    question: "Do you provide written feedback or a meeting summary?",
+    answer: "Yes. You’ll receive a written report outlining concerns, suggested changes, and follow-up steps."
+  },
+  {
+    question: "How quickly can I get a contract review?",
+    answer: "Most reviews are completed within 2–3 business days. Urgent reviews are available upon request."
+  },
+  // Add more FAQ items as needed
+];
+
   return (
         <>
           {/* -- Hero Section -- */}
@@ -50,7 +85,7 @@ function ContractReviewandAnalysis() {
              <div className="service-description-text">
              <h2 className="service-description-title">Contract Review and Analysis</h2>
  
-               <p>Our team meticulously reviews contracts to identify risks and recommend improvements.</p>
+               <p>Our team meticulously reviews contracts to identify potential risks and recommend improvements before they become problems. Whether it&apos;s a business agreement, employment contract, or service arrangement, we carefully analyze the terms to ensure clarity and fairness. We focus on protecting your interests by addressing any legal loopholes or unfavorable clauses. With our expert contract review, you’ll have peace of mind knowing your agreements are solid, enforceable, and aligned with your objectives.</p>
              </div>
            
            <div className="service-description-blocks">
@@ -148,6 +183,37 @@ function ContractReviewandAnalysis() {
         </div>
       </div>
     </section>
+
+
+    {/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
     
         </>
   );

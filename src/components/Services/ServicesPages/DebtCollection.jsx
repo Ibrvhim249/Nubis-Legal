@@ -16,6 +16,42 @@ function DebtCollection() {
   };
 
 
+   // ===============================================
+const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What’s your process for collecting debt?",
+    answer: "We begin with formal demand letters, then proceed to negotiations, legal proceedings, or court action if necessary."
+  },
+  {
+    question: "Do you help with commercial and personal debts?",
+    answer: "Yes. We handle debt recovery for individuals, businesses, and service providers."
+  },
+  {
+    question: "Is your approach compliant with legal regulations?",
+    answer: "Yes. Our debt collection methods follow all applicable laws to protect your rights and avoid liability."
+  },
+  {
+    question: "What happens if the debtor refuses to pay?",
+    answer: "We explore legal actions such as filing a claim, obtaining a judgment, and enforcing it through garnishment or liens."
+  },
+  {
+    question: "Can you locate missing or evasive debtors?",
+    answer: "Yes. We utilize skip-tracing techniques and databases to locate hard-to-find debtors."
+  },
+  {
+    question: "Do you charge upfront fees for debt recovery?",
+    answer: "Our pricing models are flexible, including flat fees or contingency-based arrangements depending on the case."
+  },
+  // Add more FAQ items as needed
+];
+
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -51,7 +87,7 @@ function DebtCollection() {
             <div className="service-description-text">
             <h2 className="service-description-title">Debt Collection</h2>
 
-              <p>Unpaid debts can hurt your business. We provide professional debt collection services, ensuring you recover your funds while staying legally compliant</p>
+              <p>Unpaid debts can significantly impact your business. We provide professional debt collection services that help you recover your funds efficiently and legally. Our team follows a structured approach, ensuring compliance with all legal requirements while maximizing your chances of successful recovery. We handle every aspect of the process, from initial contact to resolution, with professionalism and respect for all parties involved. With our support, you can regain the funds owed to you without compromising your reputation or legal standing.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -149,6 +185,36 @@ function DebtCollection() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

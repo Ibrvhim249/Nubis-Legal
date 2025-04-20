@@ -16,6 +16,43 @@ function LegalConsultation() {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+
+// ===============================================
+  const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What topics can I discuss in a consultation?",
+    answer: "Business law, disputes, compliance, personal legal matters, and strategy planning."
+  },
+  {
+    question: "How long is a typical session?",
+    answer: "Sessions are [X] minutes/hourly, with flexible scheduling."
+  },
+  {
+    question: "Do you offer ongoing advisory support?",
+    answer: "Yes, we provide follow-ups and action plans."
+  },
+  {
+    question: "Can you help me understand a legal notice I received?",
+    answer: "Yes, we’ll explain implications and next steps."
+  },
+  {
+    question: "Are consultations confidential?",
+    answer: "100%—attorney-client privilege applies."
+  },
+  {
+    question: "How do I prepare for a consultation?",
+    answer: "Bring relevant documents (contracts, notices, etc.) and a list of questions."
+  },
+  // Add more FAQ items as needed
+];
+  
+
   return (
     <>
       {/* -- Hero Section -- */}
@@ -51,7 +88,7 @@ function LegalConsultation() {
             <div className="service-description-text">
             <h2 className="service-description-title">Legal Consultation</h2>
 
-              <p>Our legal consultations provide clarity and actionable solutions for your legal challenges. Whether you’re a business owner or an individual, we’re here to guide you. We listen to your concerns, analyze your situation, and provide clear, practical solutions to protect your rights and interests.</p>
+              <p>Our legal consultations provide clarity and actionable solutions for your legal challenges. Whether you’re a business owner or an individual, we’re here to guide you every step of the way. We take the time to truly understand your situation by listening to your concerns and assessing all aspects of your case. After a thorough analysis, we offer clear, practical, and customized solutions designed to protect your rights, secure your interests, and ensure that you make informed decisions. From legal advice to strategic planning, you can rely on us for sound guidance that leads to positive outcomes.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -147,6 +184,37 @@ function LegalConsultation() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 

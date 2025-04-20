@@ -16,6 +16,40 @@ function ContractDraftingandReview() {
   const toggleAccordion = (id) => {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
+// ===============================================
+  const [activeFaq, setActiveFaq] = useState(null);
+
+const toggleFaq = (index) => {
+  setActiveFaq(activeFaq === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What types of contracts do you draft?",
+    answer: "NDAs, employment agreements, commercial contracts, and more—all tailored to your industry and goals."
+  },
+  {
+    question: "How do you ensure my contract is legally enforceable?",
+    answer: "We align terms with current laws, eliminate ambiguities, and include dispute-resolution clauses."
+  },
+  {
+    question: "Can you assist with contract negotiations?",
+    answer: "Yes, we advise on terms and represent your interests during negotiations."
+  },
+  {
+    question: "What’s your turnaround time for drafting?",
+    answer: "Typically [X] business days (rush options available)."
+  },
+  {
+    question: "Do you review contracts from other parties?",
+    answer: "Absolutely—we identify risks and suggest edits to protect you."
+  },
+  {
+    question: "What if a contract dispute arises later?",
+    answer: "We provide enforcement support or help renegotiate terms."
+  },
+  // Add more FAQ items as needed
+];
 
   return (
     <>
@@ -52,7 +86,7 @@ function ContractDraftingandReview() {
             <div className="service-description-text">
             <h2 className="service-description-title">Contract Drafting and Review</h2>
 
-              <p>We specialize in drafting and reviewing contracts that protect your interests and ensure compliance with legal standards. Whether it’s an NDA, employment agreement, or commercial contract, our team ensures clarity, enforceability, legally binding and risk-free..</p>
+              <p>We draft and review contracts that protect your interests, ensure legal compliance, and minimize risks. Whether it’s an NDA, employment agreement, or complex commercial contract, each document is tailored to fit your goals and industry. Our team ensures your contracts are clear, enforceable, and structured to prevent future disputes. We also offer support through negotiation and finalization, so you can sign with confidence.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -149,6 +183,37 @@ function ContractDraftingandReview() {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+{/* -- FAQ Section -- */}
+<section className="faqs">
+  <div className="faq-container">
+    <h1 className="faq-header">Your Question Answered</h1>
+    <h2 className="faq-subheader">Explore Our FAQ’s For Our Services<br />To learn more</h2>
+
+    {faqItems.map((item, index) => (
+      <div 
+        className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+        key={index}
+        onClick={() => toggleFaq(index)}
+      >
+        <div className="faq-question">
+          <span>
+            <span className="faq-number">{String(index + 1).padStart(2, 'Q')}</span>
+            {item.question}
+          </span>
+          <svg className="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" 
+                  strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div className="faq-content">
+          {item.answer}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 
