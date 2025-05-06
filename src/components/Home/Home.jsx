@@ -1,7 +1,8 @@
 // External Libraries
 import { Link } from 'react-router-dom';
 
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+
 import axios from 'axios';
 import FeatureCard from '../Animations/FeatureCard.jsx';
 
@@ -11,6 +12,9 @@ const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&ord
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
 // import { IoMdQuote } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+
+
 
 
 
@@ -84,6 +88,41 @@ const handleSubmit = (e) => {
       })
       .finally(() => setLoading(false));
   }, []);
+
+  // --- Add blog section logic here ---
+  const [activeSlide, setActiveSlide] = useState(0);
+  const sliderRef = useRef(null);
+
+  const scrollToSlide = (index) => {
+    if (sliderRef.current) {
+      const slideWidth = sliderRef.current.children[0]?.offsetWidth || 0;
+      sliderRef.current.scrollTo({
+        left: index * slideWidth,
+        behavior: 'smooth'
+      });
+      setActiveSlide(index);
+    }
+  };
+
+  // Update active slide on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sliderRef.current && posts.length > 0) {
+        const slideWidth = sliderRef.current.children[0]?.offsetWidth || 0;
+        const scrollPosition = sliderRef.current.scrollLeft;
+        const newActiveSlide = Math.round(scrollPosition / slideWidth);
+        setActiveSlide(newActiveSlide);
+      }
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', handleScroll);
+      return () => slider.removeEventListener('scroll', handleScroll);
+    }
+  }, [posts.length]);
+
+  // ... keep rest of the component the same until blog section ...
  
   return (
     <>
@@ -244,7 +283,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
     </div>
 
     {/* Scroll Container */}
-    <div className="scroll-container">
+    <div className="scroll-containerr">
       {[
               {
                 title: "Contract Drafting and Review",
@@ -395,7 +434,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                                icon: svg20
                              },
             ].map((service, index) => (
-              <div key={index}>
+              <div key={index} style={{ padding: "0px", margin: "0px", width: "min-content" }}>
                 <div className="service-item  ">
                   <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
                     <img 
@@ -442,51 +481,78 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
-
+{/* =-=-==-=-=-==--=-=-==-=-=-==--=-=-==-=-=-==--=-=-==-=-=-==--=-=-==-=-=-==-- */}
 
 
 
 <section className="blog-section" id="blog">
-  {/* Blog Header */}
-  <div className="blog-section-header">
-    <h2 className="blog-section-title">
-      OUR <span className="uppercase">BLOG</span>
-    </h2>
-  </div>
+        {/* Blog Header */}
+        <div className="blog-section-header">
+          <h2 className="blog-section-title">
+            OUR <span className="uppercase">BLOG</span>
+          </h2>
+        </div>
 
-  {loading ? (
-    <p className="text-center py-8">Loading posts...</p>
-  ) : posts.length > 0 ? (
-    <div className="blog-section-grid">
-      {posts.map((post) => (
-        <a 
-          key={post.id} 
-          href="/blog"
-          className="blog-section-item block bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:no-underline cursor-pointer"
-          aria-label={`Read more about ${post.title.rendered}`}
-        >
-          <div className="blog-section-image rounded-lg overflow-hidden mb-4">
-            <img
-              src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'}
-              alt={post.title.rendered}
-              className="w-full h-40 object-cover"
-            />
-          </div>
-          <span className="blog-section-date">
-            {new Date(post.date).toLocaleDateString()}
-        </span>
-          <h3 className="text-xl font-bold mt-2 mb-4">{post.title.rendered}</h3>
-          <div 
-            className="text-base text-gray-700 leading-relaxed mb-4" 
-            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
-          />
-        </a>
-      ))}
-    </div>
-  ) : (
-    <p className="text-center py-8">No posts available.</p>
+        {loading ? (
+          <p className="text-center py-8">Loading posts...</p>
+        ) : posts.length > 0 ? (
+          <>
+            <div className="blog-section-grid" ref={sliderRef}>
+              {posts.map((post) => (
+                <div 
+                  key={post.id} 
+                  className="blog-section-item block bg-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="blog-section-image rounded-lg overflow-hidden mb-4">
+                    <img
+                      src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'}
+                      alt={post.title.rendered}
+                      className="w-full h-40 object-cover"
+                    />
+                  </div>
+                  <span className="blog-section-date">
+                    {new Date(post.date).toLocaleDateString()}
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 mb-4">{post.title.rendered}</h3>
+                  <div 
+                    className="text-base text-gray-700 leading-relaxed mb-4" 
+                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
+                  />
+                 <a 
+  href={`/blog#post-${post.id}`}
+  className="read-more-link flex items-center"
+  aria-label={`Read more about ${post.title.rendered}`}
+>
+  READ MORE <IoIosArrowDroprightCircle className="ml-1 text-2xl" />
+</a>
+                </div>
+              ))}
+            </div>
+            
+            <div className="dots-layout-container flex justify-center items-center mt-4 mb-12 gap-2">
+  {posts.map((_, index) =>
+    index === activeSlide ? (
+      <div
+        key={index}
+        className="dot-progress-bar"
+        aria-label={`Active slide ${index + 1}`}
+      ></div>
+    ) : (
+      <button
+        key={index}
+        className="dot-indicator"
+        onClick={() => scrollToSlide(index)}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    )
   )}
-</section>
+</div>
+
+          </>
+        ) : (
+          <p className="text-center py-8">No posts available.</p>
+        )}
+      </section>
 
 
 
