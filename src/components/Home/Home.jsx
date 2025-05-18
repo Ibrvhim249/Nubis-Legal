@@ -1,83 +1,155 @@
-// External Libraries
 import { Link } from 'react-router-dom';
-
 import { useState, useRef, useEffect } from 'react';
-
 import axios from 'axios';
 import FeatureCard from '../Animations/FeatureCard.jsx';
+import PropTypes from 'prop-types';
+import imagesection from '../img/assets/Home/Scale icon.svg';
+
 
 const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&order=desc&orderby=date';
 
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
-// import { IoMdQuote } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-
-
-
-
-
-
 // Assets
-
 import homeHero from '../img/assets/Home/Home page nubis image .jpg';
 import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
-import ceo from "../img/assets/Home/ceo home page.png"
+import ceo from "../img/assets/Home/ceo home page.png";
 import aboutUsImg from '../img/assets/Home/New about us section img  Home page.png';
-import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
-import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
-import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
-import svg4 from '../img/assets/Home/Trademark and Intellectual Property Registration mac.svg'
-import svg5 from '../img/assets/Home/Company Formation and Registration mac.svg'
-import svg6 from '../img/assets/Home/Debt Collection mac.svg'
-import svg7 from '../img/assets/Home/Litigation and Court Documents mac .svg'
-import svg8 from '../img/assets/Home/Dispute Resolution mac .svg'
-import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg'
-import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg'
-import svg11 from '../img/assets/Home/Tax and Financial Legal Services mac.svg'
-import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
-import svg13 from '../img/assets/Home/icon 1.svg'
-import svg14 from '../img/assets/Home/icons 2.svg'
-import svg15 from '../img/assets/Home/icons 3.svg'
-import svg16 from '../img/assets/Home/icons 4.svg'
-import svg17 from '../img/assets/Home/icons 5.svg'
-import svg18 from '../img/assets/Home/icons 6.svg'
-import svg19 from '../img/assets/Home/icon 7.svg'
-import svg20 from '../img/assets/Home/icon 8.svg'
+import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg';
+import svg2 from '../img/assets/Home/Legal Consultation mac.svg';
+import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg';
+import svg4 from '../img/assets/Home/Trademark and Intellectual Property Registration mac.svg';
+import svg5 from '../img/assets/Home/Company Formation and Registration mac.svg';
+import svg6 from '../img/assets/Home/Debt Collection mac.svg';
+import svg7 from '../img/assets/Home/Litigation and Court Documents mac .svg';
+import svg8 from '../img/assets/Home/Dispute Resolution mac .svg';
+import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg';
+import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg';
+import servicecardbg from "../img/assets/Home/pexels-sora-shimazaki-5668882.png";
 
-//features icons
+// Features icons
 import icon1 from '../img/assets/final media/our features icon SVG/Experienced Legal Professionals .svg';
 import icon2 from '../img/assets/final media/our features icon SVG/Client-Focused Approach.svg';
 import icon3 from '../img/assets/final media/our features icon SVG/Modern Legal Solutions.svg';
 import icon4 from '../img/assets/final media/our features icon SVG/Transparent Pricing .svg';
 
-
-//image section icon
-import imagesection from '../img/assets/Home/Scale icon.svg';
-
-
 // Styles
 import './Home.css';
 
+function ServiceItem({ title, description, text, path, icon }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="service-item"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ backgroundImage: `url(${servicecardbg})` }}
+    >
+      <div className="service-image-overlay"></div>
+      <div className="service-content">
+        <div className="service-icon">
+          <img src={icon} alt={title} className="service-icon-img" />
+        </div>
+        
+        <div className="service-text">
+          <h3>{title}</h3>
+          <div className={`service-details ${isHovered ? 'visible' : ''}`}>
+            <p>{description}</p>
+            <p>{text}</p>
+          </div>
+        </div>
+
+        <Link className="services-section-link" to={path}>
+          <LuArrowUpRight className={`arrow-icon ${isHovered ? 'hovered' : ''}`} />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function Home() {
-  
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-// =================================
+  const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const sliderRef = useRef(null);
 
-const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const services = [
+    {
+      title: "Regulatory and Legal Compliance",
+      description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards. Our goal is to reduce legal risks, minimize penalties, and promote responsible business practices.",
+      path: "/services/compliance",
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  // Add your form submission logic here
-  console.log('Form submitted');
-  setShowQuoteModal(false);
-};
-// =======================================
+      icon: svg1
+    },
+    {
+      title: "Legal Consulting",
+      description: "We provide comprehensive legal consulting services tailored to the needs of individuals and businesses, with a focus on delivering customized and precise solutions.",
 
-  // Add this useEffect hook
+      path: "/services/legal-consultation",
+      icon: svg2
+    },
+    {
+      title: "Company Formation and Registration",
+      description: "Our firm provides comprehensive support for establishing and registering new companies, offering tailored solutions that ensure full legal compliance and streamline the setup process. ",
+   
+      path: "/services/companyformation",
+      icon: svg3
+    },
+    {
+      title: "Trademark Registration and Intellectual Property",
+      description: "We offer a full range of intellectual property services to help clients secure, protect, and leverage their trademarks, copyrights, and other intellectual assets. ",
+      path: "/services/trademark-registration",
+      icon: svg4
+    },
+    {
+      title: "Preparation of Legal Documents",
+      description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
+
+      path: "/services/document-preparation",
+      icon: svg5
+    },
+    {
+      title: "Debt Collection",
+      description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively. Our team leverages legal expertise and strategic solutions to ensure the timely recovery of outstanding financial claims.",
+
+      path: "/services/debt-collection",
+      icon: svg6
+    },
+    {
+      title: "Litigation and Preparation of Court Documents",
+
+      description: "We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process. ",
+      path: "/services/litigation",
+      icon: svg7
+    },
+    {
+      title: "Dispute Resolution",
+      description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches, ensuring that they achieve the most effective and efficient solutions.",
+
+      path: "/services/dispute-resolution",
+      icon: svg8
+    },
+    {
+      title: "Preparation, Review, and Analysis of Contracts",
+      description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests. ",
+    
+      path: "/services/contract-review",
+      icon: svg9
+    },
+    {
+      title: "Notary Services",
+      description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents. Our expert notaries are committed to delivering reliable and legally binding certifications. ",
+
+      path: "/services/real-estate",
+      icon: svg10
+    }
+  ];
+
   useEffect(() => {
     axios.get(WORDPRESS_API_URL)
       .then((response) => {
@@ -89,9 +161,11 @@ const handleSubmit = (e) => {
       .finally(() => setLoading(false));
   }, []);
 
-  // --- Add blog section logic here ---
-  const [activeSlide, setActiveSlide] = useState(0);
-  const sliderRef = useRef(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
+    setShowQuoteModal(false);
+  };
 
   const scrollToSlide = (index) => {
     if (sliderRef.current) {
@@ -104,7 +178,6 @@ const handleSubmit = (e) => {
     }
   };
 
-  // Update active slide on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (sliderRef.current && posts.length > 0) {
@@ -121,9 +194,6 @@ const handleSubmit = (e) => {
       return () => slider.removeEventListener('scroll', handleScroll);
     }
   }, [posts.length]);
-
-  // ... keep rest of the component the same until blog section ...
- 
   return (
     <>
 {/* -- Hero Section -- */}
@@ -271,196 +341,30 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
-      {/* -- Services Section -- */}
+           {/* -- Services Section -- */}
+      <section className="services" id="services">
+        <div className="s-container">
+          <div className="services-header">
+            <h2 className="services-title">Our Services</h2>
+          </div>
 
-<section className="services" id="services">
-  <div className="containe">
-    {/* Services Header */}
-    <div className="services-header">
-      <h2 className="services-title">
-        Our Services
-      </h2>
-    </div>
-
-    {/* Scroll Container */}
-    <div className="scroll-containerr">
-      {[
-              {
-                title: "Contract Drafting and Review",
-                description: "Clear, Strong, and Legally Sound Contracts for Your Business, Maximize business value from contracts.",
-                text:" with experts in strategy, implementation, and operational support.",
-                path: "/services/contract-drafting",
-                icon: svg1
-              },
-              {
-                title: "Legal Consultation",
-                description: "Expert Legal Advice, Personalized for You",
-                text:' and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/legal-consultation",
-                icon: svg2
-              },
-              {
-                title: "Company Formation and Registration",
-                description: "Start Your Business the Right Way",
-                text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
-                path: "/services/companyformation",
-                icon: svg3
-              },
-              {
-                title: "Trademark and Intellectual Property Registration",
-                description: "Protect Your Brand and Innovations",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/trademark-registration",
-                icon: svg4
-              },
-              {
-                title: "Legal Document Preparation",
-                description: "Protect your digital assets with enterprise-grade security",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/document-preparation",
-                icon: svg5
-              },
-              {
-                title: "Debt Collection",
-                description: "Transform your business with data-driven decisions",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/debt-collection",
-                icon: svg6
-              },
-              {
-                title: "Litigation and Court Documents",
-                description: "Full-stack technical support and maintenance",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/litigation",
-                icon: svg7
-              },
-              {
-                title: "Dispute Resolution",
-                description: "Protect your digital assets with enterprise-grade security",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/dispute-resolution",
-                icon: svg8
-              },
-              {
-                title: "Contract Review and Analysis",
-                description: "Transform your business with data-driven decisions",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/contract-review",
-                icon: svg9
-              },
-              {
-                title: "Real Estate Legal Support",
-                description: "Full-stack technical support and maintenance",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/real-estate",
-                icon: svg10
-              },
-              {
-                title: "Tax and Financial Legal Services",
-                description: "Protect your digital assets with enterprise-grade security",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/tax-services",
-                icon: svg11
-              },
-              {
-                title: "Regulatory and Legal Compliance",
-                description: "Protect your digital assets with enterprise-grade security",
-                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                path: "/services/compliance",
-                icon: svg12
-              },
-              {
-                               id: 13,
-                               title: "Court Document Filing & Motion Drafting",
-                               path: "/services/CourtDocument",
-                               description: "Accurate preparation and filing of legal pleadings and court documents ",
-                               text: 'We specialize in the meticulous preparation of legal pleadings and documents, ensuring they are thoroughly reviewed and error-free.',
-                               icon: svg13
-                             },
-                            {
-                               id: 14,
-                               title: "Risk Assessment & Legal Strategy Planning",
-                               path: "/services/RiskA",
-                               description: "We conduct comprehensive risk assessments to identify potential legal challenges and vulnerabilities in your case",
-                               text: '',
-                               icon: svg14
-                             },
-                            {
-                               id: 15,
-                               title: "Business Structure Consultation",
-                               path: "/services/BusinessConsultation",
-                               description: "We offer expert advice to help you choose the best legal structure for your business",
-                               text: 'ensuring that your choice aligns with your financial, operational, and liability goals.',
-                               icon: svg15
-                             },
-                            {
-                               id: 16,
-                               title: "Legal Subscription Plans for Startups",
-                               path: "/services/LegalSubscription",
-                               description: "We offer affordable, ongoing legal coverage designed specifically for startups",
-                               text: 'ensuring that your business has reliable legal support as it scales.',
-                               icon: svg16
-                             },
-                            {
-                               id: 17,
-                               title: "Settlement Agreement Drafting",
-                               path: "/services/SettlementAgreement",
-                               description: "We offer expert drafting services for settlement agreements",
-                               text: 'ensuring that the terms of resolution are clearly defined and legally enforceable.',
-                               icon: svg17
-                             },
-                            {
-                               id: 18,
-                               title: "Lease Agreement Drafting & Negotiation",
-                               path: "/services/LeaseAgreement",
-                               description: "We offer professional lease agreement drafting and negotiation services for both landlords and tenants",
-                               text: 'ensuring that all terms are clear, fair, and legally enforceable.',
-                               icon: svg18
-                             },
-                            {
-                               id: 19,
-                               title: "Property Due Diligence",
-                               path: "/services/PropertyDueDiligence",
-                               description: "Our property due diligence services are designed ",
-                               text: 'to provide you with a comprehensive analysis of a property before making a purchase.',
-                               icon: svg19
-                             },
-                            {
-                               id: 20,
-                               title: "Title & Ownership Dispute Resolution",
-                               path: "/services/TitleOwnership",
-                               description: "We offer comprehensive legal services to resolve title and ownership disputes",
-                               text: 'helping you navigate complex issues that may arise during property transactions or ownership.',
-                               icon: svg20
-                             },
-            ].map((service, index) => (
-              <div key={index} style={{ padding: "0px", margin: "0px", width: "min-content" }}>
-                <div className="service-item  ">
-                  <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
-                    <img 
-                      src={service.icon} 
-                      alt={service.title}
-                      className="w-full h-full p-2 object-contain"
-                      style={{ color: "white" }}
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                  <br />
-                  <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
-                  <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
-                  <Link className='services-section-link'
-                    to={service.path} 
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    <LuArrowUpRight />
-                  </Link>
+          <div className="services-scroll-container">
+            <div className="services-scroll-wrapper">
+              {services.map((service, index) => (
+                <div key={index} className="service-item-wrapper">
+                  <ServiceItem
+                    title={service.title}
+                    description={service.description}
+                    
+                    path={service.path}
+                    icon={service.icon}
+                  />
                 </div>
-              </div>
-            ))}
-    </div>
-  </div>
-</section>
-
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -647,3 +551,14 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 }
 
 export default Home;
+
+ServiceItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired
+};

@@ -36,77 +36,136 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem 7rem ;
     margin: 0 auto;
     max-width: 1200px;
-    width: 100%;
+    width: fit-content;
     padding: 0 20px;
   }
-  
-  .service-page-item {
-    background: linear-gradient(#005CC0, #002B5A);
-    border-radius: 20px;
-    padding: 2rem;
-    position: relative;
-    min-height: 380px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid white;
-    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.05);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .service-page-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .service-page-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    background-color: #213d8a;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .service-page-icon img {
-    filter: brightness(0) invert(1);
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
-  }
-  
-  .service-page-item h3 {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .service-page-item p {
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-  }
-  
-  .service-page-link {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    color: white;
-    font-size: 1.25rem;
-    transition: all 0.3s ease;
-    z-index: 20;
-  }
-  
-  .service-page-link:hover {
-    transform: translateY(-2px);
-  }
-  
+  /* Service Item Styles */
+.service-item {
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.service-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-text {
+  margin-top: auto;
+  transition: all 0.4s ease;
+}
+
+.service-text h3 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-item:hover .service-text {
+  margin-top: 0;
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.service-item:hover .service-icon {
+  transform: translateY(-10px);
+}
+
+.service-icon-img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-icon-img {
+  transform: scale(1.1);
+}
+
+.service-details {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-item:hover .service-details {
+  opacity: 1;
+  max-height: 200px;
+  transform: translateY(0);
+}
+
+.service-details p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.services-section-link {
+  position: absolute;
+  bottom: 0rem;
+  right: 1rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover .services-section-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arrow-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover .arrow-icon {
+  transform: rotate(45deg);
+}
 /* ======================
      Category Tabs
      ====================== */
