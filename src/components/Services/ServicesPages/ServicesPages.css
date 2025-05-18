@@ -370,150 +370,252 @@
   }
 
 /* ======================
-   Main Point Section
+   Main Points Section
    ====================== */
-   .main-point {
-    padding: 10% 5%;
-    background-color: #26486E;
-    margin-bottom: 80px;
-  }
-  
-  .main-point-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-    gap: 0rem;
-    align-items: center;
-  }
-  
-  .main-point-blocks {
-    position: relative;
-    width: 85%;
-    left: 10%;
-  }
-  
-  .main-point-blocks img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
-  }
-  
-  .main-point-text {
-    padding: 1rem;
-  }
-  
-  .main-point-title {
-    font-family: 'Roboto Slab', serif;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    padding-left: 1%;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    color: white;
-  }
-  
-  .main-point-text p {
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
-    color: white;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-  
-  .main-point-btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 0.625rem;
-    font-size: 1.125rem;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .main-point-btn:hover {
-    transform: translateY(-2px);
-    background-color: gray;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  @media (max-width: 480px) {
-    .main-point {
-      padding: 10% 5%;
-    }
-    
-    .main-point-content {
-      gap: 0rem;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: center;
-    }
-    
-    .main-point-blocks {
-      position: relative;
-      width: 100%;
-      left: 0%;
-    }
-    
-    .main-point-blocks img {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .main-point-title {
-      margin-bottom: 1rem;
-    }
-  }
-
-  /* Accordion Styles */
-.accordion-item {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.accordion-header {
+.main-points-section {
   width: 100%;
+  background-color: #002855;
+  padding: 4rem 0;
+}
+
+.main-points-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
-  padding: 1rem 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-
 }
 
-.accordion-icon {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-  color: white;
-}
-
-.accordion-icon.active {
-  transform: rotate(180deg);
-}
-
-.accordion-content {
-  max-height: 0;
+.m-image-container {
+  width: 100%;
+  border-radius: 1rem;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  padding-left: 1rem;
+  
+
 }
 
-.accordion-content.active {
-  max-height: 500px; /* Adjust based on content size */
-  padding-bottom: 1rem;
+.building-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.accordion-content p {
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
+.text-content {
+  width: 100%;
+  color: white;
+  position: relative;
+}
+
+.text-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.scroll-wrapper {
+  position: relative;
+}
+
+.scroll-container {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 2rem;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.point-item {
+  margin-bottom: 1.5rem;
+}
+
+.point-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.point-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.point-item p {
+  color: #e5e7eb;
+  margin-left: 2.25rem;
+}
+
+.fade-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 2rem;
+  height: 4rem;
+  background: linear-gradient(to top, #002855, transparent);
+  pointer-events: none;
+}
+
+.custom-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.5rem;
+  display: none;
+  align-items: start;
+}
+
+.scroll-track {
+  height: 300px;
+  width: 0.5rem;
+  background-color: #003366;
+  border-radius: 9999px;
+  position: relative;
+}
+
+.scroll-thumb {
+  position: absolute;
+  width: 0.5rem;
+  height: 4rem;
+  background-color: white;
+  border-radius: 9999px;
+  transition: top 200ms ease;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+  
+  .m-image-container {
+    width: 40%;
+  }
+  
+  .text-content {
+    width: 60%;
+  }
+  
+  .custom-scrollbar {
+    display: flex;
+  }
+}
+/* Main Points Section */
+.point-item {
+  margin-bottom: 2rem;
+}
+
+.point-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.point-description {
+  color: #e5e7eb;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Scroll Container */
+.scroll-container {
+  padding-right: 1.5rem;
+}
+
+/* Fade Effect */
+.fade-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 2rem;
+  height: 4rem;
+  background: linear-gradient(to top, #002855, transparent);
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .point-title {
+    font-size: 1.1rem;
+  }
+  
+  .point-description {
+    font-size: 0.95rem;
+  }
+  
+  .m-image-container {
+    margin-bottom: 1.5rem;
+  }
+}
+/* Icon styling */
+.point-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.point-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(1) brightness(5);
+  flex-shrink: 0;
+}
+
+.point-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
   margin: 0;
 }
 
+.point-description {
+  color: #e5e7eb;
+  line-height: 1.6;
+  margin-left: 2.5rem; /* Align with icon width + gap */
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .point-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .point-description {
+    margin-left: 2rem;
+    font-size: 0.95rem;
+  }
+}
+/* ======================
+   Global Styles
+   ====================== */
+
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
 /* ======================
    FAQ Section
    ====================== */

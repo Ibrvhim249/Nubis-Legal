@@ -1,19 +1,151 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L9 from "../../img/assets/final media/services IMAGE/L  9.png";
 import s9 from "../../img/assets/final media/services IMAGE/s 9.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+import svg1 from "../../img/assets/Servicepages/contract/Group 6.svg";
+import svg2 from "../../img/assets/Servicepages/contract/Subtract (3).svg";
+import svg3 from "../../img/assets/Servicepages/contract/Subtract (2).svg";
+import svg4 from "../../img/assets/Servicepages/contract/fa6-solid_file-contract.svg";
+import svg5 from "../../img/assets/Servicepages/contract/Subtract (1).svg";
+import svg6 from "../../img/assets/Servicepages/contract/Exclude.svg";
+import svg7 from "../../img/assets/Servicepages/contract/Subtract.svg";
 
+ const mainPoints = [
+    {
+      title: "Commercial Contracts",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "Drafting and reviewing contracts for business dealings, including sales agreements, supplier contracts, distribution agreements, and service agreements. We focus on clear, enforceable terms that address obligations, payment terms, and liabilities to protect all parties."
+    },
+    {
+      title: "Investment Agreements",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Specializing in the preparation of investment contracts, including partnership agreements, joint ventures, shareholder agreements, and other arrangements that facilitate investment. Our services ensure terms are transparent, secure, and tailored to meet financial goals."
+    },
+       {
+      title: "Lease Agreements",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Our team drafts and reviews lease contracts for residential, commercial, and industrial properties, ensuring that terms are legally sound and clear. We also handle specialized leasing agreements such as usufruct contracts."
+        },
+    {
+      title: "Employment Contracts",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "Preparation and review of employment agreements, ensuring compliance with labor laws and clarity on terms such as roles, responsibilities, compensation, and termination clauses to protect employer-employee relationships."
+    },
+    {
+      title: "Partnership and Joint Venture Agreements",
+      icon: <img src={svg5} alt="svg2" className="point-icon" />,
+      description: "Drafting and reviewing agreements to establish or formalize partnerships, joint ventures, and other cooperative arrangements. These contracts address profit-sharing, responsibilities, and dispute resolution to support successful collaborations."
+    },
+    {
+      title: "Non-Disclosure Agreements (NDAs)",
+      icon: <img src={svg6} alt="svg2" className="point-icon" />,
+      description: "We prepare NDAs that protect confidential information in business relationships, ensuring clear language around obligations and consequences of breach."
+    },
+     
+    {
+      title: "Commission and Brokerage Contracts",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "Drafting and reviewing contracts that govern commission-based relationships, including those for sales agents, brokers, and intermediaries. These agreements clarify expectations, payment terms, and performance requirements."
+    },
+    {
+      title: "Contract Drafting",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: ": Our team ensures that all terms are precise and comprehensive, creating documents that prevent ambiguities and secure the interests of all parties involved."
+    },
+    {
+      title: "Contract Review",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "A thorough examination of contracts to enhance clarity, mitigate potential risks, and ensure all obligations are transparent and in compliance with legal requirements."
+    },
+    {
+      title: "Contract Analysis",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "In-depth legal and financial analysis of contractual terms to empower clients with the information they need for strategic decision-making. This includes examining potential liabilities, regulatory implications, and financial impacts."
+    }
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L9}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 function ContractReviewandAnalysis() {
 
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
 // ===============================================
 const [activeFaq, setActiveFaq] = useState(null);
@@ -83,9 +215,9 @@ const faqItems = [
          <div className="service-description-container">
            
              <div className="service-description-text">
-             <h2 className="service-description-title">Contract Review and Analysis</h2>
+             <h2 className="service-description-title">Preparation, Review, and Analysis of Contracts</h2>
  
-               <p>Our team meticulously reviews contracts to identify potential risks and recommend improvements before they become problems. Whether it&apos;s a business agreement, employment contract, or service arrangement, we carefully analyze the terms to ensure clarity and fairness. We focus on protecting your interests by addressing any legal loopholes or unfavorable clauses. With our expert contract review, you’ll have peace of mind knowing your agreements are solid, enforceable, and aligned with your objectives.</p>
+               <p>Our firm offers a full suite of services dedicated to the preparation, review, and analysis of contracts, designed to ensure transparency and robust protection of our clients’ interests. We understand that contracts are the foundation of successful business relationships and personal agreements, so our meticulous approach helps you avoid potential pitfalls and costly disputes.</p>
              </div>
            
            <div className="service-description-blocks">
@@ -96,43 +228,7 @@ const faqItems = [
        </section>
 
        {/* -- Main Point Section -- */}
-                   <section className="main-point">
-                     <div className="main-point-container">
-                       <div className="main-point-content">
-                         {/* Left Image Blocks */}
-                         <div className="main-point-blocks">
-                           <img src={L9} alt="About Us 2" />
-                         </div>
-             
-                         {/* Right Text Section */}
-                         <div className="main-point-text">
-                           <h2 className="main-point-title">Main points</h2>
-                           
-                           {/* Accordion 1 */}
-                           <div className="accordion-item">
-                             <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                               <span>Thorough Risk Identification and Legal Clarity</span>
-                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                             </button>
-                             <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                               <p>We go beyond surface-level reviews to uncover hidden risks, vague clauses, and unfavorable terms that could hurt you down the line. Our legal team carefully analyzes each section of your contract to ensure it’s clear, fair, and enforceable. We highlight potential red flags, explain their implications, and offer practical solutions to safeguard your rights and interests.</p>
-                             </div>
-                           </div>
-             
-                           {/* Accordion 2 */}
-                           <div className="accordion-item">
-                             <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                               <span>Strategic Recommendations for Stronger Agreements</span>
-                               <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                             </button>
-                             <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                               <p>A good contract isn’t just about avoiding risk — it’s about strengthening your position. After our detailed review, we provide tailored recommendations to enhance the contract’s language, structure, and balance. Whether it’s a business agreement, lease, partnership deal, or vendor contract, we help you negotiate better terms and move forward with confidence.</p>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                   </section>
+ <MainPointsSection />
     
           <section className="service-data" id="service-data">
       <div className="service-data-container">
