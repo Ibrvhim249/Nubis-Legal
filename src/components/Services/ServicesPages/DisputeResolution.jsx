@@ -1,20 +1,151 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L8 from "../../img/assets/final media/services IMAGE/L  8.png";
 import s8 from "../../img/assets/final media/services IMAGE/s 8.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+import svg1 from "../../img/assets/Servicepages/dispute/Group 46.svg";
+import svg2 from "../../img/assets/Servicepages/dispute/Group 48.svg";
+import svg3 from "../../img/assets/Servicepages/dispute/Group 50.svg";
+import svg4 from "../../img/assets/Servicepages/dispute/Group 52.svg";
+import svg5 from "../../img/assets/Servicepages/dispute/Group 54.svg";
+import svg6 from "../../img/assets/Servicepages/dispute/Group 55.svg";
+import svg7 from "../../img/assets/Servicepages/dispute/Group 57.svg";
+import svg8 from "../../img/assets/Servicepages/dispute/Group 58.svg";
+
+
+const mainPoints = [
+    {
+      title: "Negotiation Services",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "We provide expert negotiation support, assisting parties in reaching mutually acceptable agreements. Our approach aims to ensure that all stakeholders' interests are considered, helping to achieve swift, fair, and lasting solutions."
+    },
+    {
+      title: "Mediation Services",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "We offer mediation as a neutral, third-party service to facilitate dispute resolution. Our mediators help reduce tensions, fostering open communication between parties. This process is designed to be a cost-effective alternative to litigation, enabling parties to settle disagreements amicably and avoid lengthy legal procedures."
+    },
+       {
+      title: "Arbitration Representation",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "We represent clients before arbitration panels, whether in domestic or international proceedings. Our team has extensive experience in handling arbitration cases, ensuring that our clients’ interests are well-protected throughout the process. We provide guidance on the arbitration procedure, prepare necessary legal documents, and advocate on behalf of clients to ensure the best possible outcomes."
+        },
+    {
+      title: "Legal Strategy and Case Planning",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "We develop precise legal strategies for dispute resolution, starting from case inception through to final judgment. We assist clients in establishing and executing clear, step-by-step plans for managing the litigation process, ensuring the effective presentation of their case at every stage. We monitor the progress of cases and advise clients on how best to adjust their strategy based on the developments in the dispute."
+    },
+    {
+      title: "Representation in Arbitration",
+      icon: <img src={svg5} alt="svg2" className="point-icon" />,
+      description: "Our team handles full representation of clients in front of arbitration tribunals, including the preparation of submissions, statements, and evidence. We work with experts in various sectors to ensure a comprehensive presentation of our clients' case."
+    },
+    {
+      title: "Litigation and Arbitration Support",
+      icon: <img src={svg6} alt="svg2" className="point-icon" />,
+      description: "We provide litigation support and guidance throughout the entire process, ensuring that our clients understand the steps and stages of their dispute, whether in court or arbitration. We help clients develop effective strategies for both litigation and alternative dispute resolution (ADR) mechanisms, such as arbitration and mediation."
+    },
+     
+    {
+      title: "Settlement Negotiations",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "In addition to traditional negotiation, we facilitate settlement negotiations aimed at avoiding court proceedings or final arbitration awards. Our team works with clients to ensure that any settlement reached is comprehensive, protecting their rights and interests."
+    },
+    {
+      title: "Enforcement of Arbitration Awards",
+      icon: <img src={svg8} alt="svg2" className="point-icon" />,
+      description: "We assist in the enforcement of arbitral awards in jurisdictions where required, ensuring that clients' rights are upheld and any financial or other obligations are enforced in compliance with international legal frameworks."
+    },
+    {
+      title: "Drafting and Review of Settlement Agreements",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "We provide expert services in drafting and reviewing settlement agreements, ensuring that they are legally binding and protect our clients’ interests. These agreements can resolve disputes without the need for lengthy litigation or arbitration, ensuring an efficient resolution."
+    },
+    
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L8}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 function DisputeResolution() {
 
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
 // ===============================================
 const [activeFaq, setActiveFaq] = useState(null);
@@ -85,9 +216,9 @@ const faqItems = [
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">DisputeResolution</h2>
+            <h2 className="service-description-title">Dispute Resolution</h2>
 
-              <p>From mediation to arbitration, we provide efficient and cost-effective dispute resolution services tailored to your needs. Our team works to resolve conflicts swiftly while preserving relationships, whether for individuals or businesses. We focus on finding mutually beneficial solutions that avoid lengthy litigation, saving you time and money. With our expert guidance, you’ll navigate disputes smoothly and achieve positive outcomes. Let us help you resolve conflicts in a way that maintains trust and minimizes disruption.</p>
+              <p>At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches designed to achieve the most effective and efficient solutions. Recognizing that litigation can be time-consuming and costly, we prioritize alternative dispute resolution methods such as negotiation, mediation, and arbitration to help preserve relationships and reduce conflict.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -99,43 +230,7 @@ const faqItems = [
 
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L8} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Effective Conflict Resolution Without Going to Court</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>Not every dispute needs to end in litigation. We specialize in alternative dispute resolution methods like mediation and arbitration that save you time, money, and stress. Our approach focuses on understanding both sides, facilitating productive dialogue, and finding fair solutions that protect your interests while avoiding the delays and costs of courtroom battles.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Preserving Business and Personal Relationships</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>Disputes don’t have to damage valuable relationships. Whether it’s a business disagreement, partnership conflict, or personal matter, we aim to resolve issues with diplomacy and professionalism. Our goal is to help you reach an agreement that works — while maintaining respect, communication, and trust between the parties involved.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+<MainPointsSection />
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

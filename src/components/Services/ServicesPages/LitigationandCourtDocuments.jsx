@@ -1,20 +1,134 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L7 from "../../img/assets/final media/services IMAGE/L  7.png";
 import s7 from "../../img/assets/final media/services IMAGE/s 7.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+import svg1 from "../../img/assets/Servicepages/litigation/Group 38.svg";
+import svg2 from "../../img/assets/Servicepages/litigation/Group 40.svg";
+import svg3 from "../../img/assets/Servicepages/litigation/Group 43.svg";
+import svg4 from "../../img/assets/Servicepages/litigation/Exclude.svg";
+import svg5 from "../../img/assets/Servicepages/litigation/Group 91.svg";
+import svg6 from "../../img/assets/Servicepages/litigation/Exclude (1).svg";
+
+
+const mainPoints = [
+    {
+      title: "Strategic Litigation Planning and Guidance",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "We offer tailored advice and develop strategic plans for each phase of the litigation process. From case initiation to execution, we guide clients on necessary procedures, helping them take well-informed legal steps and effectively manage their cases. This includes devising clear strategies to achieve optimal results and monitoring each stage of the litigation to ensure compliance and responsiveness."
+    },
+    {
+      title: "Preparation of Legal Memos",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Our team prepares comprehensive and compelling legal memos for various types of cases, including criminal, civil, commercial, real estate, and leasing matters. These memos are meticulously crafted to strengthen our clients' positions and articulate their rights and interests effectively before the court."
+    },
+       {
+      title: "Drafting and Filing Pleadings",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "We draft all necessary pleadings, petitions, motions, and responses required at each stage of the litigation process. Our attention to detail in documentation ensures that every aspect of the case is accurately presented, enhancing the strength of our clients' positions."
+        },
+    {
+      title: "Court Representation",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "We provide skilled representation in court, advocating on behalf of our clients in all proceedings. Our legal team presents arguments and responds effectively to opposing parties to protect our clients' interests."
+    },
+    {
+      title: "Enforcement of Judgments",
+      icon: <img src={svg5} alt="svg2" className="point-icon" />,
+      description: "Following favorable outcomes, we assist clients in enforcing court judgments. We handle the necessary procedural steps to ensure our clients’ rights are fully realized, whether through asset recovery, garnishments, or other enforcement mechanisms."
+    },
+    {
+      title: "Litigation Management and Tracking",
+      icon: <img src={svg6} alt="svg2" className="point-icon" />,
+      description: "We provide ongoing support by tracking the progress of litigation cases, ensuring all deadlines are met and procedural requirements are fulfilled. We keep our clients informed at each stage and adapt strategies as needed to respond to changes and developments in the case."
+    }
+     
+    
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L7}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 function LitigationandCourtDocuments() {
 
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
   // ===============================================
   const [activeFaq, setActiveFaq] = useState(null);
@@ -86,7 +200,7 @@ const faqItems = [
             <div className="service-description-text">
             <h2 className="service-description-title">Litigation and Court Documents</h2>
 
-              <p>We prepare and file court documents with precision, ensuring that your case is presented effectively. Our experienced team works diligently to support you through every stage of litigation, providing strong legal representation when you need it most. We handle all the necessary paperwork, from filing motions to drafting pleadings, with attention to detail and compliance. With our expertise, you can rest assured that your case is in capable hands, maximizing your chances of a favorable outcome in court.</p>
+              <p>We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process. Whether you are initiating a claim or defending against one, our experienced legal team is committed to protecting your rights and achieving the best possible outcome.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -97,44 +211,10 @@ const faqItems = [
       </section>
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L7} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Accurate and Strategic Court Document Preparation</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>Success in court starts with well-prepared documentation. We draft, review, and file court documents with precision and attention to detail — from complaints and motions to affidavits and pleadings. Our team ensures everything is complete, compliant, and strategically written to support your case and position you for the best possible outcome.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Supportive Legal Representation Every Step of the Way</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>Litigation can be stressful, but you don’t have to face it alone. We provide strong, reliable legal support tailored to your specific case. Whether you’re initiating a lawsuit or responding to one, we guide you through the entire legal process, explaining your options and advocating for your interests with clarity, confidence, and professionalism.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+      <MainPointsSection />
 
+
+      {/* -- Service Data Section -- */}
       <section className="service-data" id="service-data">
   <div className="service-data-container">
     <div className="service-data-content">

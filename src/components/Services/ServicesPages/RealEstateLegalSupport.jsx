@@ -1,18 +1,133 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L10 from "../../img/assets/final media/services IMAGE/L  10.png";
 import s10 from "../../img/assets/final media/services IMAGE/s 10.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+
+import svg1 from "../../img/assets/Servicepages/notary/Group 90.svg";
+import svg2 from "../../img/assets/Servicepages/notary/Group 91.svg";
+import svg3 from "../../img/assets/Servicepages/notary/Group 92.svg";
+import svg4 from "../../img/assets/Servicepages/notary/Exclude.svg";
+
+import svg6 from "../../img/assets/Servicepages/notary/Group 93.svg";
+import svg7 from "../../img/assets/Servicepages/notary/Group 94.svg";
+
+
+const mainPoints = [
+    {
+      title: "Power of Attorney (POA) Attestation",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "WWe assist clients in the drafting and attestation of Power of Attorney documents, ensuring they are legally recognized for various purposes such as business representation, property transactions, or personal matters. We ensure that the POA complies with local laws and is duly notarized for validity."
+    },
+    {
+      title: "Legal Notices",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Our team prepares and notarizes legal notices for clients, which are often required in formal communications with third parties or in cases where a legal obligation must be formally asserted. These notices are crafted to meet legal standards and ensure that the recipient is properly notified of their rights or obligations."
+    },
+       {
+      title: "Declarations",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "We provide notary services for the attestation of various types of declarations, including sworn statements, affidavits, and self-certifications. These declarations are prepared and notarized to give them legal weight in various proceedings, such as court cases, administrative matters, or contractual obligations."
+        },
+    {
+      title: "Debit Declarations",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "We assist clients with notarizing debit declarations, which are often required in financial matters or debt recovery processes. These documents are prepared with the necessary legal formalities to ensure that any claims or acknowledgments regarding financial obligations are properly authenticated."
+    },
+    {
+      title: "Venture Agreements Notarization",
+      icon: <img src={svg7} alt="svg2" className="point-icon" />,
+      description: "For entrepreneurs and businesses, we offer notary services for the attestation of venture agreements, including joint ventures, partnerships, and other collaborative business arrangements. This ensures that the agreements are legally binding and provide protection for all parties involved."
+    },
+    {
+      title: "Additional Notary Services",
+      icon: <img src={svg6} alt="svg2" className="point-icon" />,
+      description: "We provide notary services for various other legal documents as required by the client, such as contracts, acknowledgments, certifications, and other documents that need formal notarization to ensure authenticity and compliance with legal standards. Whether it's for personal or business purposes, our team ensures that all documents are prepared and notarized in accordance with applicable laws and regulations."
+    }
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L10}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function RealEstateLegalSupport() {
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
   // ===============================================
 const [activeFaq, setActiveFaq] = useState(null);
@@ -82,9 +197,9 @@ const faqItems = [
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">Real Estate Legal Support</h2>
+            <h2 className="service-description-title">Notary Services</h2>
 
-              <p>From property purchases to lease agreements, we provide comprehensive legal support for all real estate matters. Our team guides you through every step of the process, ensuring that transactions are smooth, legally sound, and compliant with regulations. Whether you&apos;re buying, selling, leasing, or managing property, we handle the legal details so you can focus on your real estate goals. With our expertise, you can confidently navigate the complexities of real estate law, minimizing risks and maximizing your successز</p>
+              <p>At Nubis Legal Consultancy, we provide a comprehensive range of notary services to ensure the legal validity and authenticity of various documents. Our expert notaries are committed to delivering reliable and legally binding certifications with the utmost professionalism and integrity.Whether you need affidavits, powers of attorney, contracts, or other important documents notarized, we ensure all procedures comply with applicable laws and regulations.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -96,43 +211,9 @@ const faqItems = [
 
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L10} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Expert Guidance for Every Real Estate Transaction</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>Real estate transactions can be complex and high-stakes, whether you’re buying, selling, leasing, or developing property. Our team provides expert legal advice throughout every step of the process, ensuring that your interests are protected. We assist with negotiations, contract drafting, title searches, and any legal challenges that may arise, ensuring a smooth transaction from start to finish.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Comprehensive Support for Property Agreements and Disputes</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>In addition to facilitating transactions, we offer full legal support for property-related agreements, including lease negotiations, purchase contracts, and property management agreements. If disputes arise, we also provide strategic solutions to resolve conflicts, whether through negotiation, mediation, or legal action. Our goal is to help you make informed decisions and achieve successful outcomes in all your real estate matters.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+      <MainPointsSection />
+
+      {/* -- Service Data Section -- */}
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

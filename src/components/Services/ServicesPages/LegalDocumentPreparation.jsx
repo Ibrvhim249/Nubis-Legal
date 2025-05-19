@@ -1,18 +1,164 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L5 from "../../img/assets/final media/services IMAGE/L  5.png";
 import s5 from "../../img/assets/final media/services IMAGE/s 5.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+import svg1 from "../../img/assets/Servicepages/legal decomentation/Group 25.svg";
+import svg2 from "../../img/assets/Servicepages/legal decomentation/Group 26.svg";
+import svg3 from "../../img/assets/Servicepages/legal decomentation/Group 27.svg";
+
+
+
+const mainPoints = [
+    {
+      title: "Legal Memos",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "Drafting detailed legal memorandums across various cases to enhance our clients’ legal standing and clarify essential case points."
+    },
+    {
+      title: "Declarations and Legal Certificates",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Preparing necessary declarations and certificates for judicial purposes, ensuring that they meet required legal standards and facilitate a smoother legal process."
+    },
+       {
+      title: "Representation and Negotiation Services",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Representing clients in negotiations and meetings, advocating on their behalf to safeguard their interests and preserve their rights. We aim to achieve outcomes that align with our clients’ strategic goals."
+        },
+    {
+      title: "Company Meetings and General Assemblies",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+    },
+    {
+      title: "Minutes Preparation",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Drafting and documenting minutes of General Assembly meetings, Board of Directors meetings, and other essential corporate sessions, including resolutions, strategic decisions, and official records."
+    },
+    {
+      title: "Representation in Meetings",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Attending meetings on behalf of shareholders, partners, or corporate clients, ensuring their interests are fully represented and all necessary documentation is accurate and legally compliant."
+    },
+     
+    {
+      title: "Resolution Recording",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: ": Preparing detailed records of resolutions and key corporate decisions to ensure transparent corporate governance."
+    },
+    {
+      title: "Agency Agreements",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Drafting general and special power of attorney agreements that comply with legal standards, providing clients with legally binding authority in specific transactions, actions, or legal proceedings."
+    },
+    {
+      title: "Comprehensive Legal Document Preparation",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Assisting clients in the preparation of all essential legal documents to ensure full compliance with applicable laws and regulations, covering everything from initial drafts to finalized, executed versions."
+    },
+    {
+      title: "Notarization and Authentication",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+    },
+    {
+      title: "Company Meetings and Resolutions",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "Certifying minutes of meetings, board resolutions, and corporate decisions at the notary public to guarantee their legal standing and credibility."
+    },
+    {
+      title: "Agreements and Declarations Between Individuals",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Ensuring that all agreements, declarations, and contracts between natural persons are notarized at the notary public, providing them with full legal validity and enforceability."
+    },
+    {
+      title: "Representation at Meetings and Record Keeping",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "Representing companies and individuals in official meetings to ensure that their legal rights and positions are safeguarded and that all proceedings comply with legal requirements.Documenting and maintaining accurate records of meeting minutes, including investigation records, resolutions, and other formal decisions. This includes handling both formal and informal records to provide a complete, legally sound documentation process"
+
+    },
+    
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L5}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function LegalDocumentPreparation() {
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
     // ===============================================
 const [activeFaq, setActiveFaq] = useState(null);
@@ -84,7 +230,7 @@ const faqItems = [
             <div className="service-description-text">
             <h2 className="service-description-title">Legal Document Preparation</h2>
 
-              <p>From wills to employment agreements, we prepare legally sound documents tailored to your needs. Our team ensures that each document is crafted with precision, adhering to the latest legal standards. Whether you require contracts, agreements, or estate planning documents, we provide comprehensive solutions that protect your interests. With our expertise, you can be confident that your legal documents are clear, enforceable, and fully compliant. Let us handle the details so you can focus on what matters most to you.</p>
+              <p>Our legal document preparation services are designed to ensure full compliance with all applicable legal requirements, delivered with precision and professionalism. We recognize that properly prepared documents are critical to protecting your rights, facilitating transactions, and meeting regulatory standards.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -95,43 +241,7 @@ const faqItems = [
       </section>
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L5} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Customized Legal Documents for Every Situation</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>Every legal document should reflect your specific needs and circumstances — not just generic templates. We prepare customized, accurate, and enforceable documents including wills, powers of attorney, employment contracts, lease agreements, and more. Each document is carefully drafted to protect your interests and meet all legal requirements, ensuring peace of mind and clarity for all parties involved.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Professional Drafting with Attention to Detail</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>Legal paperwork can be complex, but we make it simple and stress-free. Our legal experts handle all the drafting with precision, using clear and concise language that’s legally sound and easy to understand. We also offer guidance throughout the process, explaining each clause and ensuring the final document aligns with your goals and obligations.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+      <MainPointsSection />
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">

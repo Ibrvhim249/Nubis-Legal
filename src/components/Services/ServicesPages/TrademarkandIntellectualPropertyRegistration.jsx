@@ -1,19 +1,141 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L4 from "../../img/assets/final media/services IMAGE/L  4.png"
 import s4 from "../../img/assets/final media/services IMAGE/s 4.png"
-import { IoIosArrowDropdown } from 'react-icons/io';
+
+import svg1 from "../../img/assets/Servicepages/tradmark/Mask group.svg";
+import svg2 from "../../img/assets/Servicepages/tradmark/Group 31.svg";
+import svg3 from "../../img/assets/Servicepages/tradmark/Group 33.svg";
+import svg4 from "../../img/assets/Servicepages/tradmark/Subtract.svg";
+import svg5 from "../../img/assets/Servicepages/tradmark/Group 34.svg";
+import svg6 from "../../img/assets/Servicepages/tradmark/Vector.svg";
+// import svg7 from "../../img/assets/Servicepages/tradmark/Subtract (1).svg";
+import svg8 from "../../img/assets/Servicepages/tradmark/Group 37.svg";
+
+
+
+const mainPoints = [
+    {
+      title: "Trademark Registration",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "We provide comprehensive support for registering trademarks locally and internationally. Our team handles all aspects of the registration process, from initial searches to filing applications, to ensure that the brand's distinctiveness is legally protected and that clients maintain exclusive rights to their trademarks."
+    },
+    {
+      title: "Trademark Renewal Services",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "To protect and maintain our clients’ exclusive rights, we manage the trademark renewal process, ensuring that trademarks remain valid and enforceable. Our services include timely reminders, preparation of necessary documents, and submission to the relevant authorities, so our clients never miss important deadlines."
+    },
+       {
+      title: "Trademark Licensing and Assignment",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "We assist clients with drafting and reviewing trademark licensing and assignment agreements to allow for authorized use of their trademarks or transfer of ownership while protecting their rights. This ensures clarity in terms and conditions for all parties involved and maximizes the brand's commercial value."
+        },
+    {
+      title: "Copyright Registration",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "For creative works such as literary pieces, music, software, and other original content, we offer copyright registration services to secure protection for our clients’ intellectual assets. Our team guides clients through the filing process, verifying that all legal requirements are met to protect their work from unauthorized use and infringement."
+    },
+    {
+      title: "Patent and Design Protection",
+      icon: <img src={svg5} alt="svg2" className="point-icon" />,
+      description: "We support clients in securing patents for inventions and protecting industrial designs. Our team assists with patent searches, application filings, and ongoing compliance, enabling clients to safeguard their innovations and unique designs against infringement."
+    },
+    {
+      title: "Intellectual Property Portfolio Management",
+      icon: <img src={svg6} alt="svg2" className="point-icon" />,
+      description: "Our firm provides ongoing support to manage clients' intellectual property portfolios. This includes monitoring renewals, tracking infringements, and maintaining a comprehensive overview of all registered assets to maximize the value and enforceability of their intellectual property."
+    },
+    {
+      title: "IP Dispute Resolution",
+      icon: <img src={svg8} alt="svg2" className="point-icon" />,
+      description: "WIn case of infringement or disputes, we offer legal representation and advice to protect our clients' intellectual property rights. We aim to resolve conflicts effectively, whether through negotiation, mediation, or litigation, ensuring the client's brand and intellectual assets are safeguarded."
+    }
+    
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L4}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 function TrademarkandIntellectualPropertyRegistration() {
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
   // ===============================================
 const [activeFaq, setActiveFaq] = useState(null);
@@ -83,9 +205,9 @@ const faqItems = [
         <div className="service-description-container">
           
             <div className="service-description-text">
-            <h2 className="service-description-title">Trademark and Intellectual Property Registration</h2>
+            <h2 className="service-description-title">Trademark Registration and Intellectual Property</h2>
 
-              <p>Safeguard your intellectual property with our streamlined trademark and IP registration services. We help protect your brand, innovations, and creative works by ensuring that your intellectual property is properly registered. From trademarks to patents and copyrights, we guide you through the entire registration process. Our expert team ensures that your ideas and creations are legally protected, allowing you to focus on growing your brand with peace of mind. Trust us to secure your intellectual property and strengthen your competitive advantage.</p>
+              <p>We offer a full range of intellectual property services designed to help clients secure, protect, and leverage their trademarks, copyrights, patents, and other valuable intellectual assets. Our goal is to safeguard your creative and commercial innovations, ensuring they provide lasting competitive advantages.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -96,43 +218,10 @@ const faqItems = [
       </section>
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L4} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Secure Your Brand with Professional Trademark Registration</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>Your brand is one of your most valuable assets — and protecting it starts with proper trademark registration. We guide you through every step, from name and logo searches to filing applications and responding to trademark office actions. Our team ensures your trademark is registered correctly and strategically, giving you exclusive rights and legal protection against infringement.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Comprehensive Intellectual Property Protection</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>Beyond trademarks, we help protect your innovations, creative works, and proprietary processes through copyrights, patents, and design registrations. Whether you’re an entrepreneur, artist, or inventor, we tailor our IP services to your unique needs. Our goal is to secure your intellectual property rights and help you maintain a competitive edge in your industry.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+      <MainPointsSection />
+      
+
+{/* -- service-data Section -- */}
           
 
       <section className="service-data" id="service-data">

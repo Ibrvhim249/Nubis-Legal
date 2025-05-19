@@ -89,7 +89,7 @@ const SERVICES_DATA = [
       icon: svg9
     },
     {
-      title: "",
+      title: "Notary Services",
       description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents. Our expert notaries are committed to delivering reliable and legally binding certifications. ",
 
       path: "/services/real-estate",

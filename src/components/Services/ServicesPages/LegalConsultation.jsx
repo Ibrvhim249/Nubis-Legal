@@ -1,20 +1,120 @@
 import "./ServicesPages.css"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Assets
 import servicepagesHero from '../../img/assets/Servicepages/Our services image.jpg';
 import L2 from "../../img/assets/final media/services IMAGE/L  2.png";
 import s2 from "../../img/assets/final media/services IMAGE/s 2.png";
-import { IoIosArrowDropdown } from 'react-icons/io';
+import svg1 from "../../img/assets/Servicepages/legal consltation/Group 5.svg";
+import svg2 from "../../img/assets/Servicepages/legal consltation/Vector.svg";
+import svg3 from "../../img/assets/Servicepages/legal consltation/Subtract.svg";
+import svg4 from "../../img/assets/Servicepages/legal consltation/Subtract (1).svg";
+
+
+
+const mainPoints = [
+    {
+      title: "Business Consulting ",
+      icon: <img src={svg1} alt="svg2" className="point-icon" />,
+      description: "We offer accurate legal guidance to ensure that companies comply with local and international regulations, enhancing their competitive position while minimizing potential legal risks. We help our clients develop effective legal strategies that support growth and expansion."
+    },
+    {
+      title: "Consulting for Individuals",
+      icon: <img src={svg2} alt="svg2" className="point-icon" />,
+      description: "We assist individuals in various legal matters, including family law, real estate, and personal disputes. Our team provides comprehensive support to secure their rights and interests through reliable legal advice."
+    },
+       {
+      title: "Comprehensive Legal Consulting",
+      icon: <img src={svg3} alt="svg2" className="point-icon" />,
+      description: "Covering all civil, commercial, real estate cases, personal status issues, and trademarks. We aim to deliver extensive support aligned with our clients' needs, empowering them to make informed decisions."
+        },
+    {
+      title: "Compliance Consulting",
+      icon: <img src={svg4} alt="svg2" className="point-icon" />,
+      description: "We assist companies in understanding and implementing regulatory compliance requirements, contributing to reduced legal risks and ensuring legal security."
+    }
+  ];
+
+function MainPointsSection() {
+  const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const calculateMaxScroll = () => {
+      setMaxScroll(scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(scrollContainer.scrollTop);
+    };
+
+    calculateMaxScroll();
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateMaxScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateMaxScroll);
+    };
+  }, []);
+
+  const thumbPosition = maxScroll > 0 
+    ? (scrollPosition / maxScroll) * (100 - (16 * 100) / 300)
+    : 0;
+
+  return (
+  <section className="main-points-section">
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="m-image-container">
+            <img
+              src={L2}
+              alt="Corporate services"
+              className="building-image"
+            />
+          </div>
+
+          <div className="text-content">
+            <h2>Main Points</h2>
+            
+            <div className="scroll-wrapper">
+              <div ref={scrollContainerRef} className="scroll-container">
+                {mainPoints.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <div className="point-header">
+                      {point.icon}
+                      <h3 className="point-title">{point.title}</h3>
+                    </div>
+                    <p className="point-description">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="fade-effect" />
+            </div>
+
+
+            <div className="custom-scrollbar">
+              <div className="scroll-track">
+                <div 
+                  className="scroll-thumb"
+                  style={{ top: `${thumbPosition}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 function LegalConsultation() {
 
-  const [activeAccordion, setActiveAccordion] = useState(null);
-
-  const toggleAccordion = (id) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
 
 
 // ===============================================
@@ -88,7 +188,7 @@ const faqItems = [
             <div className="service-description-text">
             <h2 className="service-description-title">Legal Consultation</h2>
 
-              <p>Our legal consultations provide clarity and actionable solutions for your legal challenges. Whether you’re a business owner or an individual, we’re here to guide you every step of the way. We take the time to truly understand your situation by listening to your concerns and assessing all aspects of your case. After a thorough analysis, we offer clear, practical, and customized solutions designed to protect your rights, secure your interests, and ensure that you make informed decisions. From legal advice to strategic planning, you can rely on us for sound guidance that leads to positive outcomes.</p>
+              <p>We provide comprehensive legal consulting services tailored to the unique needs of both individuals and businesses. Our approach focuses on delivering customized, precise solutions that address your specific legal challenges and objectives. Whether you require guidance on regulatory compliance, risk management, contract negotiation, or strategic legal planning, our experienced consultants work closely with you to understand your goals and provide actionable advice.</p>
             </div>
           
           <div className="service-description-blocks">
@@ -99,43 +199,7 @@ const faqItems = [
       </section>
 
       {/* -- Main Point Section -- */}
-                         <section className="main-point">
-                           <div className="main-point-container">
-                             <div className="main-point-content">
-                               {/* Left Image Blocks */}
-                               <div className="main-point-blocks">
-                                 <img src={L2} alt="About Us 2" />
-                               </div>
-                   
-                               {/* Right Text Section */}
-                               <div className="main-point-text">
-                                 <h2 className="main-point-title">Main points</h2>
-                                 
-                                 {/* Accordion 1 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(1)}>
-                                     <span>Personalized Legal Guidance Tailored to Your Needs</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
-                                     <p>We understand that every legal situation is unique, which is why our consultations are never one-size-fits-all. Whether you’re facing a business dispute, navigating personal legal matters, or just need guidance on the next steps, we take the time to understand your specific concerns. Our expert team listens closely, asks the right questions, and offers strategic advice that’s directly aligned with your goals — all in plain, understandable language.</p>
-                                   </div>
-                                 </div>
-                   
-                                 {/* Accordion 2 */}
-                                 <div className="accordion-item">
-                                   <button className="accordion-header" onClick={() => toggleAccordion(2)}>
-                                     <span>Clear, Actionable Solutions You Can Rely On</span>
-                                     <IoIosArrowDropdown className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`} />
-                                   </button>
-                                   <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
-                                     <p>Legal issues can be complex, but our job is to make them manageable. After carefully analyzing your situation, we provide straightforward recommendations you can act on immediately. We help you understand your options, assess potential risks, and make informed decisions that protect your rights and interests. Whether it’s preventative advice or urgent legal support, our consultations are designed to give you clarity and confidence moving forward.</p>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </section>
+      <MainPointsSection />
 
       <section className="service-data" id="service-data">
   <div className="service-data-container">
