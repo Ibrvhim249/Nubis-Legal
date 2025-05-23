@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 ServiceItem.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  
   path: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired
 };
@@ -28,41 +28,35 @@ import servicecardbg from '../img/assets/Home/pexels-sora-shimazaki-5668882.png'
 const SERVICES_DATA = [
     {
       title: "Regulatory and Legal Compliance",
-      description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards. Our goal is to reduce legal risks, minimize penalties, and promote responsible business practices.",
       path: "/services/compliance",
       
       icon: svg1
     },
     {
       title: "Legal Consulting",
-      description: "We provide comprehensive legal consulting services tailored to the needs of individuals and businesses, with a focus on delivering customized and precise solutions.",
 
       path: "/services/legal-consultation",
       icon: svg2
     },
     {
       title: "Company Formation and Registration",
-      description: "Our firm provides comprehensive support for establishing and registering new companies, offering tailored solutions that ensure full legal compliance and streamline the setup process. ",
    
       path: "/services/companyformation",
       icon: svg3
     },
     {
       title: "Trademark Registration and Intellectual Property",
-      description: "We offer a full range of intellectual property services to help clients secure, protect, and leverage their trademarks, copyrights, and other intellectual assets. ",
       path: "/services/trademark-registration",
       icon: svg4
     },
     {
       title: "Preparation of Legal Documents",
-      description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
 
       path: "/services/document-preparation",
       icon: svg5
     },
     {
       title: "Debt Collection",
-      description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively. Our team leverages legal expertise and strategic solutions to ensure the timely recovery of outstanding financial claims.",
 
       path: "/services/debt-collection",
       icon: svg6
@@ -70,40 +64,35 @@ const SERVICES_DATA = [
     {
       title: "Litigation and Preparation of Court Documents",
 
-      description: "We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process. ",
       path: "/services/litigation",
       icon: svg7
     },
     {
       title: "Dispute Resolution",
-      description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches, ensuring that they achieve the most effective and efficient solutions.",
 
       path: "/services/dispute-resolution",
       icon: svg8
     },
     {
       title: "Preparation, Review, and Analysis of Contracts",
-      description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests. ",
     
       path: "/services/contract-review",
       icon: svg9
     },
     {
       title: "Notary Services",
-      description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents. Our expert notaries are committed to delivering reliable and legally binding certifications. ",
 
       path: "/services/real-estate",
       icon: svg10
     }
   ];
 
- function ServiceItem({ title, description, path, icon }) {
-  const [isHovered, setIsHovered] = useState(false);
+ function ServiceItem({ title, path, icon }) {
+  
    return (
       <div
         className="service-item"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+       
         style={{ backgroundImage: `url(${servicecardbg})` }}
       >
         <div className="service-image-overlay"></div>
@@ -114,14 +103,11 @@ const SERVICES_DATA = [
           
           <div className="service-text">
             <h3>{title}</h3>
-            <div className={`service-details ${isHovered ? 'visible' : ''}`}>
-              <p>{description}</p>
-              
-            </div>
+
           </div>
   
           <Link className="services-section-link" to={path}>
-            <LuArrowUpRight className={`arrow-icon ${isHovered ? 'hovered' : ''}`} />
+            <LuArrowUpRight  />
           </Link>
         </div>
       </div>

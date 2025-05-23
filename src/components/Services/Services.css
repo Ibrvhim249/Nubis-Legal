@@ -166,96 +166,7 @@
 .service-item:hover .arrow-icon {
   transform: rotate(45deg);
 }
-/* ======================
-     Category Tabs
-     ====================== */
-     .category-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 0 auto 3rem;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      padding: 0 20px;
-    }
-    
-    .category-tabs button {
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.9);
-      color: #4b5563;
-      border: 2px solid rgba(0, 43, 90, 0.1);
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    
-    .category-tabs button::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: #002B5A;
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-    
-    .category-tabs button:hover {
-      background: rgba(0, 43, 90, 0.05);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .category-tabs button.active {
-      background: #002B5A;
-      color: white;
-      border-color: transparent;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(0, 43, 90, 0.2);
-    }
-    
-    .category-tabs button.active::after {
-      transform: scaleX(1);
-    }
-    
-    .category-tabs button.active:hover {
-      transform: none;
-      box-shadow: 0 4px 15px rgba(0, 43, 90, 0.25);
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .category-tabs {
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-      
-      .category-tabs button {
-        padding: 0.8rem 1.8rem;
-        font-size: 0.9rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .category-tabs {
-        gap: 0.75rem;
-        justify-content: flex-start;
-        padding: 0 15px;
-      }
-      
-      .category-tabs button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.85rem;
-        border-radius: 30px;
-      }
-    }
+
   
   /* ======================
      Pagination
@@ -311,10 +222,7 @@
       padding: 1.5rem;
     }
   
-    .category-tabs button {
-      padding: 0.75rem 1.5rem;
-     
-    }
+
   }
   
   @media (max-width: 480px) {
@@ -332,8 +240,6 @@
       height: 54px;
     }
   
-    .category-tabs button {
-      padding: 0.5rem 1rem;
-      
-    }
+    
   }
+  

@@ -418,10 +418,10 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
                     {new Date(post.date).toLocaleDateString()}
                   </span>
                   <h3 className="text-xl font-bold mt-2 mb-4">{post.title.rendered}</h3>
-                  <div 
+                  {/* <div 
                     className="text-base text-gray-700 leading-relaxed mb-4" 
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} 
-                  />
+                  /> */}
                  <a 
   href={`/blog#post-${post.id}`}
   className="read-more-link flex items-center"
