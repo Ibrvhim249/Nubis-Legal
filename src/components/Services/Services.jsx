@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react';
 import './Services.css';
 import { Link } from 'react-router-dom';
-import { LuArrowUpRight } from "react-icons/lu";
+import { LuChevronRight } from "react-icons/lu";
 import PropTypes from 'prop-types';
 
 ServiceItem.propTypes = {
   title: PropTypes.string.isRequired,
-  
+  bgImage: PropTypes.string,
   path: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired
 };
@@ -23,94 +23,109 @@ import svg7 from '../img/assets/Home/Litigation and Court Documents mac .svg'
 import svg8 from '../img/assets/Home/Dispute Resolution mac .svg'
 import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg'
 import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg'
-import servicecardbg from '../img/assets/Home/pexels-sora-shimazaki-5668882.png';
+
+// all background images 
+import bg1 from '../img/assets/Service/Regulatory and Legal Compliance.jpg';
+import bg2 from '../img/assets/Service/Legal Consulting.jpg';
+import bg3 from '../img/assets/Service/Company Formation and Registration.jpg';
+import bg4 from '../img/assets/Service/Trademark Registration and Intellectual Property.jpg';
+import bg5 from '../img/assets/Service/Preparation of Legal Documents.jpg';
+import bg6 from '../img/assets/Service/Debt Collection.jpg';
+import bg7 from '../img/assets/Service/Litigation and Preparation of Court Documents.jpg';
+import bg8 from '../img/assets/Service/Dispute Resolution.jpg';
+import bg9 from '../img/assets/Service/Preparation, Review, and Analysis of Contracts.jpg';
+import bg10 from '../img/assets/Service/Notary Services.jpg';
+
+
 
 const SERVICES_DATA = [
     {
       title: "Regulatory and Legal Compliance",
       path: "/services/compliance",
-      
+      bgImage: bg1,
       icon: svg1
     },
     {
       title: "Legal Consulting",
-
+      bgImage: bg2,
       path: "/services/legal-consultation",
       icon: svg2
     },
     {
       title: "Company Formation and Registration",
-   
+      bgImage: bg3,
       path: "/services/companyformation",
       icon: svg3
     },
     {
       title: "Trademark Registration and Intellectual Property",
       path: "/services/trademark-registration",
+      bgImage: bg4,
       icon: svg4
     },
     {
       title: "Preparation of Legal Documents",
-
+      bgImage: bg5,
       path: "/services/document-preparation",
       icon: svg5
     },
     {
       title: "Debt Collection",
-
+      bgImage: bg6,
       path: "/services/debt-collection",
       icon: svg6
     },
     {
       title: "Litigation and Preparation of Court Documents",
-
+      bgImage: bg7,
       path: "/services/litigation",
       icon: svg7
     },
     {
       title: "Dispute Resolution",
-
+      bgImage: bg8,
       path: "/services/dispute-resolution",
       icon: svg8
     },
     {
       title: "Preparation, Review, and Analysis of Contracts",
-    
+      bgImage: bg9,
       path: "/services/contract-review",
       icon: svg9
     },
     {
       title: "Notary Services",
-
+      bgImage: bg10,
       path: "/services/real-estate",
       icon: svg10
     }
   ];
 
- function ServiceItem({ title, path, icon }) {
-  
-   return (
-      <div
-        className="service-item"
-       
-        style={{ backgroundImage: `url(${servicecardbg})` }}
-      >
-        <div className="service-image-overlay"></div>
-        <div className="service-content">
-          <div className="service-icon">
-            <img src={icon} alt={title} className="service-icon-img" />
-          </div>
-          
-          <div className="service-text">
-            <h3>{title}</h3>
-
-          </div>
-  
-          <Link className="services-section-link" to={path}>
-            <LuArrowUpRight  />
-          </Link>
-        </div>
+function ServiceItem({ title, path, icon, bgImage }) {
+  return (
+    <div className="service-item-card">
+      <div className="service-image-container">
+        {/* Use the passed bgImage */}
+        <img 
+          src={bgImage} 
+          alt={`${title} background`} 
+          className="service-image"
+        />
       </div>
+      
+      <div className="service-content">
+        <div className="service-icon-title">
+          <div className="service-icon-circle">
+            <img src={icon} alt={title} className="pservice-icon" />
+          </div>
+          <h3 className="service-title">{title}</h3>
+        </div>
+        
+        <Link to={path} className="service-arrow-circle">
+          <LuChevronRight className="arrow-icon" />
+        </Link>
+      </div>
+    </div>
   );
 }
 
@@ -173,27 +188,27 @@ function Services() {
 </section>
 
     <section className="service-page" id="services">
-        <div className="container">
-          <header className="service-page-header">
-            <span className="header-divider"></span>
-            <h2>Services</h2>
-          </header>
+      <div className="sscontainer">
+        <header className="service-page-header">
+          <span className="header-divider"></span>
+          <h2>Services</h2>
+        </header>
 
-          <div className="service-page-grid" role="list">
-            {currentServices.map((service) => (
-              <ServiceItem
-                key={service.title}
-                title={service.title}
-                description={service.description}
-                path={service.path}
-                icon={service.icon}
-              />
-            ))}
-          </div>
-
-          <PaginationControls />
+        <div className="service-page-grid" role="list">
+          {currentServices.map((service) => (
+            <ServiceItem
+              key={service.title}
+              title={service.title}
+              path={service.path}
+              icon={service.icon}
+              bgImage={service.bgImage}  // Pass background image
+            />
+          ))}
         </div>
-      </section>
+
+        <PaginationControls />
+      </div>
+    </section>
     </>
   );
 }

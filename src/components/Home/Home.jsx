@@ -36,8 +36,110 @@ import icon2 from '../img/assets/final media/our features icon SVG/Client-Focuse
 import icon3 from '../img/assets/final media/our features icon SVG/Modern Legal Solutions.svg';
 import icon4 from '../img/assets/final media/our features icon SVG/Transparent Pricing .svg';
 
+// our partners logos :
+import partnerLogo1 from '../img/assets/Home/Our Partner/partner 2.png';
+import partnerLogo2 from '../img/assets/Home/Our partner/partner 1.png';
+
+
+
+
+// our clients logos :
+
+import clientLogo1 from '../img/assets/Home/Our Client/logo - Edited.png';
+import clientLogo2 from '../img/assets/Home/Our Client/Logo Classic Paramount_VC-03 - Edited.png';
+import clientLogo3 from '../img/assets/Home/Our Client/Group 343.jpg';
+import clientLogo4 from '../img/assets/Home/Our Client/Frame.jpg';
+import clientLogo5 from '../img/assets/Home/Our Client/Al_Bayan_Logo_Updated-1-300x149 - Edited.png';
+import clientLogo6 from '../img/assets/Home/Our Client/logo-light-DWC - Edited.png';
+import clientLogo7 from '../img/assets/Home/Our Client/logo_new1 - Edited.png';
+import clientLogo8 from '../img/assets/Home/Our Client/logo_zayani - Edited.png';
+import clientLogo9 from '../img/assets/Home/Our Client/MIDAS-Logo12 - Edited.png';
+import clientLogo10 from '../img/assets/Home/Our Client/shiva-logo-7 - Edited.png';
+
 // Styles
 import './Home.css';
+
+const PartnersSection = () => {
+  const partnerLogos = [
+    partnerLogo1, partnerLogo2
+  ];
+
+  return (
+    <section className="partners-section">
+      <div className="partners-container">
+        <h2 className="partners-title">Our Partners</h2>
+        
+        <div className="partners-grid">
+          {partnerLogos.map((logo, index) => (
+            <div key={index} className="partner-logo">
+              <img 
+                src={logo} 
+                alt={`Partner ${index + 1}`}
+                className="partner-image"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+const ClientsSection = () => {
+  // Array of imported logos
+  const clientLogos = [
+    clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5,
+    clientLogo6, clientLogo7, clientLogo8, clientLogo9, clientLogo10
+  ];
+    return (
+    <section className="clients-section">
+      <div className="clients-container">
+        <h2 className="clients-title">Our Clients</h2>
+        
+        <div className="infinite-scroll-wrapper">
+          <div className="gradient-overlay left-gradient"></div>
+          <div className="gradient-overlay right-gradient"></div>
+          
+          <div className="scrolling-content">
+            {/* First set of logos */}
+            <div className="client-set">
+              {clientLogos.map((logo, index) => (
+                <div 
+                  key={`first-${index}`}
+                  className="client-logo"
+                >
+                  <img 
+                    src={logo} 
+                    alt={`Client ${index + 1}`}
+                    className="logo-image"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Duplicate set for seamless loop */}
+            <div className="client-set">
+              {clientLogos.map((logo, index) => (
+                <div 
+                  key={`second-${index}`}
+                  className="client-logo"
+                >
+                  <img 
+                    src={logo} 
+                    alt={`Client ${index + 1}`}
+                    className="logo-image"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 function ServiceItem({ title, description, text, path, icon }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -49,12 +151,15 @@ function ServiceItem({ title, description, text, path, icon }) {
       onMouseLeave={() => setIsHovered(false)}
       style={{ backgroundImage: `url(${servicecardbg})` }}
     >
+      {/* Icon positioned absolutely at top-left */}
+      <div className="service-icon-container">
+        <div className="ssservice-icon">
+          <img src={icon} alt={title} className="ssservice-icon-img" />
+        </div>
+      </div>
+      
       <div className="service-image-overlay"></div>
       <div className="service-content">
-        <div className="service-icon">
-          <img src={icon} alt={title} className="service-icon-img" />
-        </div>
-        
         <div className="service-text">
           <h3>{title}</h3>
           <div className={`service-details ${isHovered ? 'visible' : ''}`}>
@@ -253,7 +358,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
         </div>
       </section>
 
-
+<PartnersSection />
 
       {/* -- Features Section -- */}
 
@@ -366,6 +471,8 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
         </div>
       </section>
 
+
+ <ClientsSection />
 
 
 
