@@ -93,7 +93,8 @@ const ClientsSection = () => {
     clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5,
     clientLogo6, clientLogo7, clientLogo8, clientLogo9, clientLogo10
   ];
-    return (
+
+  return (
     <section className="clients-section">
       <div className="clients-container">
         <h2 className="clients-title">Our Clients</h2>
@@ -106,12 +107,12 @@ const ClientsSection = () => {
             {/* First set of logos */}
             <div className="client-set">
               {clientLogos.map((logo, index) => (
-                <div 
+                <div
                   key={`first-${index}`}
                   className="client-logo"
                 >
-                  <img 
-                    src={logo} 
+                  <img
+                    src={logo}
                     alt={`Client ${index + 1}`}
                     className="logo-image"
                   />
@@ -122,12 +123,12 @@ const ClientsSection = () => {
             {/* Duplicate set for seamless loop */}
             <div className="client-set">
               {clientLogos.map((logo, index) => (
-                <div 
+                <div
                   key={`second-${index}`}
                   className="client-logo"
                 >
-                  <img 
-                    src={logo} 
+                  <img
+                    src={logo}
                     alt={`Client ${index + 1}`}
                     className="logo-image"
                   />

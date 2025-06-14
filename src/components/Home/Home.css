@@ -1494,8 +1494,6 @@
   }
 }
 
-/*-=-=-=-=--=-=-=-=--==-=-=--=-=-=-- */
-
 /* Container styles */
 .clients-section {
   padding: 4rem 0;
@@ -1510,7 +1508,7 @@
 }
 
 .clients-title {
-   font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   text-align: center;
   color: #111827;
@@ -1544,7 +1542,7 @@
 /* Scrolling content */
 .scrolling-content {
   display: flex;
-  animation: scroll 15s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 
 .scrolling-content:hover {
@@ -1565,23 +1563,27 @@
 .client-logo {
   width: 7rem;
   height: 4rem;
-  background-color: #e5e7eb;
+  background-color: #f3f4f6;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .client-logo:hover {
-  background-color: #d1d5db;
+  background-color: #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 
-.client-logo span {
-  font-size: 0.75rem;
-  color: #4b5563;
-  font-weight: 500;
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.5rem;
 }
 
 /* Animation keyframes */
@@ -1596,8 +1598,6 @@
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
-
-  
   .client-set {
     gap: 3rem;
   }
@@ -1611,15 +1611,9 @@
     height: 5rem;
   }
   
-  .client-logo span {
-    font-size: 0.875rem;
+  .gradient-overlay {
+    width: 6rem;
   }
-}
-
-.logo-image {
-  width: 7rem;
-  height: 3rem;
-  object-fit: contain;
 }
 
 
