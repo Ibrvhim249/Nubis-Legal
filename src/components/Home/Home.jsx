@@ -15,7 +15,7 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 // Assets
 import homeHero from '../img/assets/Home/Home page nubis image .jpg';
-import backgroundImage from '../img/assets/Home/scrollable banner home page .png';
+import backgroundImage from '../img/assets/Home/scrollable video.mp4';
 import ceo from "../img/assets/Home/ceo home page.png";
 import aboutUsImg from '../img/assets/Home/New about us section img  Home page.png';
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg';
@@ -186,18 +186,25 @@ function Home() {
 
   const services = [
     {
-      title: "Regulatory and Legal Compliance",
-      description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards. Our goal is to reduce legal risks, minimize penalties, and promote responsible business practices.",
-      path: "/services/compliance",
-
-      icon: svg1
-    },
-    {
       title: "Legal Consulting",
       description: "We provide comprehensive legal consulting services tailored to the needs of individuals and businesses, with a focus on delivering customized and precise solutions.",
 
       path: "/services/legal-consultation",
       icon: svg2
+    },
+    {
+      title: "Preparation, Review, and Analysis of Contracts",
+      description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests. ",
+    
+      path: "/services/contract-review",
+      icon: svg9
+    },
+    {
+      title: "Preparation of Legal Documents",
+      description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
+
+      path: "/services/document-preparation",
+      icon: svg5
     },
     {
       title: "Company Formation and Registration",
@@ -213,20 +220,6 @@ function Home() {
       icon: svg4
     },
     {
-      title: "Preparation of Legal Documents",
-      description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
-
-      path: "/services/document-preparation",
-      icon: svg5
-    },
-    {
-      title: "Debt Collection",
-      description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively. Our team leverages legal expertise and strategic solutions to ensure the timely recovery of outstanding financial claims.",
-
-      path: "/services/debt-collection",
-      icon: svg6
-    },
-    {
       title: "Litigation and Preparation of Court Documents",
 
       description: "We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process. ",
@@ -235,21 +228,28 @@ function Home() {
     },
     {
       title: "Dispute Resolution",
-      description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches, ensuring that they achieve the most effective and efficient solutions.",
+      description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches.",
 
       path: "/services/dispute-resolution",
       icon: svg8
     },
     {
-      title: "Preparation, Review, and Analysis of Contracts",
-      description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests. ",
-    
-      path: "/services/contract-review",
-      icon: svg9
+      title: "Debt Collection",
+      description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively.",
+
+      path: "/services/debt-collection",
+      icon: svg6
+    },
+    {
+      title: "Regulatory and Legal Compliance",
+      description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards.",
+      path: "/services/compliance",
+
+      icon: svg1
     },
     {
       title: "Notary Services",
-      description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents. Our expert notaries are committed to delivering reliable and legally binding certifications. ",
+      description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents.",
 
       path: "/services/real-estate",
       icon: svg10
@@ -574,8 +574,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
   <div className="popup-section-content">
     <h2>Do You Need<br />Legal Consultation</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Lorem ipsum dolor sit amet.
+      If you have any legal concerns, big or small, a consultation is the crucial first step.
     </p>
     <button 
       className="popup-section-btn" 
@@ -596,56 +595,58 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
           <p>Legal Assistance included with Lowest price guarantee</p>
         </div>
         
-        <form onSubmit={handleSubmit}>
-          <div className="modal-form__row">
-            <div className="modal-form__group">
-              <label className="modal-quote-label" htmlFor="firstName">Full Name</label>
-              <input 
-                className="modal-quote-input" 
-                type="text" 
-                id="firstName" 
-                name="firstName" 
-                required 
-              />
+        <div className="form-scroll-container">
+          <form onSubmit={handleSubmit}>
+            <div className="modal-form__row">
+              <div className="modal-form__group">
+                <label className="modal-quote-label" htmlFor="firstName">Full Name</label>
+                <input 
+                  className="modal-quote-input" 
+                  type="text" 
+                  id="firstName" 
+                  name="firstName" 
+                  required 
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="modal-form__row">
+            <div className="modal-form__row">
+              <div className="modal-form__group">
+                <label className="modal-quote-label" htmlFor="email">Email</label>
+                <input 
+                  className="modal-quote-input" 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                />
+              </div>
+            </div>
             <div className="modal-form__group">
-              <label className="modal-quote-label" htmlFor="email">Email</label>
-              <input 
-                className="modal-quote-input" 
-                type="email" 
-                id="email" 
-                name="email" 
-                required 
-              />
+                <label className="modal-quote-label" htmlFor="phone">Phone Number</label>
+                <input 
+                  className="modal-quote-input" 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  required 
+                />
+              </div>
+            <div className="modal-form__group">
+              <label className="modal-quote-label" htmlFor="quote">Leave a quote</label>
+              <textarea 
+                className="modal-quote-textarea" 
+                id="quote" 
+                name="quote" 
+                required
+              ></textarea>
             </div>
-          </div>
-          <div className="modal-form__group">
-              <label className="modal-quote-label" htmlFor="phone">Phone Number</label>
-              <input 
-                className="modal-quote-input" 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                required 
-              />
-            </div>
-          <div className="modal-form__group">
-            <label className="modal-quote-label" htmlFor="quote">Leave a quote</label>
-            <textarea 
-              className="modal-quote-textarea" 
-              id="quote" 
-              name="quote" 
-              required
-            ></textarea>
-          </div>
 
-          <button type="submit" className="modal-quote-submit">
-            Get Quote
-          </button>
-        </form>
+            <button type="submit" className="modal-quote-submit">
+              Get Quote
+            </button>
+          </form>
+        </div>
       </div>
       
       <div className="modal-image-section">

@@ -97,16 +97,27 @@ const ImageComponent = ({ headings, imageUrl }) => {
 
       <div className="sticky-container" ref={stickyContainerRef}>
         {/* Parallax background with scaling effect */}
-        <div 
-          className="background-image"
-          style={{ 
-            backgroundImage: `url(${imageUrl})`,
-            transform: `scale(${scale})`
-          }}
-          aria-hidden="true"
-        >
-          <div className="overlay" />
-        </div>
+      <div className="background-container" aria-hidden="true">
+  {imageUrl.endsWith('.mp4') ? (
+    <video
+      autoPlay
+      loop
+      muted
+      className="background-image"
+      style={{ transform: `scale(${scale})` }}
+    >
+      <source src={imageUrl} type="video/mp4" />
+    </video>
+  ) : (
+    <img
+      src={imageUrl}
+      alt="Decorative background"
+      className="background-image"
+      style={{ transform: `scale(${scale})` }}
+    />
+  )}
+  <div className="overlay" />
+</div>
         
         {/* Content area with animated heading */}
         <div className="content">

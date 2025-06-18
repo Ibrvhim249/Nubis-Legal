@@ -39,60 +39,61 @@ import bg10 from '../img/assets/Service/Notary Services.jpg';
 
 
 const SERVICES_DATA = [
-    {
-      title: "Regulatory and Legal Compliance",
+  {
+    title: "Legal Consulting",
+    bgImage: bg2,
+    path: "/services/legal-consultation",
+    icon: svg2
+  },
+  {
+    title: "Preparation, Review, and Analysis of Contracts",
+    bgImage: bg9,
+    path: "/services/contract-review",
+    icon: svg9
+  },
+  {
+    title: "Preparation of Legal Documents",
+    bgImage: bg5,
+    path: "/services/document-preparation",
+    icon: svg5
+  },
+  {
+    title: "Company Formation and Registration",
+    bgImage: bg3,
+    path: "/services/companyformation",
+    icon: svg3
+  },
+  {
+  title: "Trademark Registration and Intellectual Property",
+  path: "/services/trademark-registration",
+  bgImage: bg4,
+  icon: svg4
+},
+{
+  title: "Litigation and Preparation of Court Documents",
+  bgImage: bg7,
+  path: "/services/litigation",
+  icon: svg7
+},
+{
+  title: "Dispute Resolution",
+  bgImage: bg8,
+  path: "/services/dispute-resolution",
+  icon: svg8
+},
+{
+  title: "Debt Collection",
+  bgImage: bg6,
+  path: "/services/debt-collection",
+  icon: svg6
+},
+  {
+    title: "Regulatory and Legal Compliance",
       path: "/services/compliance",
       bgImage: bg1,
       icon: svg1
     },
-    {
-      title: "Legal Consulting",
-      bgImage: bg2,
-      path: "/services/legal-consultation",
-      icon: svg2
-    },
-    {
-      title: "Company Formation and Registration",
-      bgImage: bg3,
-      path: "/services/companyformation",
-      icon: svg3
-    },
-    {
-      title: "Trademark Registration and Intellectual Property",
-      path: "/services/trademark-registration",
-      bgImage: bg4,
-      icon: svg4
-    },
-    {
-      title: "Preparation of Legal Documents",
-      bgImage: bg5,
-      path: "/services/document-preparation",
-      icon: svg5
-    },
-    {
-      title: "Debt Collection",
-      bgImage: bg6,
-      path: "/services/debt-collection",
-      icon: svg6
-    },
-    {
-      title: "Litigation and Preparation of Court Documents",
-      bgImage: bg7,
-      path: "/services/litigation",
-      icon: svg7
-    },
-    {
-      title: "Dispute Resolution",
-      bgImage: bg8,
-      path: "/services/dispute-resolution",
-      icon: svg8
-    },
-    {
-      title: "Preparation, Review, and Analysis of Contracts",
-      bgImage: bg9,
-      path: "/services/contract-review",
-      icon: svg9
-    },
+    
     {
       title: "Notary Services",
       bgImage: bg10,
