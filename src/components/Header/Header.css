@@ -135,7 +135,7 @@
   right: 0;
   left: auto;
   transform: translateY(10px);
-  background: #9C8A5B;
+  background: #06366A;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   min-width: 26.875rem;
@@ -192,7 +192,7 @@
 
 .dropdown-link:hover,
 .dropdown-link.active {
-  color: #4a6cf7;
+  color: #666;
   background-color: transparent;
 }
 
@@ -236,7 +236,7 @@
     left: 100%;
     width: 100%;
     height: 100vh;
-    background: #9C8A5B;
+    background: #06366A;
     
     transition: transform 0.3s ease-in-out;
     padding: 6rem 1.5rem 2rem;

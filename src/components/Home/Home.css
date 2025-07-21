@@ -743,7 +743,7 @@
 .service-text h3 {
   color: white;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0 1rem ;
 }
 
 .service-details {
@@ -815,6 +815,10 @@
    ====================== */
 
 @media (max-width: 768px) {
+
+  .services-scroll-wrapper {
+  gap: 2.5rem;
+}
   .services {
     padding: 4rem 1rem;
   }
@@ -833,13 +837,13 @@
   }
   
   .service-item {
-    width: 16rem;
+    width: 17rem;
     min-height: 21rem;
     padding: 1.5rem;
   }
   
   .service-text h3 {
-    font-size: 1.3rem;
+    font-size: 1.22rem;
   }
   
   /* Icon adjustments */
@@ -863,6 +867,9 @@
     width: 16rem;
   }
 }
+
+
+
 
 
 /*----- Background Image Section ----*/
@@ -1550,6 +1557,7 @@
 .clients-section {
   padding: 4rem 0;
   background-color: white;
+  overflow: hidden; /* Ensure no horizontal scroll */
 }
 
 .clients-container {
@@ -1591,25 +1599,18 @@
   background: linear-gradient(to left, white, transparent);
 }
 
-/* Scrolling content */
+/* Scrolling content - UPDATED */
 .scrolling-content {
-  display: flex;
-  animation: scroll 20s linear infinite;
+  display: inline-flex; /* Changed from flex to inline-flex */
+  animation: scrollDesktop 20s linear infinite;
+  gap: 2rem; /* Added gap between logos */
 }
 
-.scrolling-content:hover {
+.infinite-scroll-wrapper:hover .scrolling-content {
   animation-play-state: paused;
 }
 
-.client-set {
-  display: flex;
-  flex-shrink: 0;
-  gap: 2rem;
-}
-
-.client-set + .client-set {
-  margin-left: 2rem;
-}
+/* REMOVED .client-set and .client-set + .client-set rules */
 
 /* Client logo items */
 .client-logo {
@@ -1638,26 +1639,27 @@
   padding: 0.5rem;
 }
 
-/* Animation keyframes */
-@keyframes scroll {
+/* UPDATED Animation keyframes */
+@keyframes scrollDesktop {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / 3)); /* 33% translation */
+  }
+}
+
+@keyframes scrollMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 6)); /* 16.6% translation */
   }
 }
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
-  .client-set {
-    gap: 3rem;
-  }
-  
-  .client-set + .client-set {
-    margin-left: 3rem;
-  }
-  
   .client-logo {
     width: 8rem;
     height: 5rem;
@@ -1665,6 +1667,27 @@
   
   .gradient-overlay {
     width: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrolling-content {
+    animation-duration: 45s; /* Slower animation on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .scrolling-content {
+    animation: scrollMobile 60s linear infinite; /* Mobile-specific animation */
+  }
+  
+  .client-logo {
+    width: 6rem;
+    height: 3.5rem;
+  }
+  
+  .gradient-overlay {
+    width: 3rem; /* Smaller gradient on mobile */
   }
 }
 
@@ -1745,17 +1768,21 @@
   }
   
   .partner-logo {
-    height: 120px;
+    height: 130px;
   }
 }
 
 @media (max-width: 480px) {
   .partners-grid {
-    gap: 1.5rem;
+    gap: 2rem;
     grid-template-columns: repeat(2, 1fr);
   }
   
   .partner-logo {
-    height: 80px;
+    height: 140px; /* Taller mobile containers */
+  }
+  
+  .partner-image {
+    transform: scale(1.2); /* Scale for mobile */
   }
 }

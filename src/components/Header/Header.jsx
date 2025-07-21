@@ -13,15 +13,15 @@ const NAV_LINKS = [
     name: 'Services',
     path: '/services',
     services: [
-      { name: 'Regulatory and Legal Compliance', path: '/services/compliance' },
       { name: 'Legal Consulting', path: '/services/legal-consultation' },
+      { name: 'Preparation, Review, and Analysis of Contracts', path: '/services/contract-review' },
+      { name: 'Preparation of Legal Documents', path: '/services/document-preparation' },
       { name: 'Company Formation and Registration', path: '/services/companyformation' },
       { name: 'Trademark Registration and Intellectual Property', path: '/services/trademark-registration' },
-      { name: 'Preparation of Legal Documents', path: '/services/document-preparation' },
-      { name: 'Debt Collection', path: '/services/debt-collection' },
       { name: 'Litigation and Preparation of Court Documents', path: '/services/litigation' },
       { name: 'Dispute Resolution', path: '/services/dispute-resolution' },
-      { name: 'Preparation, Review, and Analysis of Contracts', path: '/services/contract-review' },
+      { name: 'Debt Collection', path: '/services/debt-collection' },
+      { name: 'Regulatory and Legal Compliance', path: '/services/compliance' },
       { name: 'Notary Services', path: '/services/real-estate' }
     ]
   },
@@ -120,7 +120,7 @@ export default function Header() {
           <Hamburger 
             toggled={isOpen} 
             toggle={() => setIsOpen(prev => !prev)}
-            color={isOpen ? "#2f3d78" : "white"}
+            color={isOpen ? "white" : "white"}
             size={32}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}

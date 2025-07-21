@@ -38,7 +38,7 @@ import icon4 from '../img/assets/final media/our features icon SVG/Transparent P
 
 // our partners logos :
 import partnerLogo1 from '../img/assets/Home/Our Partner/partner 2.png';
-import partnerLogo2 from '../img/assets/Home/Our partner/partner 1.png';
+import partnerLogo2 from '../img/assets/Home/Our partner/partner 1.svg';
 
 
 
@@ -47,12 +47,12 @@ import partnerLogo2 from '../img/assets/Home/Our partner/partner 1.png';
 
 import clientLogo1 from '../img/assets/Home/Our Client/logo - Edited.png';
 import clientLogo2 from '../img/assets/Home/Our Client/Logo Classic Paramount_VC-03 - Edited.png';
-import clientLogo3 from '../img/assets/Home/Our Client/Group 343.jpg';
-import clientLogo4 from '../img/assets/Home/Our Client/Frame.jpg';
-import clientLogo5 from '../img/assets/Home/Our Client/Al_Bayan_Logo_Updated-1-300x149 - Edited.png';
+import clientLogo3 from '../img/assets/Home/Our Client/Group 343.svg';
+import clientLogo4 from '../img/assets/Home/Our Client/Frame.svg';
+import clientLogo5 from '../img/assets/Home/Our Client/Mask group.svg';
 import clientLogo6 from '../img/assets/Home/Our Client/logo-light-DWC - Edited.png';
 import clientLogo7 from '../img/assets/Home/Our Client/logo_new1 - Edited.png';
-import clientLogo8 from '../img/assets/Home/Our Client/logo_zayani - Edited.png';
+import clientLogo8 from '../img/assets/Home/Our Client/Group 341.svg';
 import clientLogo9 from '../img/assets/Home/Our Client/MIDAS-Logo12 - Edited.png';
 import clientLogo10 from '../img/assets/Home/Our Client/shiva-logo-7 - Edited.png';
 
@@ -86,13 +86,41 @@ const PartnersSection = () => {
   );
 };
 
-
 const ClientsSection = () => {
   // Array of imported logos
   const clientLogos = [
     clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5,
     clientLogo6, clientLogo7, clientLogo8, clientLogo9, clientLogo10
   ];
+  
+  const [repeatedLogos, setRepeatedLogos] = useState([]);
+  
+  // Function to generate repeated logos based on screen size
+  const getRepeatedLogos = () => {
+    // Adjust repetitions based on screen size
+    const repeats = window.innerWidth <= 480 ? 6 : 3;
+    return Array(repeats).fill().flatMap((_, i) => 
+      clientLogos.map((logo, index) => ({
+        logo, 
+        id: `logo-${i}-${index}`,
+        alt: `Client ${index + 1}`
+      }))
+    );
+  };
+
+  // Initialize and update on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setRepeatedLogos(getRepeatedLogos());
+    };
+
+    // Initial set
+    setRepeatedLogos(getRepeatedLogos());
+    
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className="clients-section">
@@ -104,37 +132,19 @@ const ClientsSection = () => {
           <div className="gradient-overlay right-gradient"></div>
           
           <div className="scrolling-content">
-            {/* First set of logos */}
-            <div className="client-set">
-              {clientLogos.map((logo, index) => (
-                <div
-                  key={`first-${index}`}
-                  className="client-logo"
-                >
-                  <img
-                    src={logo}
-                    alt={`Client ${index + 1}`}
-                    className="logo-image"
-                  />
-                </div>
-              ))}
-            </div>
-            
-            {/* Duplicate set for seamless loop */}
-            <div className="client-set">
-              {clientLogos.map((logo, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="client-logo"
-                >
-                  <img
-                    src={logo}
-                    alt={`Client ${index + 1}`}
-                    className="logo-image"
-                  />
-                </div>
-              ))}
-            </div>
+            {repeatedLogos.map((item) => (
+              <div
+                key={item.id}
+                className="client-logo"
+              >
+                <img
+                  src={item.logo}
+                  alt={item.alt}
+                  className="logo-image"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -184,77 +194,69 @@ function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef(null);
 
-  const services = [
-    {
-      title: "Legal Consulting",
-      description: "We provide comprehensive legal consulting services tailored to the needs of individuals and businesses, with a focus on delivering customized and precise solutions.",
+ const services = [
+  {
+    title: "Legal Consulting",
+    description: "We provide comprehensive legal consulting services tailored to the needs of individuals and businesses, with a focus on delivering customized and precise solutions.",
+    path: "/services/legal-consultation",
+    icon: svg2
+  },
+  {
+    title: "Preparation, Review, and Analysis of Contracts",
+    description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests.",
+    path: "/services/contract-review",
+    icon: svg9
+  },
+  {
+    title: "Preparation of Legal Documents",
+    description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
+    path: "/services/document-preparation",
+    icon: svg5
+  },
+  {
+    title: "Company Formation and Registration",
+    description: "Our firm provides comprehensive support for establishing and registering new companies, offering tailored solutions that ensure full legal compliance and streamline the setup process.",
+    path: "/services/companyformation",
+    icon: svg3
+  },
+  {
+    title: "Trademark Registration and Intellectual Property",
+    description: "We offer a full range of intellectual property services to help clients secure, protect, and leverage their trademarks, copyrights, and other intellectual assets.",
+    path: "/services/trademark-registration",
+    icon: svg4
+  },
+  {
+    title: "Litigation and Preparation of Court Documents",
+    description: "We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process.",
+    path: "/services/litigation",
+    icon: svg7
+  },
+  {
+    title: "Dispute Resolution",
+    description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches, ensuring that they achieve the most effective and efficient solutions.",
+    path: "/services/dispute-resolution",
+    icon: svg8
+  },
+  {
+    title: "Debt Collection",
+    description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively.",
+    path: "/services/debt-collection",
+    icon: svg6
+  },
+  {
+    title: "Regulatory and Legal Compliance",
+    description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards. Our goal is to reduce legal risks, minimize penalties.",
+    path: "/services/compliance",
+    icon: svg1
+  },
+  {
+    title: "Notary Services",
+    description: "At Nubis Legal Consultancy, we offer reliable notary services to ensure the legal validity and authenticity of your documents through expert certification.",
+    path: "/services/real-estate",
+    icon: svg10
+  }
+];
 
-      path: "/services/legal-consultation",
-      icon: svg2
-    },
-    {
-      title: "Preparation, Review, and Analysis of Contracts",
-      description: "Our firm provides a full suite of services for contract preparation, review, and analysis, ensuring transparency and safeguarding our clients' interests. ",
-    
-      path: "/services/contract-review",
-      icon: svg9
-    },
-    {
-      title: "Preparation of Legal Documents",
-      description: "Our legal document preparation services ensure compliance with all legal requirements with precision and professionalism.",
-
-      path: "/services/document-preparation",
-      icon: svg5
-    },
-    {
-      title: "Company Formation and Registration",
-      description: "Our firm provides comprehensive support for establishing and registering new companies, offering tailored solutions that ensure full legal compliance and streamline the setup process. ",
-   
-      path: "/services/companyformation",
-      icon: svg3
-    },
-    {
-      title: "Trademark Registration and Intellectual Property",
-      description: "We offer a full range of intellectual property services to help clients secure, protect, and leverage their trademarks, copyrights, and other intellectual assets. ",
-      path: "/services/trademark-registration",
-      icon: svg4
-    },
-    {
-      title: "Litigation and Preparation of Court Documents",
-
-      description: "We provide a wide range of litigation services designed to guide and support our clients through every stage of the legal process. ",
-      path: "/services/litigation",
-      icon: svg7
-    },
-    {
-      title: "Dispute Resolution",
-      description: "At Nubis Legal Consultancy, we specialize in helping clients navigate and resolve disputes through tailored, strategic approaches.",
-
-      path: "/services/dispute-resolution",
-      icon: svg8
-    },
-    {
-      title: "Debt Collection",
-      description: "At Nubis Legal Consultancy, we provide comprehensive debt collection services to help our clients recover unpaid debts efficiently and effectively.",
-
-      path: "/services/debt-collection",
-      icon: svg6
-    },
-    {
-      title: "Regulatory and Legal Compliance",
-      description: "At Nubis Legal Consultancy, we offer specialized services to help businesses ensure compliance with relevant laws, regulations, and industry standards.",
-      path: "/services/compliance",
-
-      icon: svg1
-    },
-    {
-      title: "Notary Services",
-      description: "At Nubis Legal Consultancy, we provide a range of notary services to ensure the legal validity and authenticity of various documents.",
-
-      path: "/services/real-estate",
-      icon: svg10
-    }
-  ];
 
   useEffect(() => {
     axios.get(WORDPRESS_API_URL)
